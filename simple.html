@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Japanese Learning</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f2f2f2;
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+header h1 {
+    float: left;
+    font-size: 1.5em;
+    margin-left: 20px;
+}
+
+nav ul {
+    float: right;
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+section {
+    padding: 40px 0;
+}
+
+section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.feature {
+    margin-bottom: 20px;
+}
+
+.feature h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+#community {
+    background-color: #fff;
+    text-align: center;
+}
+
+#community h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.community-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    justify-items: center;
+}
+
+.community-card {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+.community-card:hover {
+    transform: translateY(-5px);
+}
+
+.community-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.community-info h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.community-info p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #666;
+}
+#lessons {
+    background-color: #f7f7f7;
+    text-align: center;
+    padding: 80px 0;
+}
+
+#lessons h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.lesson-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    justify-items: center;
+}
+
+.lesson-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+.lesson-card:hover {
+    transform: translateY(-5px);
+}
+
+.lesson-thumbnail img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.lesson-info h3 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.lesson-info p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.lesson-info .btn {
+    display: inline-block;
+    background-color: #ffc107;
+    color: #333;
+    padding: 12px 24px;
+    font-size: 1.1em;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.lesson-info .btn:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Online Japanese Learning</h1>
+            <nav>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#lessons">Lessons</a></li>
+                    <li><a href="#community">Community</a></li>
+                    <li><a href="#signup">Sign Up</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="features">
+        <div class="container">
+            <h2>Features</h2>
+            <div class="feature">
+                <h3>Interactive Lessons</h3>
+                <p>Engage with dynamic lessons covering grammar, vocabulary, and practical conversation skills.</p>
+            </div>
+            <div class="feature">
+                <h3>Cultural Insights</h3>
+                <p>Deepen your understanding of Japan through cultural tips, traditions, and etiquette.</p>
+            </div>
+            <div class="feature">
+                <h3>Speaking and Listening Practice</h3>
+                <p>Sharpen your communication skills with real-life scenarios and audio exercises.</p>
+            </div>
+            <div class="feature">
+                <h3>Progress Tracking</h3>
+                <p>Monitor your progress with personalized learning plans and quizzes.</p>
+            </div>
+            <div class="feature">
+                <h3>Community</h3>
+                <p>Connect with fellow learners, share experiences, and practice Japanese in a supportive environment.</p>
+            </div>
+        </div>
+    </section>
+    <section id="community">
+        <div class="container">
+            <h2>Community</h2>
+            <div class="community-grid">
+                <div class="community-card">
+                    <img src="user1.jpg" alt="User 1">
+                    <div class="community-info">
+                        <h3>User Name</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel felis nec dolor commodo eleifend.</p>
+                    </div>
+                </div>
+                <div class="community-card">
+                    <img src="user2.jpg" alt="User 2">
+                    <div class="community-info">
+                        <h3>User Name</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel felis nec dolor commodo eleifend.</p>
+                    </div>
+                </div>
+                <div class="community-card">
+                    <img src="user3.jpg" alt="User 3">
+                    <div class="community-info">
+                        <h3>User Name</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel felis nec dolor commodo eleifend.</p>
+                    </div>
+                </div>
+                <div class="community-card">
+                    <img src="user4.jpg" alt="User 4">
+                    <div class="community-info">
+                        <h3>User Name</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel felis nec dolor commodo eleifend.</p>
+                    </div>
+                </div>
+                <!-- Add more community cards as needed -->
+            </div>
+        </div>
+    </section>
+    <section id="lessons">
+        <div class="container">
+            <h2>Lessons</h2>
+            <div class="lesson-grid">
+                <div class="lesson-card">
+                    <div class="lesson-thumbnail">
+                        <img src="lesson1.jpg" alt="Lesson 1">
+                    </div>
+                    <div class="lesson-info">
+                        <h3>Lesson Title 1</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel felis nec dolor commodo eleifend.</p>
+                        <a href="#" class="btn">Start Lesson</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-thumbnail">
+                        <img src="lesson2.jpg" alt="Lesson 2">
+                    </div>
+                    <div class="lesson-info">
+                        <h3>Lesson Title 2</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel felis nec dolor commodo eleifend.</p>
+                        <a href="#" class="btn">Start Lesson</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-thumbnail">
+                        <img src="lesson3.jpg" alt="Lesson 3">
+                    </div>
+                    <div class="lesson-info">
+                        <h3>Lesson Title 3</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel felis nec dolor commodo eleifend.</p>
+                        <a href="#" class="btn">Start Lesson</a>
+                    </div>
+                </div>
+                <!-- Add more lesson cards as needed -->
+            </div>
+        </div>
+    </section>
+    
+    <section id="lessons">
+        <div class="container">
+            <h2>Lessons</h2>
+            <!-- Include lesson content here -->
+        </div>
+    </section>
+
+    <section id="community">
+        <div class="container">
+            <h2>Community</h2>
+            <!-- Include community content here -->
+        </div>
+    </section>
+
+    <section id="signup">
+        <div class="container">
+            <h2>Sign Up</h2>
+            <!-- Include sign up form here -->
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Online Japanese Learning. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

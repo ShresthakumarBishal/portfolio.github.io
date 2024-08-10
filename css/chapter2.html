@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html{
+            font-size: 16px;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .code{
+            background-color:lavender;
+            padding: 2rem 0.6rem 1rem 0.6rem;
+            color: gray;
+        }
+        .codeBox .tag{
+            color: rgb(144, 49, 49);
+        }
+        .codeBox .attribute{
+            color: rgb(233, 89, 37);
+        }
+        .codeBox .content{
+            color: black;
+        }
+        .codeBox .attributeValue{
+            color: rgb(84, 70, 238);
+        }
+        pre{
+            padding-top: 0.5rem;
+            font-size: 1rem;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <h2>CSSの基本</h2>
+    <div class="basic">
+        <div class="cssAdd">
+            <h2>HTML に CSS を追加する</h2>
+            <p>CSS (Cascading Style Sheets) は、HTML ドキュメントのスタイルを設定するために使用される言語です。 このセクションでは、HTML ファイルに CSS を組み込むさまざまな方法を学習します。</p>
+            <p>以下に示すように、さまざまな方法で CSS を HTML ファイルに組み込む方法を学習します。</p>
+            <ol>
+                <li>インラインCSS</li>
+                <li>内部CSS</li>
+                <li>外部CSS</li>
+            </ol>
+            <h3>2. インラインCSS</h3>
+            <p>まずは、HTML タグ内で直接 style 属性を使用する、最も単純な方法から始めます。</p>
+            <p><b>例えば：</b></p>
+            <div class="codeBox">
+                <pre>
+&lt;<span class="tag">p</span> <span class="attribute">class</span>=<span class="attributeValue">"color: blue; font-size: 16px;"</span>&gt;<span class="content">インラインCSS</span>&lt;<span class="tag">/p</span>&gt;
+                </pre>
+            </div>
+
+            <h3>内部CSS</h3>
+            <p>次に、ドキュメントの &lt;<span class="tag">html</span>&gt; の &lt;<span class="tag">style</span>&gt; タグ内に CSS が含まれていることを確認します。 このメソッドを使用すると、複数の要素のスタイルを設定でき、スタイルを HTML 構造から切り離して維持できます。</p>
+            <div class="code">
+              <div class="codeBox">
+                <pre>
+  &lt;<span class="tag">!DOCTYPE</span>&gt;
+  &lt;<span class="tag">html</span>&gt;
+  &lt;<span class="tag">head</span>&gt;
+    &lt;<span class="tag">style</span>&gt;
+      &lt;<span class="tag">p</span>&gt; <span class="braket">{</span>
+        <span class="attribute">color</span>: <span class="attributeValue">green</span>;
+        <span class="attribute">font-size</span>: <span class="attributeValue">18px</span>;
+      <span class="braket">}</span>          
+    &lt;<span class="tag">/style</span>&gt;      
+  &lt;<span class="tag">/head</span>&gt;
+  &lt;<span class="tag">body</span>&gt;
+    &lt;<span class="tag">p</span> &gt;<span class="content">インラインCSS</span>&lt;<span class="tag">/p</span>&gt;
+  &lt;<span class="tag">/body</span>&gt; 
+  &lt;<span class="tag">/html</span>&gt;                
+                </pre>
+            </div>
+            </div>
+
+            <h3>3. 外部CSS</h3>
+            <p>最後に、CSS を外部ファイル (styles.css など) に配置し、HTML にリンクすることの利点を理解します。 これにより、保守性と再利用性が向上します。</p>
+            <p><b>例えば:</b></p>
+            <div class="code">
+              <div class="codeBox">
+                <pre>
+&lt;<span class="tag">!DOCTYPE</span>&gt;
+&lt;<span class="tag">html</span>&gt;
+&lt;<span class="tag">head</span>&gt;
+  &lt;<span class="tag">p</span> <span class="attribute">rel</span>=<span class="attributeValue">stylesheet</span> <span class="attribute">type</span>=<span class="attributeValue">"text/css"</span>  <span class="attribute">href</span>=<span class="attributeValue">"style.css"</span>&gt;
+&lt;<span class="tag">/head</span>&gt;
+&lt;<span class="tag">body</span>&gt;
+  &lt;<span class="tag">p</span> &gt;<span class="content">インラインCSS</span>&lt;<span class="tag">/p</span>&gt;
+&lt;<span class="tag">/body</span>&gt; 
+&lt;<span class="tag">/html</span>&gt;                
+                </pre>
+            </div>
+            </div>
+            <p><b>style.css</b></p>
+            <div class="code">
+              <div class="codeBox">
+                <pre>
+<span class="tag">p</span> <span class="braket">{</span>
+  <span class="attribute">color</span>: <span class="attributeValue">green</span>;
+  <span class="attribute">font-size</span>: <span class="attributeValue">18px</span>;
+<span class="braket">}</span>               
+                </pre>
+            </div>
+            </div>
+
+        </div>
+        <div class="selector">
+          <h2>CSSセレクター</h2>
+          <p>CSS セレクターは、HTML 要素のスタイルを設定するために使用されます。 セレクターの基本的な種類とその使用方法を学習します。</p>
+
+          <h3>要素セレクター</h3>
+          <p>特定の HTML 要素のすべてのインスタンスをスタイルします。</p>
+          <div class="code">
+            <div class="codeTitle">
+              css
+            </div>
+            <div class="codeBox">
+              <pre>
+  <span class="tag">p</span> <span class="braket">{</span>
+    <span class="attribute">color</span>: <span class="attributeValue">green</span>;
+    <span class="attribute">font-size</span>: <span class="attributeValue">18px</span>;
+  <span class="braket">}</span>               
+              </pre>
+            </div>
+          </div>
+
+          <h3>クラス セレクター</h3>
+          <p>同じクラス属性値を持つすべて要素を対象とします。</p>
+          <div class="code">
+            <div class="codeTitle">
+              css
+            </div>
+            <div class="codeBox">
+              <pre>
+  <span class="tag">.greenBox</span> <span class="braket">{</span>
+    <span class="attribute">color</span>: <span class="attributeValue">green</span>;
+    <span class="attribute">font-size</span>: <span class="attributeValue">18px</span>;
+  <span class="braket">}</span>               
+              </pre>
+            </div>
+          </div>
+
+          <h3>IDセレクター</h3>
+          <p> 同じID属性値を持つ要素を対象とします。</p>
+          <div class="code">
+            <div class="codeTitle">
+              css
+            </div>
+            <div class="codeBox">
+              <pre>
+  <span class="tag">#title</span> <span class="braket">{</span>
+    <span class="attribute">color</span>: <span class="attributeValue">green</span>;
+    <span class="attribute">font-size</span>: <span class="attributeValue">18px</span>;
+  <span class="braket">}</span>               
+              </pre>
+            </div>
+          </div>
+
+        </div>
+        <div class="textStyle">
+          <p>Web ページ上のテキストのスタイルと書式設定を可能にするさまざまな CSS プロパティを見ていきます。</p>
+          <div class="textProperties">
+            <h2>テキストのプロパティ</h2>
+            <h3>Color</h3>
+            <p>テキストの色を指定します。 色名、16 進値、RGB、または HSL 値を使用して定義できます。</p>
+            <p><b>例えば：</b></p>
+            <div class="code">
+              <div class="codeTitle">
+                css
+              </div>
+              <div class="codeBox">
+                <pre>
+<span class="tag">.greenBox</span> <span class="braket">{</span>
+  <span class="attribute">color</span>: <span class="attributeValue">green</span>;
+  <span class="attribute">font-size</span>: <span class="attributeValue">18px</span>;
+<span class="braket">}</span>               
+                </pre>
+              </div>
+            </div>
+
+            <h3>text-align</h3>
+            <p>コンテナ内のテキストを位置合わせします。 オプションには、左、右、中央、および両端揃えが含まれます。</p>
+            <p><b>例えば：</b></p>
+            <div class="code">
+              <div class="codeTitle">
+                css
+              </div>
+              <div class="codeBox">
+                <pre>
+<span class="tag">.greenBox</span> <span class="braket">{</span>
+  <span class="attribute">text-align</span>: <span class="attributeValue">center</span>;
+<span class="braket">}</span>               
+                </pre>
+              </div>
+            </div>
+
+            <h3>行の高さ</h3>
+            <p>テキスト行の高さを設定します。 行の高さを適切にすると、読みやすくなります。</p>
+            <p><b>例えば：</b></p>
+            <div class="code">
+              <div class="codeTitle">
+                css
+              </div>
+              <div class="codeBox">
+                <pre>
+    <span class="tag">.greenBox</span> <span class="braket">{</span>
+      <span class="attribute">line-height</span>: <span class="attributeValue">1.5</span>;
+    <span class="braket">}</span>               
+                </pre>
+              </div>
+            </div>
+
+            <h3>行の高さ</h3>
+            <p>テキスト行の高さを設定します。 行の高さを適切にすると、読みやすくなります。</p>
+            <p><b>例えば：</b></p>
+            <div class="code">
+              <div class="codeTitle">
+                css
+              </div>
+              <div class="codeBox">
+                <pre>
+    <span class="tag">.greenBox</span> <span class="braket">{</span>
+      <span class="attribute">line-height</span>: <span class="attributeValue">1.5</span>;
+    <span class="braket">}</span>               
+                </pre>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="fontProperties">
+            <h3>font-sizer</h3>
+            <p>テキストのサイズを決定します。 px、em、rem、%などのさまざまな単位を使用できます。</p>
+            <p><b>例えば：</b></p>
+            <div class="code">
+              <div class="codeTitle">
+                css
+              </div>
+              <div class="codeBox">
+                <pre>
+<span class="tag">.greenBox</span> <span class="braket">{</span>
+  <span class="attribute">font-size</span>: <span class="attributeValue">18px</span>;
+<span class="braket">}</span>               
+                </pre>
+              </div>
+            </div>
+
+            <h3>font-family</h3>
+            <p>このプロパティはテキストのフォントを定義します。 特定のフォント、または「sans-serif」や「serif」などの汎用フォント ファミリを指定できます。</p>
+            <p><b>例えば：</b></p>
+            <div class="code">
+              <div class="codeTitle">
+                css
+              </div>
+              <div class="codeBox">
+                <pre>
+<span class="tag">.greenBox</span> <span class="braket">{</span>
+  <span class="attribute">font-family</span>: <span class="attributeValue">'Open Sans', Arial, sans-serif;</span>;
+<span class="braket">}</span>               
+                </pre>
+              </div>
+            </div>
+
+            <h3>font-weight</h3>
+            <p>フォントの太さを設定します。 一般的な値には、normal、bold、bolder、lighter などがあります。</p>
+            <p><b>例えば：</b></p>
+            <div class="code">
+              <div class="codeTitle">
+                css
+              </div>
+              <div class="codeBox">
+                <pre>
+<span class="tag">.greenBox</span> <span class="braket">{</span>
+  <span class="attribute">font-family</span>: <span class="attributeValue">'Open Sans', Arial, sans-serif;</span>;
+<span class="braket">}</span>               
+                </pre>
+              </div>
+            </div>
+
+          </div>
+          <div class="linkstyle">
+            <h2>Styling Links</h2>
+            <h3>text-decoration</h3>
+            <p>リンクに使用される装飾を制御します。 値には、下線、上線、中抜き線、およびなしが含まれます。</p>
+            <p><b>例えば：</b></p>
+            <div class="code">
+              <div class="codeTitle">
+                css
+              </div>
+              <div class="codeBox">
+                <pre>
+  <span class="tag">a</span> <span class="braket">{</span>
+    <span class="attribute">text-decoration</span>: <span class="attributeValue">none</span>;
+  <span class="braket">}</span>               
+                </pre>
+              </div>
+            </div>
+          </div>
+          <div class="bg">
+            <h2>background-color</h2>
+            <p>CSS プロパティを使用して背景を設定する方法を学びます。 ここでは、background-color、background-image、background-repeat、background-position、background-size について説明します。</p>
+            <div class="code">
+              <div class="codeTitle">
+                css
+              </div>
+              <div class="codeBox">
+                <pre>
+  <span class="tag">div</span> <span class="braket">{</span>
+    <span class="attribute">background-color</span>: <span class="attributeValue">#f2f2f2</span>;
+  <span class="braket">}</span>               
+                </pre>
+              </div>
+            </div>
+
+            <div class="code">
+              <div class="codeTitle">
+                css
+              </div>
+              <div class="codeBox">
+                <pre>
+  <span class="tag">div</span> <span class="braket">{</span>
+    <span class="attribute">background-image</span>: <span class="attributeValue">url('background-image.jpg')</span>;
+    <span class="attribute">background-repeat</span>: <span class="attributeValue">no-repeat</span>;
+    <span class="attribute">background-position</span>: <span class="attributeValue">cover</span>;
+  <span class="braket">}</span>               
+                </pre>
+              </div>
+            </div>
+
+            <h3>Transparency and Opacity</h3>
+            <p>RGBA および HSLA カラー値を使用して要素を透明にする方法を学びます。 opacity プロパティを使用して要素全体の不透明度を制御する方法を学びます。</p>       
+            <div class="code">
+              <div class="codeTitle">
+                css
+              </div>
+              <div class="codeBox">
+                <pre>
+   /* Adding transparency with RGBA */
+  <span class="tag">div</span> <span class="braket">{</span>
+    <span class="attribute">background-color</span>: <span class="attributeValue">rgba(255, 0, 0, 0.5)</span>;
+  <span class="braket">}</span>   
+  
+  /* Using HSLA for transparency */
+  <span class="tag">div</span> <span class="braket">{</span>
+    <span class="attribute">background-color</span>: <span class="attributeValue">hsla(120, 100%, 50%, 0.3)</span>;
+  <span class="braket">}</span>  
+  
+  /* Controlling element opacity */
+  <span class="tag">div</span> <span class="braket">{</span>
+    <span class="attribute">opacity</span>: <span class="attributeValue">0.8</span>;
+  <span class="braket">}</span>  
+                </pre>
+              </div>
+            </div>
+          
+            <p>CSS での色の表現と背景の操作についてしっかりと理解できるようになります。</p>
+          </div>
+        </div>
+    </div>
+</body>
+</html>

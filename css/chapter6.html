@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>flex</h2>
+    <p>フレックスボックス レイアウトは、CSS を使用して Web ページをより柔軟かつ効率的にデザインする方法です。さまざまな画面サイズに合わせて応答性の高い動的なレイアウトを作成するのに役立ちます。</p>
+    <p>ここにフレックスボックスのプロパティがあります</p>
+    <dl>
+        <dt></dt>
+    </dl>
+    <ul>
+        <li>display</li>
+        <li>flex-direction</li>
+
+        <li>justify-content: 水平軸を定義します。</li>
+        <li>align-items: 縦軸を定義します。</li>
+        <li>flex</li>
+    </ul>
+    <h3>display プロパティ</h3>
+    <p>`display: flex;`  プロパティを使用して、フレックスボックス コンテナを定義できます。</p>
+    <p>例: 単純なフレックスボックス レイアウトの作成</p>
+    <p>わかりやすくするために各要素の背景色とマージンを設定します。</p>
+    <div class="code">
+        <div class="codeTitle">
+            css
+        </div>
+        <div class="codeBox">
+            <pre>
+&lt;<span class="tag">!DOCTYPE</span>&gt;
+&lt;<span class="tag">html</span>&gt;
+&lt;<span class="tag">head</span>&gt;
+&lt;<span class="tag">title</span> &gt;<span class="content">LearnFreely</span>&lt;<span class="tag">/title</span>&gt;
+&lt;<span class="tag">style</span>&gt;
+  <span class="tag">.display</span> <span class="braket">{</span>
+    <span class="attribute">display</span>: <span class="attributeValue">flex</span>;
+  <span class="braket">}</span> 
+
+  <span class="tag">p</span> <span class="braket">{</span>
+    <span class="attribute">background-color</span>: <span class="attributeValue">green</span>;
+    <span class="attribute">margin</span>: <span class="attributeValue">4px</span>;
+  <span class="braket">}</span>
+&lt;<span class="tag">/style</span>&gt;
+&lt;<span class="tag">/head</span>&gt;
+&lt;<span class="tag">body</span>&gt;
+
+  &lt;<span class="tag">div</span> <span class="attribute">class</span>=<span class="attributeValue">"dispaly"</span> &gt;
+    &lt;<span class="tag">p</span>&gt;<span class="content">これは通常の段落です。</span>&lt;<span class="tag">/p</span>&gt;
+    &lt;<span class="tag">p</span>&gt;<span class="content">この要素は block 要素です。</span>&lt;<span class="tag">/p</span>&gt;
+    &lt;<span class="tag">p</span>&gt;<span class="content">もう一つの通常の段落</span> &lt;<span class="tag">/p</span>&gt;
+  &lt;<span class="tag">/div</span>&gt;
+
+&lt;<span class="tag">/body</span>&gt; 
+&lt;<span class="tag">/html</span>&gt;                
+            </pre>
+          </div>
+    </div>
+    <ul>
+        <li>「display:flex;」: コンテナをフレックスコンテナに変えます。</li>
+        <li>この < div > 要素の直接の子はすべて flex アイテムになります。</li>
+    </ul>
+    <p>フレックスボックス レイアウト結果：</p>
+    <div class="example">
+        <div class="display" style="display: flex;">
+            <p style="background-color: green; margin: 4px;">これは通常の段落です。</p>
+            <p style="background-color: green; margin: 4px;">この要素は block 要素です。</p>
+            <p style="background-color: green; margin: 4px;">もう一つの通常の段落.</p>
+        </div>
+    </div>
+
+</body>
+</html>

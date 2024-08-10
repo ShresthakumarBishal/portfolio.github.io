@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html{
+            font-size: 16px;
+        }
+        header, body, div, p,h1, h2,h3,h5, h6,img,a {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .code{
+            background-color:lavender;
+            padding: 2rem 0.6rem 1rem 0.6rem;
+            color: gray;
+        }
+        .codeBox .tag{
+            color: rgb(144, 49, 49);
+        }
+        .codeBox .attribute{
+            color: rgb(233, 89, 37);
+        }
+        .codeBox .content{
+            color: black;
+        }
+        .codeBox .attributeValue{
+            color: rgb(84, 70, 238);
+        }
+        pre{
+            padding-top: 0.5rem;
+            font-size: 1rem;
+            background-color: white;
+        }
+        .none {
+            border-style: none;
+        }
+        .hidden {
+            border-style: hidden;
+        }
+        .dotted {
+            border-style: dotted;
+            border-color: green;
+        }
+        .dashed {
+            border-style: dashed;
+            border-color: #ffbf00;
+        }
+        .solid {
+            border-style: solid;
+            border-color: #3498db;
+            border-width: 1px;
+        }
+        .double {
+            border-style: double;
+            border-color: rgb(12, 10, 10);
+            border-width: 3px;
+        }
+        .groove {
+            border-style: groove;
+            border-color: rgb(16, 224, 162);
+        }
+        .ridge {
+            border-style: ridge;
+            border-color: rgb(232, 21, 173);
+        }
+        .inset {
+            border-style: inset;
+            border-color: rgb(0, 135, 0);
+        }
+        .outset {
+            border-style: outset;
+            border-color: #1de20f;
+            border-width: 5px;
+        }
+        .borderStyle{
+            color: red;
+            margin: 0;
+            padding: 0 10px;
+            font-size: 20px;
+        }
+        .example{
+            padding: 1.6rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+        .example p{
+            padding: 0.85rem 1rem;
+        }
+
+    </style>
+</head>
+<body>
+    <section class="widthHeight">
+        <section class="width">
+            <p>CSS の width プロパティは、要素の幅を設定するために使用されます。widthプロパティを使用して設定できます。例えば：<p> HTML 要素に適用すると、<p>ボックスの幅を指定します。</p>
+            <p>以下に例を示しながら段階的に説明します。</p>
+            <p><b>例：</b></p>
+            <p>HTMLの構造を見てみましょう。わかりやすくするために、背景色を使用します。</p>
+            <div class="code">
+                <div class="codeTitle">html</div>
+                <div class="codeBox">
+                  <pre>
+    &lt;<span class="tag">!DOCTYPE</span>&gt;
+    &lt;<span class="tag">html</span>&gt;
+    &lt;<span class="tag">head</span>&gt;
+      &lt;<span class="tag">style</span>&gt;
+          <span class="tag">p</span> <span class="braket">{</span>
+          <span class="attribute">width</span>: <span class="attributeValue">150px</span>;
+          <span class="attribute">background-color</span>: <span class="attributeValue">rgb(227, 218, 96)</span>;
+        <span class="braket">}</span>          
+      &lt;<span class="tag">/style</span>&gt;      
+    &lt;<span class="tag">/head</span>&gt;
+    &lt;<span class="tag">body</span>&gt;
+      &lt;<span class="tag">p</span> &gt;<span class="content">LearnFreely</span>&lt;<span class="tag">/p</span>&gt;
+    &lt;<span class="tag">/body</span>&gt; 
+    &lt;<span class="tag">/html</span>&gt;                
+                  </pre>
+                </div>
+              </div>
+              <ul>
+                <li>上の例では、スタイル設定用の「rei」クラス名を持つ < div > 要素があります。</li>
+                <li>スタイルにクラス名「rei」を選択し、幅を 150px ピクセルに設定します。</li>
+                <li>この[150px]値は、デザインの好みに基づいて調整できます。</li>
+              </ul>
+              <p>結果：</p>
+              <div class="example">
+                  <p class="solid" style="width: 150px; background-color: rgb(227, 218, 96);">LearnFreely</p>
+              </div>
+              <p>ブラウザで HTML ファイルを開くと、指定された幅の div 要素が表示されます。</p>
+              <p>Web ページのニーズに応じて、幅の値や追加のスタイルを自由にカスタマイズできます。</p>
+        </section>
+        <section class="height">
+            <h2>Height</h2>
+            <p>要素の高さを設定するために使用されます。height プロパティを使用して要素の高さを設定できます。例を挙げて段階的に説明します。</p>
+            <p>まず、高さを適用する HTML 要素を決めます。たとえば、デモのためにクラス名 "rei" を持つ < div > を使用してみましょう。</p>
+            <p>わかりやすくするために、背景色を使用します。</p>
+            <div class="code">
+                <div class="codeTitle">html</div>
+                <div class="codeBox">
+                  <pre>
+    &lt;<span class="tag">!DOCTYPE</span>&gt;
+    &lt;<span class="tag">html</span>&gt;
+    &lt;<span class="tag">head</span>&gt;
+      &lt;<span class="tag">title</span> &gt;<span class="content">LearnFreely</span>&lt;<span class="tag">/title</span>&gt;
+      &lt;<span class="tag">style</span>&gt;
+          <span class="tag">p</span> <span class="braket">{</span>
+          <span class="attribute">background-color</span>: <span class="attributeValue">rgb(227, 218, 96)</span>;
+        <span class="braket">}</span> 
+    &lt;<span class="tag">/head</span>&gt;
+    &lt;<span class="tag">body</span>&gt;
+      &lt;<span class="tag">p</span> &gt;<span class="content">100pxに高さを適用します。</span>&lt;<span class="tag">/p</span>&gt;
+    &lt;<span class="tag">/body</span>&gt; 
+    &lt;<span class="tag">/html</span>&gt;                
+                  </pre>
+                </div>
+              </div>
+              <p>結果：</p>
+              <div class="example">
+                  <p class="solid" style="height: 100px; background-color: rgb(227, 218, 96);">LearnFreely</p>
+              </div>
+
+              <p>次にクラス名「rei」のCSSブロックにheightプロパティを記述して要素の高さを設定しましょう。この場合、高さを 100px ピクセルに設定します。</p>
+
+              <p>上記の HTML 構造に適用</p>
+              <div class="code">
+                <div class="codeTitle">html</div>
+                <div class="codeBox">
+                  <pre>
+    &lt;<span class="tag">!DOCTYPE</span>&gt;
+    &lt;<span class="tag">html</span>&gt;
+    &lt;<span class="tag">head</span>&gt;
+      &lt;<span class="tag">title</span> &gt;<span class="content">LearnFreely</span>&lt;<span class="tag">/title</span>&gt;
+      &lt;<span class="tag">style</span>&gt;
+          <span class="tag">p</span> <span class="braket">{</span>
+          <span class="attribute">height</span>: <span class="attributeValue">100px</span>;
+          <span class="attribute">background-color</span>: <span class="attributeValue">rgb(227, 218, 96)</span>;
+        <span class="braket">}</span> 
+    &lt;<span class="tag">/head</span>&gt;
+    &lt;<span class="tag">body</span>&gt;
+      &lt;<span class="tag">p</span> &gt;<span class="content">100pxに高さを適用します。</span>&lt;<span class="tag">/p</span>&gt;
+    &lt;<span class="tag">/body</span>&gt; 
+    &lt;<span class="tag">/html</span>&gt;                
+                  </pre>
+                </div>
+              </div>
+              <p>ブラウザで HTML ファイルを開いて変更を確認します。</p>
+              <p>結果： 高さプロパティなし</p>
+              <div class="example">
+                  <p class="solid" style="background-color: rgb(227, 218, 96);">LearnFreely</p>
+              </div>
+
+              <p>デザイン要件に合わせて CSS ルールの高さの値を変更してみてください。</p>
+              <p>デザインの好みに基づいてさらにカスタマイズしてみてください。</p>
+        </section>
+    </section>
+    <section class="boxModel">
+        <section class="content">
+            <h2>CSS Box Model</h2>
+            <p>CSS ボックス モデルは、Web ページ上の要素のレイアウトを制御する基本的な概念です。すべての HTML 要素は長方形のボックスとして表示され、以下に示す 4 つの主要なコンポーネントで構成されます。</p>
+            <ol>
+                <li>content (コンテンツ)</li>
+                <li>padding (パディング)</li>
+                <li>border (ボーダー)</li>
+                <li>margin (マージン)</li>
+            </ol>
+            <img src="img/boxmodel.png" alt="">
+
+            <h3>1. content (コンテンツ)</h3>
+            <p>コンテンツ領域には、テキスト、画像、その他のメディアなど、実際のコンテンツが含まれます。 そのサイズは、幅と高さのプロパティによって決まります。</p>
+
+        </section>
+        <section class="padding">
+            <h3>2. Padding</h3>
+            <p>パディングは、要素のコンテンツとその境界線の間のスペースです。paddingプロパティを使用して設定できます。 要素内の間隔を制御するのに役立ちます。 パディング プロパティは、px、パーセンテージ、em などのさまざまな単位を使用して設定できます。</p>
+            <p>例：</p>
+            <p>「example-box」クラスの HTML 要素を考えてみましょう。</p>
+            <div class="code">
+                <div class="codeTitle">
+    
+                </div>
+                <div class="codeBox">
+                    <pre>
+&lt;<span class="tag">div</span> <span class="attribute">class</span>=<span class="attributeValue">"rei"</span>&gt;<span class="content">LearnFreely</span>&lt;<span class="tag">/div</span>&gt;           
+                    </pre>
+                  </div>
+            </div>
+    
+            <p>CSSでパディングを適用します。</p>
+            <div class="code">
+                <div class="codeTitle">
+    
+                </div>
+                <div class="codeBox">
+                    <pre>
+<span class="tag">.rei</span> <span class="braket">{</span>
+    <span class="attribute">padding</span>: <span class="attributeValue">20px</span>;
+<span class="braket">}</span>               
+                    </pre>
+                  </div>
+            </div>
+            <ul><li>要素内にスペースが確保され、外観と読みやすさが向上します。</li></ul>
+
+            <p>両側のパディングを個別に設定することもできます。</p>
+            <div class="code">
+                <div class="codeTitle">
+    
+                </div>
+                <div class="codeBox">
+                    <pre>
+<span class="tag">.rei</span> <span class="braket">{</span>
+    <span class="attribute">padding-top</span>: <span class="attributeValue">20px</span>;
+    <span class="attribute">padding-right</span>: <span class="attributeValue">10px</span>;
+    <span class="attribute">padding-bottom</span>: <span class="attributeValue">30px</span>;
+    <span class="attribute">padding-left</span>: <span class="attributeValue">5px</span>;
+<span class="braket">}</span>               
+                    </pre>
+                  </div>
+            </div>
+    
+            <p><strong>説明:</strong></p>
+            <ul>
+                <li>最初の例では、.example-box div はすべての辺に 20 ピクセルのパディングを取得します。</li>
+                <li>2 番目の例では、パディング値が各側に個別に指定されます。</li>
+            </ul>
+        </section>
+        <section class="border">
+            <h3>3. Border</h3>
+            <p>パディングの周囲の境界です。</p>
+            <p>さまざまなスタイル、色、幅でカスタマイズできます。</p>
+
+            <h2>速記法</h2>
+            <p>ボーダーの短縮表記には、幅、スタイル、色という 3 つのプロパティがあります。border プロパティによって定義します。境界線の幅、境界線のスタイル、境界線の色を指定できます。</p>
+            <p>例：</p>
+            <div class="code">
+                <div class="codeTitle">
+    
+                </div>
+                <div class="codeBox">
+                    <pre>
+<span class="attribute">border</span>: <span class="attributeValue">境界線の幅 スタイル 色</span>;           
+                    </pre>
+                  </div>
+            </div>
+            <h3>説明：</h3>
+            <p>「rei」クラスの HTML 要素を考えてみましょう。</p>
+            <div class="code">
+                <div class="codeTitle">
+    
+                </div>
+                <div class="codeBox">
+                    <pre>
+    &lt;<span class="tag">div</span> <span class="attribute">class</span>=<span class="attributeValue">"rei"</span>&gt;<span class="content">LearnFreely</span>&lt;<span class="tag">/div</span>&gt;           
+                    </pre>
+                  </div>
+            </div>
+    
+            <p>CSSでパディングを適用します。</p>
+            <div class="code">
+                <div class="codeTitle">
+                    css
+                </div>
+                <div class="codeBox">
+                    <pre>
+<span class="tag">.rei</span> <span class="braket">{</span>
+    <span class="attribute">border</span>: <span class="attributeValue">1px solid #3498db</span>;
+<span class="braket">}</span>               
+                    </pre>
+                  </div>
+            </div>
+            <p>結果：</p>
+            <div class="example">
+                <p class="solid">LearnFreely</p>
+            </div>
+            <ul>
+                <li>2px: 境界線の幅を設定します。</li>
+                <li>solid: 境界線のスタイルを設定します。境界線には、none (なし)、hidden (非表示)、dotted (点線)、solid (実線)、double (二重)、groove (溝)、ridge(尾根)、inset (インセット)、outset(アウトセット)など、さまざまなスタイルがあります。下の画像を確認してください。</li>
+                <li>color: 境界線の色プロパティは境界線の色を設定します。 色を設定するには、色名、hex、rgb、または hsl を使用できます。</li>
+            </ul>
+            <p>境界線スタイルの種類</p>
+            <div class="example">
+                <p class="none">border: 2px<span class="borderStyle">none</span> black;</p>
+                <p class="dotted">border: 2px<span class="borderStyle">dotted</span>green;</p>
+                <p class="dashed">border: 2px<span class="borderStyle">dashed</span>#ffbf00;</p>
+                <p class="solid">border: 1px<span class="borderStyle">solid</span>#3498db;</p>
+                <p class="double">border: 3px<span class="borderStyle">double</span>black;</p>
+                <p class="groove">border: 2px<span class="borderStyle">groove</span>rgb(16, 224, 162);</p>
+                <p class="ridge">border: 2px<span class="borderStyle">ridge</span>pink;</p>
+                <p class="inset">border: 2px<span class="borderStyle">inset</span>rgb(0, 135, 0);</p>
+                <p class="outset">border: 5px<span class="borderStyle">outset</span>#1de20f;</p>
+                <p class="hidden">border: 2px<span class="borderStyle">hidden</span>black;</p>
+            </div>
+
+            <p>次のプロパティを使用して、各辺の境界線をカスタマイズできます。</p>
+            <ul>
+                <li>border-top (境界線上)</li>
+                <li>border-right （境界線右)</li>
+                <li>border-bottom (境界線下)</li>
+                <li>border-left (境界線左)</li>
+            </ul>
+            <p>例えば：</p>
+            <div class="code">
+                <div class="codeTitle">
+                    css
+                </div>
+                <div class="codeBox">
+                    <pre>
+<span class="tag">.rei</span> <span class="braket">{</span>
+    <span class="attribute">border-top</span>: <span class="attributeValue">2px solid green</span>;
+    <span class="attribute">width</span>: <span class="attributeValue">80px</span>;
+<span class="braket">}</span>               
+                    </pre>
+                  </div>
+            </div>
+            <p>結果：</p>
+            <div class="example">
+                <p style="border-top:2px solid green; width: fit-content;">LearnFreely</p>
+            </div>
+
+            <h2>境界線を個別に設定</h2>
+            <p>境界線を個別に設定できます。</p>
+            <p>CSS 境界線のさまざまなプロパティを次に示します。</p>
+            <ol>
+                <li>border-style (スタイル)</li>
+                <li>border-color (色)</li>
+                <li>border-width (幅)</li>
+                <li>border-radius (半径)</li>
+            </ol>
+            <p>例を見ていきましょう</p>
+            <p>まずは、スタイル、幅、色の例を見て見ましょう
+            </p>
+            <div class="code">
+                <div class="codeTitle">
+                    css
+                </div>
+                <div class="codeBox">
+                    <pre>
+<span class="tag">.rei</span> <span class="braket">{</span>
+    <span class="attribute">border-style</span>: <span class="attributeValue">dotted</span>;
+    <span class="attribute">border-color</span>: <span class="attributeValue">green</span>;
+    <span class="attribute">border-width</span>: <span class="attributeValue">2px</span>;
+<span class="braket">}</span>               
+                    </pre>
+                  </div>
+            </div>
+            <p>結果：</p>
+            <div class="example">
+                <p style="border:2px dotted green; width: fit-content;">LearnFreely</p>
+            </div>
+            <p>border-radius</p>
+            <p>境界線の半径は、ボタンや画像などの要素に丸い境界線を作成するのに利用します。</p>
+            <div class="code">
+                <div class="codeTitle">
+                    css
+                </div>
+                <div class="codeBox">
+                    <pre>
+<span class="tag">.rei</span> <span class="braket">{</span>
+    <span class="attribute">border-style</span>: <span class="attributeValue">dotted</span>;
+    <span class="attribute">border-color</span>: <span class="attributeValue">green</span>;
+    <span class="attribute">border-width</span>: <span class="attributeValue">2px</span>;
+    <span class="attribute">border-radius</span>: <span class="attributeValue">20px</span>;
+<span class="braket">}</span>               
+                    </pre>
+                  </div>
+            </div>
+            <p>結果：</p>
+            <div class="example">
+                <p style="border:2px dotted green; width: fit-content; border-radius: 20px;">LearnFreely</p>
+            </div>
+            <p>丸いボタンを作成したい場合は、境界線の半径を 50% に設定します。</p>
+        </section>
+        <section class="margin">
+            <h2>Margin マージン</h2>
+            <p>意味: マージンは、要素の境界線の外側の周囲のスペースです。</p>
+            <p>目的: マージンは 2 つの要素の境界線の間のスペースを開けるために利用します。</p>
+            <p>構文化する方法がいくつかあります。</p>
+            <ol>
+                <li>簡単な方法</li>
+                <li>速記法</li>
+                <li>個別の方法</li>
+            </ol>
+
+            <h3>1. 簡単な方法</h3>
+            <p>すべての辺のマージンを同じ値に設定する場合は、この構文を使用します。</p>
+            <div class="code">
+                <div class="codeTitle">
+                    css
+                </div>
+                <div class="codeBox">
+                    <pre>
+<span class="tag">.rei</span> <span class="braket">{</span>
+    <span class="attribute">margin</span>: <span class="attributeValue">20px</span>;
+<span class="braket">}</span>               
+                    </pre>
+                  </div>
+            </div>
+            <ul>
+                <li>四辺のマージンを 20 ピクセルに設定しています。</li>
+            </ul>
+            <p>結果：</p>
+            <div class="example">
+                <p class="solid">LearnFreely</p>
+            </div>
+
+            <h3>2. 速記法</h3>
+            <p>すべてのマージンを一度に設定するための簡略表記。すべての辺のマージンを一度に異なる値に設定する場合は、この構文を使用します。</p>
+            <div class="code">
+                <div class="codeTitle">
+                    css
+                </div>
+                <div class="codeBox">
+                    <pre>
+<span class="tag">.rei</span> <span class="braket">{</span>
+    <span class="attribute">margin</span>: <span class="attributeValue">上 右 下 左</span>;
+<span class="braket">}</span>               
+                    </pre>
+                  </div>
+            </div>
+
+            <p><b>例えば：</b></p>
+            <div class="code">
+                <div class="codeTitle">
+                    css
+                </div>
+                <div class="codeBox">
+                    <pre>
+<span class="tag">.rei</span> <span class="braket">{</span>
+    <span class="attribute">margin</span>: <span class="attributeValue">20px 10px 30px 40px</span>;
+<span class="braket">}</span>               
+                    </pre>
+                  </div>
+            </div>
+            <ul>
+                <li>20px: これは上部マージンが 20 ピクセルであることを表します。</li>
+                <li>10px: これは右側のマージンが 10px であることを表します。</li>
+                <li>30px: これは下側のマージンが 30px であることを表します。</li>
+                <li>40px: これは左側のマージンが 40px であることを表します。</li>
+            </ul>
+            <p>結果：</p>
+            <div class="example">
+                <p class="solid">LearnFreely</p>
+            </div>
+
+            <h3>3. 個別の方法</h3>
+            <p>個別にマージンを設定する場合は、以下のプロパティを使用します。</p>
+            <ol>
+                <li>margin-top マージン上</li>
+                <li>margin-right マージン右</li>
+                <li>margin-bottom マージン下</li>
+                <li>margin-left マージン左</li>
+            </ol>
+            <p><b>例えば：</b></p>
+            <div class="code">
+                <div class="codeTitle">
+                    css
+                </div>
+                <div class="codeBox">
+                    <pre>
+<span class="tag">.rei</span> <span class="braket">{</span>
+    <span class="attribute">margin-top</span>: <span class="attributeValue">20px</span>;
+    <span class="attribute">margin-right</span>: <span class="attributeValue">10px</span>;
+    <span class="attribute">margin-bottom</span>: <span class="attributeValue">30px</span>;
+    <span class="attribute">margin-left</span>: <span class="attributeValue">40px</span>;
+<span class="braket">}</span>               
+                    </pre>
+                  </div>
+            </div>
+            <ul>
+                <li>余白を各辺に個別に設定しています。</li>
+            </ul>
+            <p>結果：</p>
+            <div class="example">
+                <p class="solid">LearnFreely</p>
+            </div>
+            <p>上辺と左辺のみにマージンを設定する例も見てみましょう。</p>
+            <div class="code">
+                <div class="codeTitle">
+                    css
+                </div>
+                <div class="codeBox">
+                    <pre>
+<span class="tag">.rei</span> <span class="braket">{</span>
+    <span class="attribute">margin-top</span>: <span class="attributeValue">20px</span>;
+    <span class="attribute">margin-left</span>: <span class="attributeValue">40px</span>;
+<span class="braket">}</span>               
+                    </pre>
+                  </div>
+            </div>
+            <ul>
+                <li>余白を各辺に個別に設定しています。</li>
+            </ul>
+            <p>結果：</p>
+            <div class="example">
+                <p class="solid">LearnFreely</p>
+            </div>
+        </section>
+    </section>
+</body>
+</html>

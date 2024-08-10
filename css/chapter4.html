@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html{
+            font-size: 16px;
+        }
+        header, body, div, p,h1, h2,h3,h5, h6,img,a {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .code{
+            background-color:lavender;
+            padding: 2rem 0.6rem 1rem 0.6rem;
+            color: gray;
+        }
+        .codeBox .tag{
+            color: rgb(144, 49, 49);
+        }
+        .codeBox .attribute{
+            color: rgb(233, 89, 37);
+        }
+        .codeBox .content{
+            color: black;
+        }
+        .codeBox .attributeValue{
+            color: rgb(84, 70, 238);
+        }
+        pre{
+            padding-top: 0.5rem;
+            font-size: 1rem;
+            background-color: white;
+        }
+        .none {
+            border-style: none;
+        }
+        .hidden {
+            border-style: hidden;
+        }
+        .dotted {
+            border-style: dotted;
+            border-color: green;
+        }
+        .dashed {
+            border-style: dashed;
+            border-color: #ffbf00;
+        }
+        .solid {
+            border-style: solid;
+            border-color: #3498db;
+            border-width: 1px;
+        }
+        .double {
+            border-style: double;
+            border-color: rgb(12, 10, 10);
+            border-width: 3px;
+        }
+        .groove {
+            border-style: groove;
+            border-color: rgb(16, 224, 162);
+        }
+        .ridge {
+            border-style: ridge;
+            border-color: rgb(232, 21, 173);
+        }
+        .inset {
+            border-style: inset;
+            border-color: rgb(0, 135, 0);
+        }
+        .outset {
+            border-style: outset;
+            border-color: #1de20f;
+            border-width: 5px;
+        }
+        .borderStyle{
+            color: red;
+            margin: 0;
+            padding: 0 10px;
+            font-size: 20px;
+        }
+        .example{
+            padding: 1.6rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+        .example p{
+            padding: 0.85rem 1rem;
+        }
+        
+        .syntax{
+            background-color: rgba(0, 0, 0, 0.807);
+            padding: 1rem;
+            color: white;
+        }
+        .syntax .property{
+            color: rgb(3, 180, 234);
+        }
+        .syntax .porpertyValue{
+            color: rgb(158, 222, 19);
+        }
+        .block-rei {
+            display: block;
+            background-color: lightblue;
+            padding: 10px;
+            margin: 5px;
+        }
+/*-------------- result--------------*/
+        .details-box {
+          display: inline;
+          background-color: antiquewhite;
+        }
+    </style>
+</head>
+<body>
+    <section class="display">
+        <h2>Display</h2>
+        <p>表示プロパティは、要素のレンダリングを決定します。さまざまな表示プロパティ値とその適切な使用法について説明します。</p>
+        <p><b>構文:</b></p>
+        <div class="syntax">
+            <code>
+                <span class="property">display</span>: <span class="porpertyValue">値</span>;
+            </code>
+        </div>
+        <p>display プロパティには、HTML要素の表示方法を定義するさまざまな値があります。</p>
+        <p><b>共通の値</b></p>
+        <ol>
+            <li>block (ブロック表示)</li>
+            <li>inline (インライン表示)</li>
+            <li>inline-block (インラインブロック表示)</li>
+            <li>none(なし)</li>
+        </ol>
+
+        <h3>block</h3>
+        <p>CSS プロパティ「display: block;」 HTML 要素をブロックレベルの要素のように動作させるために使用されます。以下に例を示しながら段階的に説明します。</p>
+        <p>覚えておくべきポイント</p>
+        <ul>
+          <li>ブロックレベルの要素としてレンダリングします。</li>
+          <li>全幅を使用します。</li>
+          <li>新しい行で始まります。</li>
+        </ul>
+        <p><b>例：</b></p>
+        <div class="code">
+            <div class="codeTitle">
+                css
+            </div>
+            <div class="codeBox">
+                <pre>
+&lt;<span class="tag">!DOCTYPE</span>&gt;
+&lt;<span class="tag">html</span>&gt;
+&lt;<span class="tag">head</span>&gt;
+  &lt;<span class="tag">title</span> &gt;<span class="content">LearnFreely</span>&lt;<span class="tag">/title</span>&gt;
+  &lt;<span class="tag">style</span>&gt;
+      <span class="tag">.block_rei</span> <span class="braket">{</span>
+        <span class="attribute">display</span>: <span class="attributeValue">block</span>;
+      <span class="braket">}</span> 
+&lt;<span class="tag">/head</span>&gt;
+&lt;<span class="tag">body</span>&gt;
+  &lt;<span class="tag">p</span>&gt;<span class="content">これは通常の段落です。</span>&lt;<span class="tag">/p</span>&gt;
+  &lt;<span class="tag">span</span> <span class="attribute">class</span>=<span class="attributeValue">"block_rei"</span>&gt;<span class="content">この要素は block 要素です。</span>&lt;<span class="tag">/span</span>&gt;
+  &lt;<span class="tag">p</span>&gt;<span class="content">もう一つの通常の段落</span> &lt;<span class="tag">/p</span>&gt;
+&lt;<span class="tag">/body</span>&gt; 
+&lt;<span class="tag">/html</span>&gt;                
+                </pre>
+              </div>
+        </div>
+        <ul>
+            <li>「この要素は block 要素です。」テキストは全幅を占めるブロックとして表示されます</li>
+            <li>「display:block;」により新しい行から始まります。</li>
+        </ul>
+        <p>結果：</p>
+        <div class="example">
+          <p>これは通常の段落です。</p>
+          <!-- Applying display: block; to a <span> element -->
+          <span class="block-example">この要素は block 要素です。</span>
+          <p>もう一つの通常の段落.</p>
+        </div>
+
+        <h3>inline</h3>
+        <p>CSS の「display: inline」プロパティは、要素をインライン要素のように動作させるために使用されます。以下に例を示しながら段階的に説明します。</p>
+        <p>覚えておくべきポイント</p>
+        <ul>
+          <li>インラインレベルの要素としてレンダリングします。</li>
+          <li>必要な幅だけを取ります。</li>
+          <li>新しい行では始まりません。</li>
+        </ul>
+        <p>2 つの HTML 要素 (段落 <p> など) があると仮定します。</p>
+        <p><b>例：</b></p>
+        <div class="code">
+            <div class="codeTitle">
+                css
+            </div>
+            <div class="codeBox">
+                <pre>
+&lt;<span class="tag">!DOCTYPE</span>&gt;
+&lt;<span class="tag">html</span>&gt;
+&lt;<span class="tag">head</span>&gt;
+  &lt;<span class="tag">title</span> &gt;<span class="content">LearnFreely</span>&lt;<span class="tag">/title</span>&gt;
+  &lt;<span class="tag">style</span>&gt;
+      <span class="tag">p</span> <span class="braket">{</span>
+        <span class="attribute">display</span>: <span class="attributeValue">block</span>;
+      <span class="braket">}</span> 
+&lt;<span class="tag">/head</span>&gt;
+&lt;<span class="tag">body</span>&gt;
+  &lt;<span class="tag">p</span>&gt;<span class="content">これは通常の段落です。</span>&lt;<span class="tag">/p</span>&gt;
+  &lt;<span class="tag">p</span>&gt;<span class="content">もう一つの通常の段落</span> &lt;<span class="tag">/p</span>&gt;
+&lt;<span class="tag">/body</span>&gt; 
+&lt;<span class="tag">/html</span>&gt;                
+                </pre>
+              </div>
+        </div>
+        <ul>
+            <li>段落はインラインで表示されます。</li>
+            <li>新しい行で始まることはなく、その幅は必要なだけです。</li>
+            <li>視覚的にわかりやすくするために、背景色が追加されています。</li>
+        </ul>
+        <p>「display: inline」を適用した場合の結果</p>
+        <div>
+          <h2 class="details-box">タイトル1</h2>
+          <p class="details-box">タイトル2</p>
+        </div>
+        <p>「display: inline」を適用しない場合の結果</p>
+        <div class="example">
+          <p id="ap">これは通常の段落です。</p>
+          <p id="ap">もう一つの通常の段落.</p>
+        </div>
+        <ul>
+          <li>p 要素はブロック要素であり、全幅をとり、新しい行で始まります。</li>
+      </ul>
+      <p>これは、Web ページ上の要素をよりコンパクトでインラインに配置する場合に特に役立ちます。</p>
+
+
+      <h3>inline-block</h3>
+      <p>CSS の「display: inline-block」プロパティは、要素をインライン レベルのブロック コンテナーにするために使用されます。</p>
+      <p>覚えておくべきポイント</p>
+      <ul>
+        <li>ブロック要素をインラインブロック要素にするときに利用します。/li>
+
+      </ul>
+      <p>2 つの HTML 要素 (段落 <p> など) があると仮定します。</p>
+      <p><b>例：</b></p>
+      <div class="code">
+          <div class="codeTitle">
+              css
+          </div>
+          <div class="codeBox">
+              <pre>
+&lt;<span class="tag">!DOCTYPE</span>&gt;
+&lt;<span class="tag">html</span>&gt;
+&lt;<span class="tag">head</span>&gt;
+&lt;<span class="tag">title</span> &gt;<span class="content">LearnFreely</span>&lt;<span class="tag">/title</span>&gt;
+&lt;<span class="tag">style</span>&gt;
+    <span class="tag">p</span> <span class="braket">{</span>
+      <span class="attribute">display</span>: <span class="attributeValue">inline-block</span>;
+      <span class="attribute">display</span>: <span class="attributeValue">200px</span>;
+      <span class="attribute">display</span>: <span class="attributeValue">150px</span>;
+    <span class="braket">}</span> 
+&lt;<span class="tag">/head</span>&gt;
+&lt;<span class="tag">body</span>&gt;
+&lt;<span class="tag">p</span>&gt;<span class="content">これは通常の段落です。</span>&lt;<span class="tag">/p</span>&gt;
+&lt;<span class="tag">p</span>&gt;<span class="content">もう一つの通常の段落</span> &lt;<span class="tag">/p</span>&gt;
+&lt;<span class="tag">/body</span>&gt; 
+&lt;<span class="tag">/html</span>&gt;                
+              </pre>
+            </div>
+            <ul>
+              <li>「display: inline-block;」 それをインラインブロック要素にします。</li>
+              <li>「width: 200px;, height: 150px;」 ボックスの幅と高さを設定します。</li>
+            </ul>
+           <div>
+              <h2 class="details-box">Title</h2>
+              <p class="details-box">Description of details...</p>
+          </div>
+      </div>
+    </section>
+</body>
+</html>

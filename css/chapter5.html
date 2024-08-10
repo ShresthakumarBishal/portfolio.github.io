@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .syntax{
+            font-size: 20px;
+        }
+        .property{
+            color: rgb(207, 7, 7);
+        }
+        .porpertyValue{
+            color: rgb(17, 73, 240);
+        }
+    </style>
+</head>
+<body>
+    <h2>Float and Claer</h2>
+    <h3>Float</h3>
+    <p>Float は、要素を通常のフローから取り出して、その要素を含むボックスの左側または右側に配置できるようにする CSS プロパティです。</p>
+    <p>構文</p>
+    <div class="syntax">
+        <code>
+            <span class="property">float</span>: <span class="porpertyValue">値</span>;
+        </code>
+    </div>
+    <p>値</p>
+    <dl>
+        <dt>1. `float: left;`</dt>
+        <dd>この値は要素を左側にフロートさせ、他の要素のコンテンツを右側に表示できるようにします。</dd>
+        <dt>2. `float: right;`</dt>
+        <dd>この値は要素を右側にフロートさせ、他の要素のコンテンツを左側に表示できるようにします。</dd>
+        <dt>3. `float: none;`</dt>
+        <dd>これがデフォルト値です。フロートなし</dd>
+    </dl>
+
+    <p>フローティング要素はページ上のコンテンツのフローに影響を与える可能性があるため、「float」プロパティを使用する場合は、他の要素のレイアウトと位置を考慮することが重要です。さらに、フローティング要素の後の要素の動作を管理するには、「clear」プロパティの使用が必要になることがよくあります。</p>
+
+    <h2>Clear</h2>
+    <p> Clear は、要素の片側または両側に浮動(フローティング)要素が許可されないことを保証する CSS プロパティです。</p>
+    <p>構文</p>
+    <div class="syntax">
+        <code>
+            <span class="property">clear</span>: <span class="porpertyValue">値</span>;
+        </code>
+    </div>
+    <p>値</p>
+    <dl>
+        <dt>1. `clear: left;`</dt>
+        <dd>この値により、要素は左浮動要素の下に確実に移動されます。</dd>
+        <dt>2. `clear: right;`</dt>
+        <dd>この値により、要素は右浮動要素の下に確実に移動されます。</dd>
+        <dt>3. `clear: both;`</dt>
+        <dd>この値により、要素は左または右の浮動要素の下に移動されます。両面クリアです。</dd>
+        <dt>3. `clear: none;`</dt>
+        <dd>これがデフォルト値です。</dd>
+    </dl>
+    <p>例を見てみましょう。</p>
+    <div class="code">
+        <div class="codeTitle">
+            css
+        </div>
+        <div class="codeBox">
+            <pre>
+&lt;<span class="tag">!DOCTYPE</span>&gt;
+&lt;<span class="tag">html</span>&gt;
+&lt;<span class="tag">head</span>&gt;
+&lt;<span class="tag">title</span> &gt;<span class="content">LearnFreely</span>&lt;<span class="tag">/title</span>&gt;
+&lt;<span class="tag">style</span>&gt;
+  <span class="tag">.float_rei</span> <span class="braket">{</span>
+    <span class="attribute">float</span>: <span class="attributeValue">left</span>;
+  <span class="braket">}</span> 
+&lt;<span class="tag">/head</span>&gt;
+&lt;<span class="tag">body</span>&gt;
+&lt;<span class="tag">p</span>&gt;<span class="content">これは通常の段落です。</span>&lt;<span class="tag">/p</span>&gt;
+&lt;<span class="tag">p> <span class="attribute">class</span>=<span class="attributeValue">"float_rei"</span>&gt;<span class="content">この要素は block 要素です。</span>&lt;<span class="tag">/p>&gt;
+&lt;<span class="tag">p</span>&gt;<span class="content">もう一つの通常の段落</span> &lt;<span class="tag">/p</span>&gt;
+&lt;<span class="tag">/body</span>&gt; 
+&lt;<span class="tag">/html</span>&gt;                
+            </pre>
+          </div>
+    </div>
+    <ul>
+        <li>この例では、要素を左にフローティングします。</li>
+    </ul>
+    <p>結果：</p>
+    <div class="example">
+      <p >これは通常の段落です。</p>
+      <p style="float: left;">この要素は block 要素です。</p>
+      <p>もう一つの通常の段落.</p>
+    </div>
+    <p style="clear: left;">右側のコンテンツを新しい行で開始したい場合は、claer プロパティを使用する必要がある。</p>
+    <p>clear プロパティを適用してみましょう。
+    </p>
+    <div class="code">
+        <div class="codeTitle">
+            css
+        </div>
+        <div class="codeBox">
+            <pre>
+&lt;<span class="tag">!DOCTYPE</span>&gt;
+&lt;<span class="tag">html</span>&gt;
+&lt;<span class="tag">head</span>&gt;
+&lt;<span class="tag">title</span> &gt;<span class="content">LearnFreely</span>&lt;<span class="tag">/title</span>&gt;
+&lt;<span class="tag">style</span>&gt;
+  <span class="tag">.float_left</span> <span class="braket">{</span>
+    <span class="attribute">float</span>: <span class="attributeValue">left</span>;
+  <span class="braket">}</span> 
+  
+  <span class="tag">.clear_left</span> <span class="braket">{</span>
+    <span class="attribute">claer</span>: <span class="attributeValue">left</span>;
+  <span class="braket">}</span> 
+&lt;<span class="tag">/head</span>&gt;
+&lt;<span class="tag">body</span>&gt;
+&lt;<span class="tag">p</span>&gt;<span class="content">これは通常の段落です。</span>&lt;<span class="tag">/p</span>&gt;
+&lt;<span class="tag">p</span> <span class="attribute">class</span>=<span class="attributeValue">"float_left"</span>&gt;<span class="content">この要素は block 要素です。</span>&lt;<span class="tag">/p>&gt;
+&lt;<span class="tag">p</span> <span class="attribute">class</span>=<span class="attributeValue">"clear_left"</span>&gt;<span class="content">もう一つの通常の段落</span> &lt;<span class="tag">/p</span>&gt;
+&lt;<span class="tag">/body</span>&gt; 
+&lt;<span class="tag">/html</span>&gt;                
+            </pre>
+          </div>
+    </div>
+    <div class="example">
+        <p >これは通常の段落です。</p>
+        <p style="float: left;">この要素は block 要素です。</p>
+        <p style="clear: left;">もう一つの通常の段落.</p>
+
+      </div>
+</body>
+</html>
