@@ -2,557 +2,701 @@
 <html lang="ja">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <title>PORTFOLIO DETAILS</title>
- <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>PORTFOLIO DETAILS</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
 
-    }
-    main {
-      margin-left: 300px;
-      padding: 50px 60px 40px 10px;
-      background-color: rgba(211, 211, 211, 0.662);
-    }
-    #sidebar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 300px;
-      padding:30px;
-      height: 100%;
-      display: block;
-      background-color: rgba(255, 255, 255, 1);
-    }
-    .name {
-      padding: 15px 0;
-    }
-    .email {
-      font-size: 14px;
-      color: purple;
-    }
-    .my_img {
-      width: 50%;
-      border-radius: 12px;
-    }
-    .closebtn {
-      display: none;
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 20px;
-    }
-    .contents_nav {
-      display: block;
-      color: black;
-      padding: 12px 5px;
-      text-decoration: none;
-    }
-    .contents_nav_1 {
-      color: rgb(229, 117, 197);
-    }
-    i {
-      margin-right: 20px;
-    }
-    .account i {
-      padding: 20px;
-      font-size: 25px;
-      font-weight: bold;
-    }
-    .mobile {
-      display: none;
-    }
-    .pc {
-      display: block;
+        }
 
-    }
-    /* files */
-    .simple_head {
-      padding-left: 60px;
-      width: 300px;
-      text-align: center;
-      font-size: 20px;
-    }
-    .simple_head::after {
-      content: " ";
-      display: block;
-      border-bottom: 3px solid rgb(189, 144, 20);
-    }
-    .row {
-      display: flex;
-      flex-wrap: wrap;
-    }
-    .row_child {
-      flex:25%;
-      margin-top: 60px;
-      margin-left: 50px;
-      text-align: center;
-      min-width: 230px;
-      box-shadow: 15px 15px 5px rgb(41, 41, 41);
-    }
-    .iframe {
-      height: 300px;
-    }
-    .iframe_title {
-      line-height: 50px;
-      background-color: rgb(80, 78, 78);
-      font-weight: bold;
-    }
-    .row_child a {
-      color: white;
-    }
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      background-color: rgb(254, 253, 253);
-    }
+        main {
+            margin-left: 300px;
+            padding: 50px 60px 40px 10px;
+            background-color: rgba(249, 240, 239, 0.788);
+        }
 
-    /* about */
-    .about {
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-      padding-top: 50px;
-    }
-    .title {
-      padding: 50px 0;
-      text-align: center;
-      width: fit-content;
-      margin: auto;
-    }
-    .title::after {
-      content: " ";
-      display: block;
-      height: 6px;
-      margin: 0 15px;
-      border-bottom: 3px solid rgb(189, 144, 20);
-    }
-    .contents {
-      display: flex;
-      transform: translateY(150px);
-      opacity: 0;
-      transition: 1.5s all ease;
-      flex-wrap: wrap;
-    }
-    .flex_1 {
-      flex: 40%;
-    }
-    .flex_2{
-      align-self: center;
-      flex: 60%;
-    }
-    .about_img {
-      width: 100%;
-      border-radius: 50%;
-      padding: 50px;
-    }
-    p {
-      font-size: 20px;
-      text-align: justify;
-      padding: 20px;
-      position: relative;
-    }
-    .flower {
-      position: absolute;
-      width: 200px;
-      opacity: 0.6;
-      z-index: -1;
-      left: -70px;
-      top: -70px;
-    }
-    h4 {
-      padding: 20px 0;
-    }
-    .font {
-      padding: 10px 20px;
-    }
-    span {
-      color: rgb(11, 159, 13);
-      font-style: italic;
-      font-size: 17px;
-    }
-    .project_list {
-      padding: 50px 0;
-      width: 80%;
-      margin: auto;
-      font-size: 20px;
-      transform: translateY(150px);
-      opacity: 0;
-      transition: 2s all ease;
-    }
-    ul {
-      border-style: inset;
-      padding: 5px 0;
-      background-color: beige;
-    }
-    li {
-      list-style-type: none;
-      padding-left: 50px;
-      padding-bottom: 20px;
-    }
+        #sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 300px;
+            padding: 30px;
+            height: 100%;
+            display: block;
+            background-color: rgba(255, 255, 255, 0.899);
+        }
+
+        .name {
+            padding: 15px 0;
+        }
+
+        .email {
+            font-size: 14px;
+            color: purple;
+        }
+
+        .my_img {
+            width: 50%;
+            border-radius: 12px;
+        }
+
+        .closebtn {
+            display: none;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 20px;
+        }
+
+        .contents_nav {
+            display: block;
+            color: black;
+            padding: 12px 5px;
+            text-decoration: none;
+        }
+
+        .contents_nav_1 {
+            color: rgb(229, 117, 197);
+        }
+
+        i {
+            margin-right: 20px;
+        }
+
+        .account i {
+            padding: 20px;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .mobile {
+            display: none;
+        }
+
+        .pc {
+            display: block;
+
+        }
+
+        h1{
+            color: #002D5B;
+        }
+
+        /*************************************************************** files */
+        .simple_head {
+            padding-left: 60px;
+            width: 300px;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .simple_head::after {
+            content: " ";
+            display: block;
+            border-bottom: 3px solid rgb(189, 144, 20);
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .row_child {
+            flex: 25%;
+            margin-top: 60px;
+            margin-left: 50px;
+            text-align: center;
+            min-width: 230px;
+            box-shadow: 15px 15px 5px rgb(41, 41, 41);
+        }
+
+        .iframe {
+            height: 300px;
+        }
+
+        .iframe_title {
+            line-height: 50px;
+            background-color: rgb(80, 78, 78);
+            font-weight: bold;
+        }
+
+        .row_child a {
+            color: white;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background-color: rgb(254, 253, 253);
+        }
+
+        /* *********************************************************************about */
+        .about {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            padding-top: 50px;
+            background-color: #fff;
+        }
+
+        .title {
+            padding: 50px 0;
+            text-align: center;
+            width: fit-content;
+            margin: auto;
+        }
+
+        .title::after {
+            content: " ";
+            display: block;
+            height: 6px;
+            margin: 0 15px;
+            border-bottom: 3px solid rgb(189, 144, 20);
+        }
+
+        .contents {
+            display: flex;
+            transform: translateY(150px);
+            opacity: 0;
+            transition: 1.5s all ease;
+            align-items: center;
+            justify-content: space-between;
+            gap:20px;
+        }
+        .about_img {
+            width: 100%;
+            border-radius: 50%;
+            padding: 50px;
+        }
+
+        p {
+            font-size: 20px;
+            text-align: justify;
+            padding-right: 20px;
+            position: relative;
+            color: gray;
+        }
+
+        .flower {
+            position: absolute;
+            width: 200px;
+            opacity: 0.6;
+            z-index: -1;
+            left: -70px;
+            top: -70px;
+        }
+
+        h4 {
+            padding: 20px 0;
+        }
+
+        h3 {
+            font-size: larger;
+            color: #002D5B;
+            padding-bottom: 20px;
+        }
+
+        span {
+            color: rgb(11, 159, 13);
+            font-style: italic;
+            font-size: 17px;
+        }
+
+        .project_list {
+            padding: 50px 0;
+            width: 80%;
+            margin: auto;
+            font-size: 20px;
+            transform: translateY(150px);
+            opacity: 0;
+            transition: 2s all ease;
+        }
+
+        ul {
+            border-style: inset;
+            padding: 5px 0;
+            background-color: beige;
+        }
+
+        li {
+            list-style-type: none;
+            padding-left: 50px;
+            padding-bottom: 20px;
+        }
 
 
-    /*---skill bar */
-    .skill_bar {
-      margin-bottom: 100px;
-      transform: translateY(150px);
-      opacity: 0;
-      transition: 2s all ease;
-    }
-    .container {
-      width: 100%;
-      background-color: rgba(61, 60, 60, 0.809);
-    }
-    h5 {
-      font-weight: none;
-      font-size: 15px;
-      padding: 25px 10px 10px 10px;
-    }
-    .skills {
-      text-align: right;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      color: white;
-    }
+        /*---skill bar */
+        .skill_bar {
+            margin-bottom: 100px;
+            transform: translateY(150px);
+            opacity: 0;
+            transition: 2s all ease;
+        }
 
-    .html {transition: width 4s; background-color: #04AA6D;}
-    .css {transition: width 4s;  background-color: #2196F3;}
-    .mysql {transition: width 4s;  background-color: #f44336;}
-    .php {transition: width 4s;  background-color: #808080;}
-    .js {transition: width 4s;  background-color: #4f21f3;}
-    .python {transition: width 4s; background-color: #21f328;}
-    .java {transition: width 4s;  background-color: #28e5eb;}
-    .vue {transition: width 4s;  background-color: #f321b1;}
-    .scss {transition: width 4s;  background-color: #08899b;}
-   /*---reveal content----*/
-    .active {
-      transform: translateY(0);
-      opacity: 1;
-    }
+        .container {
+            width: 100%;
+            background-color: rgba(61, 60, 60, 0.809);
+        }
 
-    /*---contact----*/
-    .bg_image {
-      background-image: url(bg1.jpg);
-      background-repeat: no-repeat;
-      background-size: cover;
-      margin-left: 300px;
-    }
-    .contact {
-      width: 60%;
-      margin: 0 auto;
-      text-align: center;
-      color: black;
-      padding-bottom: 60px;
-    }
-    .contact_list {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 60px 0;
-    }
-    .contact_list a, button {
-      padding: 20px 0;
-      font-size: 20px;
-      background-color: purple;
-      text-decoration: none;
-      width: 60%;
-      color: white;
-      opacity: 0.6;
-      border: none;
-    }
-    button:hover, .contact_list a:hover {
-      color: #fff!important;
-      background-color: rgb(224, 28, 73, 1);
-      opacity: 1;
-    }
+        h5 {
+            font-weight: none;
+            font-size: 15px;
+            padding: 25px 10px 10px 10px;
+        }
 
-    #menu {
-        position: absolute;
-        top: 0;
-        left: 15px;
-        display: none;
-        font-size: 40px;
-        font-weight: bold;
-      }
-    @media screen and (max-width: 768px){
-      #sidebar {
-        display: none;
-      }
-      .simple_head {
-        padding-left: 0;
-        width: 70%;
-        margin: auto;
-      }
-      main {
-        margin: 0;
-        padding: 20px;
-        padding-top: 80px;
-      }
-      .row_child {
-        margin-top: 40px;
-        margin-left: 0;
-      }
-      .flex_1, .flex_2 {
-        flex: 100%;
-      }
-      .about_img {
-        padding: 10px;
-        height: 400px !important;
-        border-radius: 22px;
-      }
-      .flower, .pc {
-        display: none;
-      }
-      .project_list {
-        width: 100%;
-      }
-      span {
-        display: block;
-      }
-      li {
-        padding-left: 10px;
-        padding-bottom: 20px;
-      }
-      .bg_image {
-        margin: 0;
-      }
-      .contact,.contact_list a, button {
-        width: 90%;
-      }
-      #menu {
-        display: block;
-      }
-      .closebtn, .mobile {
-        display: block;
-      }
+        .skills {
+            text-align: right;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            color: white;
+        }
 
-    }
-  </style>
+        .html {
+            transition: width 4s;
+            background-color: #04AA6D;
+        }
+
+        .css {
+            transition: width 4s;
+            background-color: #2196F3;
+        }
+
+        .mysql {
+            transition: width 4s;
+            background-color: #f44336;
+        }
+
+        .php {
+            transition: width 4s;
+            background-color: #808080;
+        }
+
+        .js {
+            transition: width 4s;
+            background-color: #4f21f3;
+        }
+
+        .python {
+            transition: width 4s;
+            background-color: #21f328;
+        }
+
+        .java {
+            transition: width 4s;
+            background-color: #28e5eb;
+        }
+
+        .vue {
+            transition: width 4s;
+            background-color: #f321b1;
+        }
+
+        .scss {
+            transition: width 4s;
+            background-color: #08899b;
+        }
+
+        /*---reveal content----*/
+        .active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /*---contact----*/
+        .bg_image {
+            background-image: url(bg1.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin-left: 300px;
+        }
+
+        .contact {
+            width: 60%;
+            margin: 0 auto;
+            text-align: center;
+            color: black;
+            padding-bottom: 60px;
+        }
+
+        .contact_list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 60px 0;
+        }
+
+        .contact_list a,
+        button {
+            padding: 20px 0;
+            font-size: 20px;
+            background-color: purple;
+            text-decoration: none;
+            width: 60%;
+            color: white;
+            opacity: 0.6;
+            border: none;
+        }
+
+        button:hover,
+        .contact_list a:hover {
+            color: #fff !important;
+            background-color: rgb(224, 28, 73, 1);
+            opacity: 1;
+        }
+
+        #menu {
+            position: absolute;
+            top: 0;
+            left: 15px;
+            display: none;
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        @media screen and (max-width: 768px) {
+            #sidebar {
+                display: none;
+            }
+
+            .simple_head {
+                padding-left: 0;
+                width: 70%;
+                margin: auto;
+            }
+
+            main {
+                margin: 0;
+                padding: 20px;
+                padding-top: 80px;
+            }
+
+            .row_child {
+                margin-top: 40px;
+                margin-left: 0;
+            }
+
+            .flex_1,
+            .flex_2 {
+                flex: 100%;
+            }
+
+            .about_img {
+                padding: 10px;
+                height: 400px !important;
+                border-radius: 22px;
+            }
+
+            .flower,
+            .pc {
+                display: none;
+            }
+
+            .project_list {
+                width: 100%;
+            }
+
+            span {
+                display: block;
+            }
+
+            li {
+                padding-left: 10px;
+                padding-bottom: 20px;
+            }
+
+            .bg_image {
+                margin: 0;
+            }
+
+            .contact,
+            .contact_list a,
+            button {
+                width: 90%;
+            }
+
+            #menu {
+                display: block;
+            }
+
+            .closebtn,
+            .mobile {
+                display: block;
+            }
+
+        }
+    </style>
 </head>
+
 <body>
- <div onclick="document.getElementById('sidebar').style.display='block';" id="menu">
-  &#8801; 
- </div>
-
- <nav id="sidebar" class="sidebar">
-  <div class="sidebar-nav">
-    <div class="sidebar-nav-left">
-        <a href="#" onclick="menu()" class="closebtn" title="close menu">
-          <i class="fa fa-remove"></i>
-        </a>
-        <img class="my_img" src="bsaal1.JPG"><br>
-        <h3 class="name">シュレスタ ビサル クマル<font class="email">stha1265@gmail.com</font></h3>
+    <div onclick="document.getElementById('sidebar').style.display='block';" id="menu">
+        &#8801;
     </div>
 
-    <div class="list">
-      <!--for mobile-->
-      <div class="mobile">
-        <a href="#portfolio" class="contents_nav contents_nav_1" onclick="menu()"><i class="fa fa-th-large fa-fw"></i>PORTFOLIO</a>
-        <a href="#about" class="contents_nav" onclick="menu()"><i class='fa fa-user fa-fw'></i>ABOUT</a> 
-        <a href="#project" class="contents_nav" onclick="menu()"><i class="fa fa-file-text"></i>PROJECTS</a>
-        <a href="#skill_bar" class="contents_nav" onclick="menu()"><i class="fa fa-bar-chart"></i>My SkillS</a> 
-        <a href="https://simplikivyapp.com/contact-us" class="contents_nav" onclick="menu()"><i class="fa fa-envelope fa-fw"></i>CONTACT</a>
-      </div>
-        <!--for PC-->
-      <div class="pc">
-        <a href="#portfolio" class="contents_nav contents_nav_1"><i class="fa fa-th-large fa-fw"></i>PORTFOLIO</a>
-        <a href="#about" class="contents_nav"><i class='fa fa-user fa-fw'></i>ABOUT</a> 
-        <a href="#project" class="contents_nav"><i class="fa fa-file-text"></i>PROJECTS</a>
-        <a href="#skill_bar" class="contents_nav"><i class="fa fa-bar-chart"></i>My SkillS</a> 
-        <a href="https://simplikivyapp.com/contact-us" class="contents_nav"><i class="fa fa-envelope fa-fw"></i>CONTACT</a>
-      </div>
-    </div>
-    <div class="account">
-      <a href="https://Instagram.com/bsaal_crestha" target="_blank"><i class="fa fa-instagram"></i></a>
-      <a href="#" target="_blank"><i class="fa fa-facebook-official"></i></a>
-    </div>
-  </div>
- </nav>
-  <!--project file(start)-->
-  <main>
-  <div id="portfolio" class="files">
-    <h1 class="simple_head">ポートフォリオ一覧</h1>
-    <div class="row">
-      <div class="row_child"><div class="iframe"><iframe scrolling="no" src="https://www.simplikivyapp.com/kivyapp/"></iframe></div><a href="https://www.simplikivyapp.com/kivyapp/"><div class="iframe_title">ブログ</div></a></div>
-      <div class="row_child"><a href=""><div class="iframe"><iframe scrolling="no" src="https://www.curryinjapan.website"></iframe></div><a href="https://www.curryinjapan.website"><div class="iframe_title">管理システム</div></a></div>
-      <div class="row_child"><a href=""><div class="iframe"><iframe scrolling="no"src="app.PNG"></iframe></div><a href="https://play.google.com/store/apps/details?id=japanesequiz.japanesequiz2&pli=1"><div class="iframe_title">アンドロイドアプリ</div></a></div>
-      <div class="row_child"><a href=""><div class="iframe"><iframe scrolling="no"src="https://simplikivyapp.com/"></iframe></div><a href="https://www.simplikivyapp.com/"><div class="iframe_title">会社HP サンプル</div></a></div>
-      <div class="row_child"><a href=""><div class="iframe"><iframe scrolling="no"src="https://www.simplikivyapp.com/all/puja/"></iframe></div><a href="https://www.simplikivyapp.com/all/puja/"><div class="iframe_title">レストランHP(作成中)</div></a></div>
-      <div class="row_child"><a href=""><div class="iframe"><iframe scrolling="no"src="https://simplikivyapp.com/all/project/"></iframe></div><a href="https://simplikivyapp.com/all/project/"><div class="iframe_title">シンプルEC Site</div></a></div>
-    </div>
-  </div>
-  <!--About(start)-->
-  <div id="about" class="about">
-    <hr><br>
-    <hr>
-    <h1 class="title">ABOUT ME</h1>
-    <div id="contents" class="contents reveal">
-      <div class="flex_1">
-        <img class="about_img" src="bsaal.jpg"/>
-      </div>
-      <div class="flex_2">
-        <p style="font-size: 16px;">
-            <font><b>シュレスタビサルクマルと申します。</b></font><br><br>
-          <!--<img class="flower" src="flower.png"/>-->
-        私の強みは、笑顔と健康です。何事も前向きになるように考えることです。<br>
-        これまで学校や、アルバイト、社会人になっての職場でも、笑顔でコミュニケーションをと
-        ることで、その場の雰囲気を良くし、国は違っていても仲間同士助け合い、仕事の効率もよくする事につながりま
-        した。<br><br>
-        
-        私はプログラミング製作に興味があり、
-        仕事が休みの日, 自分でHTML5\CSS\PHP\PYTHON
-         を学びながらシンプルな ホームページや ウェブアプリを製作しています。<br><br>
-        
-        また、pythonとkivyフレームワークを
-        学びながら自分で日本語を学べるシンプルなアプリも作っております。<br>
-        
-        私はプログラミングの仕事は未経験ですが、一つずつ覚えて技術を身につけながら、
-        スキルをアップして行きたいと考えて います。
+    <nav id="sidebar" class="sidebar">
+        <div class="sidebar-nav">
+            <div class="sidebar-nav-left">
+                <a href="#" onclick="menu()" class="closebtn" title="close menu">
+                    <i class="fa fa-remove"></i>
+                </a>
+                <img class="my_img" src="bsaal1.JPG"><br>
+                <h3 class="name">シュレスタ ビサル クマル<font class="email">stha1265@gmail.com</font>
+                </h3>
+            </div>
 
-        </p>
-      </div>
-    </div>
-    <!--project(start)-->
-    <div id="project" class="project_list reveal">
-      <h2 class="title">PROJECTS</h2>
-      <p>全てのソースコード: <a href="https://github.com/ShresthakumarBishal/">GitHub</a></p>
-      <h4>1. プージャーレストランの開発</h4>
-      <ul>
-        <div class="font">利用言語:　<span>PHP, JavaScript, html, css</span></div>
-        <li>ホームページ(作成中): <a href="https://www.simplikivyapp.com/all/puja/">プージャーホームページ</a></li>
-        <li>管理システム: <a href="https://www.curryinjapan.website">プージャー管理システム</a></li>
-      </ul>
-      <h4>2. 自習しながら作ったもの(PythonとPHP)</h4>
-      <ul>
-        <div class="font">利用言語　<span>Python, Kivy FrameWork</span></div>
-        <li>アンドロイドアプリ: <a href="https://play.google.com/store/apps/details?id=japanesequiz.japanesequiz2&pli=1">Google Play Store</a></li>
-        <div class="font">利用言語:　<span>PHP, JavaScript, html, scss</span></div>
-        <li>ブログ: <a href="https://www.simplikivyapp.com/kivyapp">www.simplikivyapp.com</a></li>
-        <div class="font">利用言語:　<span>PHP, JavaScript, html, css</span></div>
-        <li>シンプルEC サイト: <a href="https://www.simplikivyapp.com/all/project/">www.simplikivyapp.com/all/project/</a></li>
-      </ul>
-      <h4>3. Vue.js で作ったもの</h4>
-      <ul>
-        <div class="font">利用言語:　<span>Vue.js, html, scss</span></div>
-        <li><a href="https://www.simplikivyapp.com/">会社HP サンプル</a></li>
-      </ul>
-      <h4>4. プログラマカレッジ</h4>
-      <ul>
-        <div class="font">学習した言語:　<span>Java, PHP, JavaScript, Jquery, html, css</span></div>
-        <p style="font-size: 16px;">Javaプログラミングを中心にJavaScriptやHTML、CSSなどの基礎と、MySQLを用いたデ
-          ータベースの作成やSQL文を用いたデータの更新、削除などについて学びました。
-          また、SpringBootというフレームワークを使って、ECサイトの機能開発も経験いたしました。</p>
-      </ul>
-    </div>
-    <div id="get" style="margin-left: 200px;"></div>
-    <!--skill bar start-->
-    <div id="skill_bar" class="skill_bar reveal">
-      <h1 class="title">My SKILLS</h1>
-      <h5>HTML</h5>
-      <div class="container">
-        <div class="skills html">90%</div>
-      </div>
-      <h5>CSS</h5>
-      <div class="container">
-        <div class="skills css">85%</div>
-      </div>
-      <h5>MySQL</h5>
-      <div class="container">
-        <div class="skills mysql">80%</div>
-      </div>
-      <h5>PHP</h5>
-      <div class="container">
-        <div class="skills php">60%</div>
-      </div>
-      <h5>JavaScript</h5>
-      <div class="container">
-        <div class="skills js">55%</div>
-      </div>
-      <h5>Python</h5>
-      <div class="container">
-        <div class="skills python">50%</div>
-      </div>
-      <h5>Java</h5>
-      <div class="container">
-        <div class="skills java">50%</div>
-      </div>
-      <h5>Vue.js</h5>
-      <div class="container">
-        <div class="skills vue">45%</div>
-      </div>
-      <h5>SCSS</h5>
-      <div class="container">
-        <div class="skills scss">30%</div>
-      </div>
-    </div>
-    <!--skill bar end-->
-    <h2 class="title">Connect wih</h2>
-</div>
-</main>
-  <!--contact-->
-  <div class="bg_image">
-    <div class="contact">
-      <div class="contact_list">
-        <a href="https://Instagram.com/bsaal_crestha" target="_blank"><i class="fa fa-instagram"></i>Instagram</a>
-        <br>
-        <a href="#" target="_blank"><i class="fa fa-facebook-official"></i>Facebook</a>
-        <br>
-        <a href="https://github.com/ShresthakumarBishal" target="_blank"><i class="fa fa-github"></i>GitHub</a>
-        <br>
-        <a href="https://join.skype.com/invite/xlfGxyv8Np7s" target="_blank"><i class="fa fa-skype"></i>Skype</a>
-        <br>
-      </div>
-      <!-- form section -->
-      <div class="form">
-        <h1>Get in touch.</h1>
-        <form action="https://simplikivyapp.com/contact-us" target="_blank">
-          <button type="submit">Contact Me</button>
-        </form>
-    </div>
-      <!--contact ends-->
+            <div class="list">
+                <!--for mobile-->
+                <div class="mobile">
+                    <a href="#portfolio" class="contents_nav contents_nav_1" onclick="menu()"><i
+                            class="fa fa-th-large fa-fw"></i>PORTFOLIO</a>
+                    <a href="#about" class="contents_nav" onclick="menu()"><i class='fa fa-user fa-fw'></i>ABOUT</a>
+                    <a href="#project" class="contents_nav" onclick="menu()"><i class="fa fa-file-text"></i>PROJECTS</a>
+                    <a href="#skill_bar" class="contents_nav" onclick="menu()"><i class="fa fa-bar-chart"></i>My
+                        SkillS</a>
+                    <a href="https://simplikivyapp.com/contact-us" class="contents_nav" onclick="menu()"><i
+                            class="fa fa-envelope fa-fw"></i>CONTACT</a>
+                </div>
+                <!--for PC-->
+                <div class="pc">
+                    <a href="#portfolio" class="contents_nav contents_nav_1"><i
+                            class="fa fa-th-large fa-fw"></i>PORTFOLIO</a>
+                    <a href="#about" class="contents_nav"><i class='fa fa-user fa-fw'></i>ABOUT</a>
+                    <a href="#project" class="contents_nav"><i class="fa fa-file-text"></i>PROJECTS</a>
+                    <a href="#skill_bar" class="contents_nav"><i class="fa fa-bar-chart"></i>My SkillS</a>
+                    <a href="https://simplikivyapp.com/contact-us" class="contents_nav"><i
+                            class="fa fa-envelope fa-fw"></i>CONTACT</a>
+                </div>
+            </div>
+            <div class="account">
+                <a href="https://Instagram.com/bsaal_crestha" target="_blank"><i class="fa fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fa fa-facebook-official"></i></a>
+            </div>
+        </div>
+    </nav>
+    <!--project file(start)-->
+    <main>
+        <div id="portfolio" class="files">
+            <h1 class="simple_head">ポートフォリオ一覧</h1>
+            <div class="row">
+                <div class="row_child">
+                    <div class="iframe"><iframe scrolling="no" src="https://shresthakumarbishal.github.io/portfolio.github.io/learn.html"></iframe>
+                    </div><a href="https://shresthakumarbishal.github.io/portfolio.github.io/learn.html">
+                        <div class="iframe_title">ブログ</div>
+                    </a>
+                </div>
+                <div class="row_child"><a href="">
+                    <div class="iframe"><iframe scrolling="no" src="https://shresthakumarbishal.github.io/portfolio.github.io/learn.html"></iframe>
+                    </div><a href="https://shresthakumarbishal.github.io/portfolio.github.io/learn.html">
+                        <div class="iframe_title">管理システム</div>
+                    </a></div>
+                <div class="row_child"><a href="">
+                    <div class="iframe"><iframe scrolling="no" src="app.PNG"></iframe></div><a
+                        href="https://play.google.com/store/apps/details?id=japanesequiz.japanesequiz2&pli=1">
+                        <div class="iframe_title">アンドロイドアプリ</div>
+                    </a></div>
+                <div class="row_child"><a href="">
+                    <div class="iframe"><iframe scrolling="no" src="https://shresthakumarbishal.github.io/portfolio.github.io/learn.html"></iframe></div><a
+                        href="https://www.simplikivyapp.com/">
+                        <div class="iframe_title">会社HP サンプル</div>
+                    </a></div>
+                <div class="row_child"><a href="">
+                    <div class="iframe"><iframe scrolling="no"
+                            src="https://shresthakumarbishal.github.io/portfolio.github.io/learn.html"></iframe></div><a
+                        href="https://shresthakumarbishal.github.io/portfolio.github.io/learn.html">
+                        <div class="iframe_title">レストランHP(作成中)</div>
+                    </a></div>
+                <div class="row_child"><a href="">
+                    <div class="iframe"><iframe scrolling="no"
+                            src="https://shresthakumarbishal.github.io/portfolio.github.io/learn.html"></iframe></div><a
+                        href="https://shresthakumarbishal.github.io/portfolio.github.io/learn.html">
+                        <div class="iframe_title">シンプルEC Site</div>
+                    </a></div>
+            </div>
+        </div>
+        <br><br>
+        <!--About(start)-->
+        <hr><br>
+        <hr><br>
+        <div id="about" class="about">
+            <h1 class="title">ABOUT ME</h1>
+            <div id="contents" class="contents reveal">
+                <div class="flex_1">
+                    <img class="about_img" src="bsaal.jpg" />
+                </div>
+                <div class="flex_2">
+                    <h3>情熱を持って開発する。</h3>
 
+                    <p style="font-size: 16px;">
+                        <!--<img class="flower" src="flower.png"/>-->
+                        私の強みは、笑顔と健康です。何事も前向きになるように考えることです。<br>
+                        これまで学校や、アルバイト、社会人になっての職場でも、笑顔でコミュニケーションをと
+                        ることで、その場の雰囲気を良くし、国は違っていても仲間同士助け合い、仕事の効率もよくする事につながりま
+                        した。<br><br>
+
+                        私はプログラミング製作に興味があり、
+                        仕事が休みの日, 自分でHTML5\CSS\PHP\PYTHON
+                        を学びながらシンプルな ホームページや ウェブアプリを製作しています。<br><br>
+                    </p>
+                </div>
+                <div class="flex_2">
+                    <p style="font-size: 16px;">
+                        また、pythonとkivyフレームワークを
+                        学びながら自分で日本語を学べるシンプルなアプリも作っております。<br>
+
+                        私はプログラミングの仕事は未経験ですが、一つずつ覚えて技術を身につけながら、
+                        スキルをアップして行きたいと考えて います。
+
+                    </p>
+                </div>
+            </div>
+            <!--project(start)-->
+            <div id="project" class="project_list reveal">
+                <h1 class="title">PROJECTS</h1>
+                <p>全てのソースコード: <a href="https://github.com/ShresthakumarBishal/">GitHub</a></p>
+                <h4>1. プージャーレストランの開発</h4>
+                <ul>
+                    <div class="font">利用言語:　<span>PHP, JavaScript, html, css</span></div>
+                    <li>ホームページ(作成中): <a href="https://www.simplikivyapp.com/all/puja/">プージャーホームページ</a></li>
+                    <li>管理システム: <a href="https://www.curryinjapan.website">プージャー管理システム</a></li>
+                </ul>
+                <h4>2. 自習しながら作ったもの(PythonとPHP)</h4>
+                <ul>
+                    <div class="font">利用言語　<span>Python, Kivy FrameWork</span></div>
+                    <li>アンドロイドアプリ: <a
+                            href="https://play.google.com/store/apps/details?id=japanesequiz.japanesequiz2&pli=1">Google
+                            Play Store</a></li>
+                    <div class="font">利用言語:　<span>PHP, JavaScript, html, scss</span></div>
+                    <li>ブログ: <a href="https://www.simplikivyapp.com/kivyapp">www.simplikivyapp.com</a></li>
+                    <div class="font">利用言語:　<span>PHP, JavaScript, html, css</span></div>
+                    <li>シンプルEC サイト: <a
+                            href="https://www.simplikivyapp.com/all/project/">www.simplikivyapp.com/all/project/</a>
+                    </li>
+                </ul>
+                <h4>3. Vue.js で作ったもの</h4>
+                <ul>
+                    <div class="font">利用言語:　<span>Vue.js, html, scss</span></div>
+                    <li><a href="https://www.simplikivyapp.com/">会社HP サンプル</a></li>
+                </ul>
+                <h4>4. プログラマカレッジ</h4>
+                <ul>
+                    <div class="font">学習した言語:　<span>Java, PHP, JavaScript, Jquery, html, css</span></div>
+                    <p style="font-size: 16px;">Javaプログラミングを中心にJavaScriptやHTML、CSSなどの基礎と、MySQLを用いたデ
+                        ータベースの作成やSQL文を用いたデータの更新、削除などについて学びました。
+                        また、SpringBootというフレームワークを使って、ECサイトの機能開発も経験いたしました。</p>
+                </ul>
+            </div>
+            <div id="get" style="margin-left: 200px;"></div>
+            <!--skill bar start-->
+            <div id="skill_bar" class="skill_bar reveal">
+                <h1 class="title">My SKILLS</h1>
+                <h5>HTML</h5>
+                <div class="container">
+                    <div class="skills html">90%</div>
+                </div>
+                <h5>CSS</h5>
+                <div class="container">
+                    <div class="skills css">85%</div>
+                </div>
+                <h5>MySQL</h5>
+                <div class="container">
+                    <div class="skills mysql">80%</div>
+                </div>
+                <h5>PHP</h5>
+                <div class="container">
+                    <div class="skills php">60%</div>
+                </div>
+                <h5>JavaScript</h5>
+                <div class="container">
+                    <div class="skills js">55%</div>
+                </div>
+                <h5>Python</h5>
+                <div class="container">
+                    <div class="skills python">50%</div>
+                </div>
+                <h5>Java</h5>
+                <div class="container">
+                    <div class="skills java">50%</div>
+                </div>
+                <h5>Vue.js</h5>
+                <div class="container">
+                    <div class="skills vue">45%</div>
+                </div>
+                <h5>SCSS</h5>
+                <div class="container">
+                    <div class="skills scss">30%</div>
+                </div>
+            </div>
+            <!--skill bar end-->
+            <h2 class="title">Connect wih</h2>
+        </div>
+    </main>
+    <!--contact-->
+    <div class="bg_image">
+        <div class="contact">
+            <div class="contact_list">
+                <a href="https://Instagram.com/bsaal_crestha" target="_blank"><i
+                        class="fa fa-instagram"></i>Instagram</a>
+                <br>
+                <a href="#" target="_blank"><i class="fa fa-facebook-official"></i>Facebook</a>
+                <br>
+                <a href="https://github.com/ShresthakumarBishal" target="_blank"><i class="fa fa-github"></i>GitHub</a>
+                <br>
+                <a href="https://join.skype.com/invite/xlfGxyv8Np7s" target="_blank"><i
+                        class="fa fa-skype"></i>Skype</a>
+                <br>
+            </div>
+            <!-- form section -->
+            <div class="form">
+                <h1>Get in touch.</h1>
+                <form action="https://simplikivyapp.com/contact-us" target="_blank">
+                    <button type="submit">Contact Me</button>
+                </form>
+            </div>
+            <!--contact ends-->
+
+        </div>
     </div>
-  </div>
-<script>
-function menu() {
-  var sidebar = document.getElementById("sidebar");
-    sidebar.style.display='none';    
-}
-var className=document.querySelectorAll(".skills");
-var reveals = document.querySelectorAll(".reveal");
-function reveal() {
-  var viewport_value = window.innerHeight;
- 
-  for (i= 0; i< reveals.length; i++) {
-    var get_value = reveals[i].getBoundingClientRect().top;
-    var value = viewport_value/2;
-    if (value >= get_value) {
-      reveals[i].classList.add("active");
-      if (reveals[i]==reveals[2]) {
-        var div_height =reveals[i].getBoundingClientRect().height;
-        for (i=0; i<className.length; i++) {
-          className[i].style.width = className[i].innerHTML;
+    <script>
+        function menu() {
+            var sidebar = document.getElementById("sidebar");
+            sidebar.style.display = 'none';
         }
-        if (get_value + div_height < 0) {
-          for (j=0; j<className.length; j++) {
-            className[j].style.width = "0";
-          }
+        var className = document.querySelectorAll(".skills");
+        var reveals = document.querySelectorAll(".reveal");
+        function reveal() {
+            var viewport_value = window.innerHeight;
+
+            for (i = 0; i < reveals.length; i++) {
+                var get_value = reveals[i].getBoundingClientRect().top;
+                var value = (viewport_value / 2) + 150;
+                if (value >= get_value) {
+                    reveals[i].classList.add("active");
+                    if (reveals[i] == reveals[2]) {
+                        var div_height = reveals[i].getBoundingClientRect().height;
+                        for (i = 0; i < className.length; i++) {
+                            className[i].style.width = className[i].innerHTML;
+                        }
+                        if (get_value + div_height < 0) {
+                            for (j = 0; j < className.length; j++) {
+                                className[j].style.width = "0";
+                            }
+                        }
+                    }
+                } else {
+                    reveals[i].classList.remove("active");
+                    for (j = 0; j < className.length; j++) {
+                        className[j].style.width = "0";
+                    }
+
+                }
+            }
         }
-      }
-    }else {
-      reveals[i].classList.remove("active");
-      for (j=0; j<className.length; j++) {
-        className[j].style.width = "0";
-      }
+        window.addEventListener("scroll", reveal);
 
-    }
-  }
-}
-window.addEventListener("scroll", reveal);
-
-</script>
+    </script>
 </body>
+
 </html>
