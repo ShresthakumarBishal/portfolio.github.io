@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="simplicity.css">
+  <script src="simlicity.js"></script>
+</head>
+<body>
+  <header>
+    <div class="overlay">
+      <h1>簡単に履歴書を作成</h1>
+      <h3>Your selection, our creation.</h3>
+      <p>自分の基本情報や学歴・職歴などをパソコンやスマホで入力して、かんたんに履歴書を作成し、pdfやexcelファイルでダウンロードを行われてください。</p>
+      <br>
+      <button>作成する</button>
+    </div>
+  </header>
+  <fieldset>
+    <legend>下記の項目をご覧ください。</legend>
+    <ol>
+      <li><a href="">日本で転職する際によく聞かれる質問</a></li>
+      <li><a href="">日本で転職する際によく聞かれる質問よく聞かれる質問</a></li>
+      <li><a href="">日本で転職する際によく聞かれる質問</a></li>
+    </ol>
+  </fieldset>
+  <div class="container">
+    <main>
+      <form name="form" action="">
+        <div id="input-fild">
+          <section class="personal-info">
+            <h2>プロファイル入力</h2>
+            <div class="info">
+              <h4>個人情報</h4>
+              <div class="nice-form-group">
+                <label id="kanjiName">名前 (漢字・ローマ字) <span> &#10004</span></label>
+                <input type="text" onchange="validateform(this)" name="kanjiName" placeholder="山田　太郎" value="" />
+                <div id="kanjiNameError" class="error"></div>
+              </div>
+              <div class="nice-form-group">
+                <label id="furiganaName">名前 (フリガナ) <span> &#10004</span></label>
+                <input type="text" onchange="validateform(this)" name="furiganaName" placeholder="ヤマダ　タロウ" value="" />
+                <div id="furiganaNameError" class="error"></div>
+              </div> 
+              <div class="nice-form-group">
+                <label id="country">国籍 <span> &#10004</span></label>
+                <input type="text" onchange="validateform(this)" name="country" placeholder="国籍" value="" />
+                <div id="countryError" class="error"></div>
+              </div>
+              <div class="nice-form-group">
+                <label id="address">現在住所 <span> &#10004</span></label>
+                <input type="address" onchange="validateform(this)" name="address" placeholder="現在住所" value="" />
+                <div id="addressError" class="error"></div>
+              </div>         
+              <div class="nice-form-group">
+                <label id="phone">電話番号 <span> &#10004</span></label>
+                <input type="tel" onchange="validateform(this)" name="phone" placeholder="電話番号" value="" />
+                <div id="phoneError" class="error"></div>
+              </div>      
+              <div class="nice-form-group">
+                <label id="email">メールアドレス <span> &#10004</span></label>
+                <input type="email" onchange="validateform(this)" name="email" placeholder="メールアドレス" value="" />
+                <div id="emailError" class="error"></div>
+              </div>     
+            </div>
+            <div class="row">
+              <div class="col-half">
+                <h4>生年月日</h4>
+                <div class="input-group">
+                  <div id="birthdayError" class="caption">例：日・月・年</div>
+                  <div class="col-third">
+                    <input type="text" onchange="validateform(this)"  name="day" placeholder="日" class="birthday"/>
+                  </div>
+                  <div class="col-third">
+                    <input type="text" onchange="validateform(this)" name="month" placeholder="月" class="birthday"/>
+                  </div>
+                  <div class="col-third">
+                    <input type="text" onchange="validateform(this)" name="year" placeholder="年" class="birthday"/>
+                  </div>
+                </div>
+              </div>
+              <div class="col-half">
+                <h4>性別</h4>
+                <div class="input-group">
+                  <input id="gender-male" type="radio" name="gender" value="男性"/>
+                  <label for="gender-male">男性</label>
+                  <input id="gender-female" type="radio" name="gender" value="女性"/>
+                  <label for="gender-female">女性</label>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="gakureki-info">
+            <h4>学歴</h4>
+            <div class="reki">
+              <h6 id="schoolNames1">学歴１ <span> &#10004</span></h6>
+              <div class="reki-date-status">
+                <div class="input-group">
+                  <div class="col-third">
+                    <input type="text" name="day" placeholder="日" onchange="validateform(this)" class="schoolNames1"/>
+                  </div>
+                  <div class="col-third">
+                    <input type="text" name="month" placeholder="月" onchange="validateform(this)" class="schoolNames1"/>
+                  </div>
+                  <div class="col-third">
+                    <input type="text" name="year" placeholder="年" onchange="validateform(this)" class="schoolNames1"/>
+                  </div>
+                </div>
+                <div class="reki-status">
+                  <select name="s-status">
+                    <option selected value="">選択</option>
+                    <option value="卒業">卒業</option>
+                    <option value="入学">入学</option>
+                  </select>
+                </div>
+              </div>
+              <div id="schoolNames1Error" class="error"></div>
+              <div class="nice-form-group">
+                <input name="schoolName" id="s1" type="text" placeholder="学歴１" onchange="validateform(this)"/>             
+              </div>  
+            </div>            
+            <div class="reki">
+              <h6 id="schoolNames2">学歴２ <span> &#10004</span></h6>
+              <div class="reki-date-status">
+                <div class="input-group">
+                  <div class="col-third">
+                    <input type="text" name="day" placeholder="日" onchange="validateform(this)" class="schoolNames2"/>
+                  </div>
+                  <div class="col-third">
+                    <input type="text" name="month" placeholder="月" onchange="validateform(this)" class="schoolNames2"/>
+                  </div>
+                  <div class="col-third">
+                    <input type="text" name="year" placeholder="年" onchange="validateform(this)" class="schoolNames2"/>
+                  </div>
+                </div>
+                <div class="reki-status">
+                  <select name="s-status">
+                    <option selected value="">選択</option>
+                    <option value="卒業">卒業</option>
+                    <option value="入学">入学</option>
+                  </select>
+                </div>
+              </div>
+              <div id="schoolNames2Error" class="error"></div>
+              <div class="nice-form-group">
+                <input name="schoolName" id="s2" type="text" placeholder="学歴２" onchange="validateform(this)"/>               
+              </div>
+            </div>
+            <div class="reki">
+              <h6 id="schoolNames3">学歴３ <span> &#10004</span></h6>
+              <div class="reki-date-status">
+                <div class="input-group">
+                  <div class="col-third">
+                    <input type="text" name="day" placeholder="日" onchange="validateform(this)" class="schoolNames3"/>
+                  </div>
+                  <div class="col-third">
+                    <input type="text" name="month" placeholder="月" onchange="validateform(this)" class="schoolNames3"/>
+                  </div>
+                  <div class="col-third">
+                    <input type="text" name="year" placeholder="年" onchange="validateform(this)" class="schoolNames3"/>
+                  </div>
+                </div>
+                <div class="reki-status">
+                  <select name="s-status">
+                    <option selected value="">選択</option>
+                    <option value="卒業">卒業</option>
+                    <option value="入学">入学</option>
+                  </select>
+                </div>
+              </div>
+              <div id="schoolNames3Error" class="error"></div> 
+              <div class="nice-form-group">
+                <input type="text" name="schoolName" id="s3" placeholder="学歴３" onchange="validateform(this)"/>               
+              </div>
+            </div>
+            <button class="add-btn" type="button" onclick="add(0)" id="add-reki">学歴追加 &#43</button>
+          </section>
+          <section class="syousoku-info">
+            <h4>職歴</h4>
+            <div class="reki">
+              <h6 id="kamNamek1">職歴１<span> &#10004</span></h6>
+              <div class="reki-date-status">
+                <div class="input-group">
+                  <div class="col-third">
+                    <input type="text" name="day" placeholder="日" onchange="validateform(this)" class="kamNamek1"/>
+                  </div>
+                  <div class="col-third">
+                    <input type="text" name="month" placeholder="月" onchange="validateform(this)" class="kamNamek1"/>
+                  </div>
+                  <div class="col-third">
+                    <input type="text" name="year" placeholder="年" onchange="validateform(this)" class="kamNamek1"/>
+                  </div>
+                </div>
+                <div class="reki-status">
+                  <select name="k-status">
+                    <option selected value="">選択</option>
+                    <option value="入社">入社</option>
+                    <option value="退職">退職</option>
+                    <option value="在職中">在職中</option>
+                  </select>
+                </div>
+              </div>
+              <div id="kamNamek1Error" class="error"></div>  
+              <div class="nice-form-group">
+                <input type="text" name="kamName" id="k1" placeholder="職歴１" onchange="validateform(this)"/>               
+              </div>
+            </div>            
+            <div class="reki">
+              <h6 id="kamNamek2">職歴２<span> &#10004</span></h6>
+              <div class="reki-date-status">
+                <div class="input-group">
+                  <div class="col-third">
+                    <input type="text" name="day" placeholder="日" onchange="validateform(this)" class="kamNamek2"/>
+                  </div>
+                  <div class="col-third">
+                    <input type="text" name="month" placeholder="月" onchange="validateform(this)" class="kamNamek2"/>
+                  </div>
+                  <div class="col-third">
+                    <input type="text" name="year" placeholder="年" onchange="validateform(this)" class="kamNamek2"/>
+                  </div>
+                </div>
+                <div class="reki-status">
+                  <select name="k-status">
+                    <option selected value="">選択</option>
+                    <option value="入社">入社</option>
+                    <option value="退職">退職</option>
+                    <option value="在職中">在職中</option>
+                  </select>
+                </div>
+              </div>
+              <div id="kamNamek2Error" class="error"></div> 
+              <div class="nice-form-group">
+                <input type="text" name="kamName" id="k2" placeholder="職歴２" onchange="validateform(this)"/>                 
+              </div>
+            </div>
+            <div class="reki">
+              <h6 id="kamNamek3">職歴３<span> &#10004</span></h6>
+              <div class="reki-date-status">
+                <div class="input-group">
+                  <div class="col-third">
+                    <input type="text" name="day" placeholder="日" onchange="validateform(this)" class="kamNamek3"/>
+                  </div>
+                  <div class="col-third">
+                    <input type="text" name="month" placeholder="月" onchange="validateform(this)" class="kamNamek3"/>
+                  </div>
+                  <div class="col-third">
+                    <input type="text" name="year" placeholder="年" onchange="validateform(this)" class="kamNamek3"/>
+                  </div>
+                </div>
+                <div class="reki-status">
+                  <select name="k-status">
+                    <option selected value="">選択</option>
+                    <option value="入社">入社</option>
+                    <option value="退職">退職</option>
+                    <option value="在職中">在職中</option>
+                  </select>
+                </div>
+              </div>
+              <div id="kamNamek3Error" class="error"></div> 
+              <div class="nice-form-group">
+                <input type="text" name="kamName" id="k3" placeholder="職歴３" onchange="validateform(this)"/>              
+              </div>
+            </div>
+            <button class="add-btn" type="button" onclick="add(1)" id="add-reki2">職歴追加 &#43</button>
+          </section>
+          <section class="sikaku-info">
+            <h4>免許・資格</h4>
+            <div class="reki">
+              <h6 id="sikakul1">免許・資格１<span> &#10004</span></h6>
+              <div class="reki-date-status">
+                <div class="input-group">
+                  <div class="col-third">
+                    <input type="text" name="day" placeholder="日" onchange="validateform(this)" class="sikakul1"/>
+                  </div>
+                  <div class="col-third">
+                    <input type="text" name="month" placeholder="月" onchange="validateform(this)" class="sikakul1"/>
+                  </div>
+                  <div class="col-third">
+                    <input type="text" name="year" placeholder="年" onchange="validateform(this)" class="sikakul1"/>
+                  </div>
+                </div>
+              </div>
+              <div id="sikakul1Error" class="error"></div> 
+              <div class="nice-form-group">
+                <input type="text" name="sikaku" id="l1" placeholder="免許・資格１" onchange="validateform(this)"/>              
+              </div>
+            </div>
+            <div class="reki">
+              <h6 id="sikakul2">免許・資格２<span> &#10004</span></h6>
+              <div class="reki-date-status">
+                <div class="input-group">
+                  <div class="col-third">
+                    <input type="text" name="day" placeholder="日" onchange="validateform(this)" class="sikakul2"/>
+                  </div>
+                  <div class="col-third">
+                    <input type="text" name="month" placeholder="月" onchange="validateform(this)" class="sikakul2"/>
+                  </div>
+                  <div class="col-third">
+                    <input type="text" name="year" placeholder="年" onchange="validateform(this)" class="sikakul2"/>
+                  </div>
+                </div>
+              </div>
+              <div id="sikakul2Error" class="error"></div> 
+              <div class="nice-form-group">
+                <input type="text" name="sikaku" id="l2" placeholder="免許・資格２" onchange="validateform(this)"/>              
+              </div>
+            </div>
+            <button class="add-btn" type="button" onclick="addQualification()" id="add-qualification">追加</button>
+          </section>
+          <section class="jikoPR-info">
+            <h4>自己pr</h4>
+            <h6>自己PRポイントを選択してください</h6>
+            <div id="checkbox-group">
+              <input type="checkbox" id="point1" name="point" value="コミュニケーション力">
+              <label for="point1">コミュニケーション力</label><br>
+              <input type="checkbox" id="point2" name="point" value="協調性">
+              <label for="point2">協調性</label><br>
+              <input type="checkbox" id="point3" name="point" value="真面目">
+              <label for="point3">真面目</label><br>
+              <input type="checkbox" id="point4" name="point" value="長所">
+              <label for="point4">長所</label><br>
+              <input type="checkbox" id="point5" name="point" value="責任感">
+              <label for="point5">責任感</label><br>
+              <input type="checkbox" id="point6" name="point" value="実行力">
+              <label for="point6">実行力</label><br>
+              <input type="checkbox" id="point7" name="point" value="業務遂行能力">
+              <label for="point7">業務遂行能力</label><br>
+              <input type="checkbox" id="point8" name="point" value="リーダーシップ">
+              <label for="point8">リーダーシップ</label><br>
+              <input type="checkbox" id="point9" name="point" value="問題解決力">
+              <label for="point9">問題解決力</label><br>
+              <input type="checkbox" id="point10" name="point" value="向上心">
+              <label for="point10">向上心</label><br>
+              <input type="checkbox" id="point11" name="point" value="創造性">
+              <label for="point11">創造性</label><br>
+              <input type="checkbox" id="point12" name="point" value="柔軟性">
+              <label for="point12">柔軟性</label><br>
+              <input type="checkbox" id="point13" name="point" value="誠実さ">
+              <label for="point13">誠実さ</label><br>
+              <input type="checkbox" id="point14" name="point" value="調整力">
+              <label for="point14">調整力</label><br>
+              <input type="checkbox" id="point15" name="point" value="学習意欲">
+              <label for="point15">学習意欲</label><br>
+              <input type="checkbox" id="point16" name="point" value="ストレス耐性">
+              <label for="point16">ストレス耐性</label><br>
+              <input type="checkbox" id="point17" name="point" value="論理的思考力">
+              <label for="point17">論理的思考力</label><br>
+              <input type="checkbox" id="point18" name="point" value="分析力">
+              <label for="point18">分析力</label><br>
+              <input type="checkbox" id="point19" name="point" value="判断力">
+              <label for="point19">判断力</label><br>
+              <input type="checkbox" id="point20" name="point" value="交渉力">
+              <label for="point20">交渉力</label><br>
+            </div>
+            <div>
+              <label for="otherqlty">
+                その他の自己prポイント
+              </label>
+              <input type="text" id="other-checkbox" name="point" placeholder="自己prポイント">
+            </div>
+            <p class="caption">自分で選択したポイントの通り、自己pr文章を作成します。</p>
+            <button class="add-btn" type="button" onclick="getValue(0)">自己prを作成</button>
+            <div id="jikoprError" class="error"></div>
+            <textarea rows="8" id="jikopr-area"></textarea>
+          </section>
+          <section class="jikopr-info">
+            <h4> 志望動機</h4>
+            <h6>転職先の仕事内容を選択してください</h6>
+            <div class="caption">次の会社でやりたい仕事</div>
+            <div id="select-group">
+              <select id="select" class="jobtype">
+                <option value="">選択してください</option>
+                <option name="select" value="事務・管理系">事務・管理系</option>
+                <option name="select" value="営業系">営業系</option>
+                <option name="select" value="企画系">企画系</option>
+                <option name="select" value="販売・サービス系">販売・サービス系</option>
+                <option name="select" value="クリエイティブ系">クリエイティブ系</option>
+                <option name="select" value="IT・エンジニア系">IT・エンジニア系</option>
+                <option name="select" value="飲食店,">飲食店</option>
+                <option name="select" value="技術系">技術系</option>
+                <option name="select" value="ロボット・開発系">ロボット・開発系</option>
+                <option name="select" value="金融系">金融系</option>
+                <option name="select" value="教育，学習支援業">教育，学習支援業</option>
+              </select>
+              <div>
+                <label for="otherkam">
+                  その他の職種
+                </label>
+                <input id="other-select" name="select" type="text" placeholder="職種内容">
+              </div>
+            </div><br/>
+            <button class="add-btn" type="button" onclick="getValue(1)">希望動機を作成</button>
+            <div id="kiboudoukiError" class="error"></div>
+            <textarea rows="8" id="kiboudouki-area"></textarea>
+          </section>
+          <div class="file-upload">
+            <div class="card">
+              <h3>写真をアップロード</h3>
+              <div class="drop_box">
+                <div class="img-area">
+                  <h4>写真を選択してください。</h4>
+                  <p>サポートされる写真: image type eg: jpg, png etc</p>
+                </div>
+                <input type="file" hidden accept="image/*" id="fileID" style="display:none;">
+                <button type="button" class="btn" onclick="fileUpload()" id="file-upload-btn">アップロードする</button>
+              </div>
+            </div>
+          </div>
+          <button onclick="myFunction()" type="button" class="button" style="vertical-align:middle"><font>内容を確認する </font></button>
+        </div>
+        <div id="checkBox" class="checkBox">
+          <div id="submit">
+            <button type="button" onclick="toback()">修正する</button>
+            <button type="submit" class="button">送信する</button>
+          </div>
+        </div>
+      </form>
+    </main>
+    <div class="side">
+      <div class="flex-video">
+        <div class="flex-item-right">
+          <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY?playlist=tgbNymZ7vqY&loop=1">
+          </iframe>
+        </div>
+          <div class="flex-item-right">
+            <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY?playlist=tgbNymZ7vqY&loop=1">
+            </iframe>
+          </div>
+          <div class="flex-item-right">
+            <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY?playlist=tgbNymZ7vqY&loop=1">
+            </iframe>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div id="demo"></div>
+  <footer>Made with ♥ for CSS</footer>
+
+<!-------------------------script--------------------------->
+<script>
+
+  document.getElementById('checkBox').style.display="none";
+  let cmmn=0;
+  let value=value2=3;
+  let valId = "";
+  let selet ="";
+  let imgName;
+function add(getV) {
+  let add="";
+  let forName=forId="";
+  if (getV==0){
+    cmmn =++value;
+    forName="学歴";
+    forId = "schoolName";
+    valId = "s";
+    add = document.getElementById("add-reki");
+    selet=`
+    <select name="s-status">
+      <option selected value="">選択</option>
+      <option value="卒業">卒業</option>
+      <option value="入学">入学</option>
+    </select>
+    `;
+  }
+  if (getV==1){
+    cmmn=++value2;
+    forName="職歴";
+    forId = "kamName";
+    valId = "k";
+    add = document.getElementById("add-reki2");
+    selet=`
+    <select name="k-status">
+      <option selected value="">選択</option>
+      <option value="入社">入社</option>
+      <option value="退職">退職</option>
+      <option value="在職中">在職中</option>
+    </select>
+    `;
+
+  }
+  let html =`
+     <div class="reki">
+        <h6 id="${forId}${valId}${cmmn}">${forName}${cmmn}<span> &#10004</span></h6>
+        <div class="reki-date-status">
+          <div class="input-group">
+            <div class="col-third">
+              <input type="text" name="day" placeholder="日" onchange="validateform(this)" class="${forId}${valId}${cmmn}"/>
+            </div>
+            <div class="col-third">
+              <input type="text" name="month" placeholder="月" onchange="validateform(this)" class="${forId}${valId}${cmmn}"/>
+            </div>
+            <div class="col-third">
+              <input type="text" name="year" placeholder="年" onchange="validateform(this)" class="${forId}${valId}${cmmn}"/>
+            </div>
+          </div>
+          <div class="reki-status">
+            ${selet}
+          </div>
+        </div>
+        <div id="${forId}${valId}${cmmn}Error" class="error"></div>
+        <div class="nice-form-group">
+          <input name="${forId}" id="${valId}${cmmn}" type="text" placeholder="${forName}${cmmn}" onchange="validateform(this)"/>               
+        </div>
+      </div>
+  `;
+  add.insertAdjacentHTML("beforebegin", html);
+  }
+  
+let value3=2;
+function addQualification(){
+  value3++;
+  let add=document.getElementById("add-qualification");
+  let html = 
+    '<div class="reki">'+
+      '<h6 id="sikakul'+value3+'">免許・資格'+value3+'<span> &#10004</span></h6>'+
+      '<div class="reki-date-status">'+
+        '<div class="input-group">'+
+          '<div class="col-third">'+
+            '<input type="text" name="day" placeholder="日" onchange="validateform(this)" class="sikakul'+value3+'"/>'+
+          '</div>'+
+          '<div class="col-third">'+
+            '<input type="text" name="month" placeholder="月" onchange="validateform(this)" class="sikakul'+value3+'"/>'+
+          '</div>'+
+          '<div class="col-third">'+
+            '<input type="text" name="year" placeholder="年" onchange="validateform(this)" class="sikakul'+value3+'"/>'+
+          '</div>'+
+        '</div>'+
+      '</div>'+
+      '<div id="sikakul'+value3+'Error" class="error"></div>'+
+      '<div class="nice-form-group">'+
+        '<input type="text" name="sikaku" id="l'+value3+'" placeholder="免許・資格'+value3+'" onchange="validateform(this)"/>'+               
+      '</div>'+
+    '</div>'   
+  ;
+  add.insertAdjacentHTML("beforebegin", html);
+
+  }
+
+  function fileUpload(){
+    let input=document.getElementById("fileID");
+    input.click();
+    const dropArea = document.querySelector(".img-area");
+    input.addEventListener("change", function (e) {
+    imgName = URL.createObjectURL(e.target.files[0]);
+
+  dropArea.innerHTML = `<img src="${imgName}" id="output" width="200"/>`;
+  });
+  };
+
+  function toback() {
+    let getData = document.getElementById('submit');
+    let setvalue=document.getElementById("checkBox");
+    setvalue.innerHTML="";
+    setvalue.appendChild(getData);
+    document.getElementById('input-fild').style.display="block";
+    document.getElementById('checkBox').style.display="none";
+  }
+
+  function myFunction() {
+  let personalInfo = document.querySelectorAll('.personal-info input');
+  let gakurekiInfo = document.querySelectorAll('.gakureki-info input');
+  let syoukuInfo = document.querySelectorAll('.syousoku-info input');
+  let sikakuInfo = document.querySelectorAll('.sikaku-info input');
+  let jikoPRInfo = document.querySelectorAll('.jikoPR-info input');
+  let kiboudoukiInfo = document.querySelectorAll('.kiboudouki-info input');
+  let content = document.getElementById("checkBox");
+  const list = [gakurekiInfo, syoukuInfo, sikakuInfo];
+  const name = ["学歴","職歴","免許・資格"];
+  let img=`<img src="${imgName}" id="img" width="150px"/>`;
+  document.getElementById("submit").insertAdjacentHTML("beforebegin", img);
+ 
+  let sei = document.getElementsByName("gender");
+  let seiValue;
+  for (var i = 0; i < sei.length; i++) {
+        if (sei[i].checked) {
+            seiValue= sei[i].value;
+        }
+      }
+  let code =`
+      <h4>入力内容を確認してください。</h4>
+      <div class="check-personal-info">
+        <p>名前： ${personalInfo[0].value}</p>
+        <p>名前 (フリガナ): ${personalInfo[1].value}</p>
+        <p>国籍: ${personalInfo[2].value}</p>
+        <p>現在住所: ${personalInfo[3].value}</p>
+        <p>電話番号: ${personalInfo[4].value}</p>
+        <p>メールアドレス: ${personalInfo[5].value}</p>
+        <p>生年月日: ${personalInfo[8].value+"-"+personalInfo[7]+"-"+personalInfo[6]}</p>
+        <p>性別: ${seiValue}</p>
+      </div>
+  `;
+  document.getElementById("submit").insertAdjacentHTML("beforebegin", code);
+
+  let conut = 0;
+  for (let getValue of list){
+    let status;
+    if (getValue == gakurekiInfo) {
+      status = document.getElementsByName("s-status");
+    }else if (getValue == syoukuInfo) {
+      status = document.getElementsByName("k-status");
+    }else{
+      status="";
+    }
+      // start table and add caption
+    let tablehtml = `
+          <table>
+            <tr>
+              <th>年・月・日</th>
+              <th>${name[conut]}</th> 
+            </tr>
+    `;
+    let i;
+    let j=0;
+    let inputSize= getValue.length;
+    for (i= 0; i<inputSize;){
+      let statusValue="";
+      if (status != "" && j < status.length){
+        statusValue=status[j].value;
+        j++;
+      }
+      let code =`
+            <tr>
+              <td>${getValue[i++].value}-${getValue[i++].value}-${getValue[i++].value}</td>
+              <td class="wrap">${getValue[i++].value+" "} ${" "+statusValue}</td>
+            </tr>
+      `;
+      tablehtml += code;
+  }
+  tablehtml += "</table>";
+  document.getElementById("submit").insertAdjacentHTML("beforebegin", tablehtml);
+  conut++
+  }
+
+  let jikopr=document.getElementById("jikopr-area");
+  let html =`<br/>
+    <div class="jikoPr-check">
+      <h4>自己PR</h4>
+      <div>${jikopr.value}</div>
+    </div>
+  `;
+  document.getElementById("submit").insertAdjacentHTML("beforebegin", html);
+
+  let kiboudouki=document.getElementById("kiboudouki-area");
+  let html1 =`<br/>
+    <div class="kiboudouki-check">
+      <h4>希望動機</h4>
+      <div>${kiboudouki.value}</div>
+    </div><br/>
+  `;
+  document.getElementById("submit").insertAdjacentHTML("beforebegin", html1);
+
+  document.getElementById('input-fild').style.display="none";
+  document.getElementById('checkBox').style.display="block";
+  window.scrollTo(0, 0);
+  }
+
+  function getValue(get) {
+    let result=[];
+    let valError, val;
+    if(get == 0) {
+      let checkboxes =
+                document.getElementsByName('point');
+      valError = document.getElementById("jikoprError");
+      val = document.getElementById("jikopr-area");
+                
+      for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+            result[i]= checkboxes[i].value;
+        }
+      }
+      let x = document.getElementById("other-checkbox");
+      if (x.value != "") {
+        result.push(x.value);
+      }
+    }else if (get == 1) {
+      result[0]=document.getElementById("select").value;
+      val = document.getElementById("kiboudouki-area");
+      valError =document.getElementById("kiboudoukiError");
+      let x = document.getElementById("other-select");
+      if (x.value != "") {
+        result.push(x.value);
+      }
+    }else {
+      return;
+    }
+    
+    if (result == "") { 
+       if (get == 0){
+        valError.innerHTML= '自己prを選択してください。';
+       }else {
+        valError.innerHTML = '職種を選択してください。';
+       }
+      return;
+    }
+    valError.innerHTML="";
+    val.style.display="block";
+    const dbParam = JSON.stringify(result);
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+      if (this.readyState == 4 && this.status == 200) {
+          val.value = this.responseText;
+        
+      }
+    }
+    xhttp.open("GET", "checkback.php?q="+dbParam);
+    xhttp.send(); 
+}
+
+  function validattionform(){  
+    var name=document.myform.name.value;  
+    var password=document.myform.password.value;  
+      
+    if (name==null || name==""){  
+      alert("Name can't be blank");  
+      return false;  
+    }else if(password.length<6){  
+      alert("Password must be at least 6 characters long.", true);  
+      return false;  
+      }  
+  }
+</script>
+</body>
+</html>

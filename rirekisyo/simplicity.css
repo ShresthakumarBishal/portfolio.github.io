@@ -1,0 +1,399 @@
+html {
+  font-size: 16px;
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+html, body, div, main, section, h4, h3, p, select, option, h6, font{
+  padding: 0;
+  margin: 0;
+  font-size: inherit;
+
+}
+h6 {
+  font-size: 0.8rem;
+}
+header, main, section, footer, .side {
+  display: block;
+}
+body {
+  /*font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+  background-color: #e3e3e3;
+}
+p {
+  font-size: 1rem;
+  padding: 0.4rem 1rem;
+}
+/* ------------header --------------------------------*/
+header {
+  /* background: url('3d_mobile.jpg');*/
+  width: 100%;
+  height: auto;
+  /* background-size: cover;
+  background-attachment: fixed;*/
+  background-image: url(3d.png);
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0 0 85% 85% / 30%;
+  margin-bottom: 1.4rem;
+}
+header .overlay{
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  text-align: center;
+  padding-right: 20%;
+  color: #3a3a3a;
+  text-shadow: 1px 1px 1px #a09f9f;
+  /*background-image: linear-gradient( 135deg, #9f05ff69 10%, #fd5e086b 100%);*/
+  background-image: linear-gradient( 135deg, white 10%, #fd5e086b 100%);
+}
+header h1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+header p {
+  width: 60%;
+  margin: auto;
+  text-align: center;
+}
+
+button {
+  border: none;
+  outline: none;
+  padding: 0.85rem 1.2rem;
+  border-radius: 3rem;
+  color: #333;
+  background-color: #f0a400dd;
+  margin-bottom: 3rem;
+  box-shadow: 0 3px 20px 0 #0000003b;
+}
+
+button:hover{
+  cursor: pointer;
+}
+/*---------------------fildset---------------------*/
+fieldset {
+  margin: 0 auto;
+  display: flex;
+  max-width: 50em;
+  padding: 0 2rem;
+}
+fieldset li {
+  padding: 0.2rem 0;
+}
+/*---------------------container---------------------*/
+.container{
+  margin: 0 auto;
+  display: flex;
+  max-width: 55em;
+  position: relative;
+}
+main {
+  width: 100%;
+  padding: 2em 0.75em;
+}
+
+section {
+  color: #434343df;
+  background: #fff;
+  padding: 1em 2em;
+  border-radius: 0.75rem;
+  line-height: 1.6;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  width: 100%;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+section h2 {
+  color: #b9b9b9;
+}
+section h4 {
+  color: #f0a500;
+}
+
+section .nice-form-group{
+  padding: 0.4rem 0;
+  display: block;
+  line-height: 1;
+}
+input[type="text"],input[type="tel"], input[type="email"],input[type="address"],
+input[type="radio"] + label{
+  width: 100%;
+  padding: 1em;
+  line-height: 1.4;
+  background-color: #f9f9f9;
+  border: 1px solid #e5e5e5;
+  border-bottom: 2px solid #eee;
+  border-radius: 3px;
+ /*--
+   -webkit-transition: 0.35s ease-in-out;
+  -moz-transition: 0.35s ease-in-out;
+  -o-transition: 0.35s ease-in-out;
+  transition: 0.35s ease-in-out;
+  transition: all 0.35s ease-in-out;
+ */
+}
+label {
+  font-size: 0.875rem;
+  padding: 0 0 0.1rem 0.3rem;
+}
+input:focus {
+  outline: 0;
+  border-bottom: 2px solid #6e50f5;
+
+}
+.col-half {
+  padding-right: 10px;
+  float: left;
+  width: 50%;
+}
+.col-half:last-of-type {
+  padding-right: 0;
+}
+.col-third {
+  padding-right: 10px;
+  float: left;
+  width: 33.33333333%;
+}
+.col-third:last-of-type {
+  padding-right: 0;
+}
+.input-group {
+  margin-bottom: 1em;
+  zoom: 1;
+}
+.input-group:before,
+.input-group:after {
+  content: "";
+  display: table;
+}
+.input-group:after {
+  clear: both;
+}
+
+input[type="radio"] {
+  display: none;
+}
+input[type="radio"] + label {
+  display: block;
+  width: 50%;
+  border-radius: 0;
+}
+
+input[type="radio"]:checked + label {
+  background-color: #f0a500;
+  color: #fff;
+  border-color: #bd8200;
+}
+.add-btn {
+ padding: 0.3rem 0.6rem;
+ margin-bottom: 1rem;
+}
+@media only screen and (max-width: 740px) {
+  .col-half {
+    width: 100%;
+    padding-right: 0;
+  }
+
+}
+
+.reki-date-status {
+  display: flex;
+  justify-content: space-between;
+}
+.reki .input-group{
+  width: 60%;
+  margin: 0;
+}
+.reki .reki-status select{
+  padding: 0.3rem;
+  font-size: 0.85rem;
+}
+.reki .input-group input{
+  padding: 0.3rem;
+  font-size: 0.85rem;
+}
+.checkBox {
+  display: flex;
+  flex-wrap: wrap;
+}
+.checkBox-flex{
+  flex: 50%;
+  
+}
+.button {
+  display: flex;
+  border-radius: 0.4rem;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 1rem;
+  max-width: 50%;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin:auto;
+  margin-top: 1.5rem;
+}
+.button font { 
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+.button font:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.button:hover font {
+  padding-right: 25px;
+}
+
+.button:hover font:after {
+  opacity: 1;
+  right: 0;
+}
+  /*------------------------file upload-----------*/
+ 
+.card h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  
+}
+
+.drop_box {
+  margin: 10px 0;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 3px dotted #a3a3a3;
+  border-radius: 5px;
+}
+
+.drop_box h4 {
+  font-size: 16px;
+  font-weight: 400;
+  color: #2e2e2e;
+}
+.drop_box .fileName {
+  color: red;
+}
+.drop_box p {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 12px;
+  color: #a3a3a3;
+}
+
+.btn {
+  text-decoration: none;
+  background-color: #005af0;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  outline: none;
+  transition: 0.3s;
+}
+
+.btn:hover{
+  text-decoration: none;
+  background-color: #ffffff;
+  color: #005af0;
+  padding: 10px 20px;
+  border: none;
+  outline: 1px solid #010101;
+}
+input[type="file"] {
+  margin: 10px 0;
+  width: 100%;
+  background-color: #e2e2e2;
+  border: none;
+  outline: none;
+  padding: 12px 20px;
+  border-radius: 4px;
+}
+/*------------------------side vedio-----------*/
+.side {
+  width: 25em;
+  padding: 2em 1em;
+}
+.flex-video {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 2em;
+}
+@media only screen and (max-width: 740px) {
+  .side {
+    display: none;
+  }
+  
+}
+::placeholder { 
+  color: #ccc;
+  opacity: 1;
+}
+ 
+span {
+  color: rgb(72, 241, 72);
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: none;
+ }
+ .birthdayerror {
+  padding-left: 1rem;
+  font-size: 0.8em;
+  width: 100%;
+}
+.error {
+  padding: 0.3rem;
+  padding-left: 1rem;
+  color: red;
+  font-size: 0.7em;
+  width: 100%;
+}
+.caption {
+  color: #a09f9f;
+  font-size: 0.7rem;
+}
+.jobtype{
+  font-size: 0.85rem;
+  padding: 0.3rem;
+}
+#kiboudouki-area, #jikopr-area {
+  padding: 0.5rem;
+  display: none;
+  width: 100%;
+}
+/*-----確認画面ーーーーー*/
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 0.3rem;
+}
+table {
+  margin-top: 0.8rem;
+  text-align: center;
+  width: 100%;
+}
+/*-----forterーーーーー*/
+footer {
+  padding: 1rem;
+  margin: auto;
+  text-align: center;
+  background-color: #545353;
+}
