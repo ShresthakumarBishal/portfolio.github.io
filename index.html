@@ -83,7 +83,7 @@
 
         }
 
-        h1{
+        h1 {
             color: #002D5B;
         }
 
@@ -110,9 +110,9 @@
             flex: 25%;
             margin-top: 60px;
             margin-left: 50px;
-            text-align: center;
             min-width: 230px;
-            box-shadow: 15px 15px 5px rgb(41, 41, 41);
+            background-color: #fff;
+            /* box-shadow: 15px 15px 5px #ce5b53b9; */
         }
 
         .iframe {
@@ -120,9 +120,9 @@
         }
 
         .iframe_title {
-            line-height: 50px;
-            background-color: rgb(80, 78, 78);
-            font-weight: bold;
+            padding: 20px;
+            color: rgb(60, 60, 60);
+            font-family: 'Times New Roman', Times, serif;
         }
 
         .row_child a {
@@ -141,6 +141,7 @@
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             padding-top: 50px;
             background-color: #fff;
+            margin-left: 10px;
         }
 
         .title {
@@ -165,20 +166,31 @@
             transition: 1.5s all ease;
             align-items: center;
             justify-content: space-between;
-            gap:20px;
-        }
-        .about_img {
-            width: 100%;
-            border-radius: 50%;
-            padding: 50px;
+            border-radius: 10px;
+            padding: 20px;
         }
 
-        p {
-            font-size: 20px;
+        .flex_1 {
+            padding: 15px 0px 3px 0px;
+            background-color: #CE5B53;
+            border-radius: 10px;
+            width: 25%;
+        }
+
+        .flex_2 {
+            width: 30%;
+        }
+
+        .about_img {
+            width: 100%;
+            border-radius: 10px;
+            margin-left: -15px;
+        }
+
+        .about p {
+            font-size: 14px;
             text-align: justify;
-            padding-right: 20px;
-            position: relative;
-            color: gray;
+            color: rgb(55, 55, 55);
         }
 
         .flower {
@@ -218,8 +230,8 @@
 
         ul {
             border-style: inset;
-            padding: 5px 0;
-            background-color: beige;
+            padding: 5px 10px;
+            background-color: rgb(245, 239, 237);
         }
 
         li {
@@ -228,18 +240,45 @@
             padding-bottom: 20px;
         }
 
+        /*----------------------------------------------------skill-container----*/
+        .skill-container {
+            display: flex;
+            justify-content: space-around;
+        }
 
-        /*---skill bar */
         .skill_bar {
-            margin-bottom: 100px;
             transform: translateY(150px);
             opacity: 0;
             transition: 2s all ease;
+            padding: 20px;
+            flex:1;
         }
 
         .container {
+            position: relative;
             width: 100%;
             background-color: rgba(61, 60, 60, 0.809);
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+
+        .skill-name {
+            position: absolute;
+            left: 10px;
+            top: 3px;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .skill-percentage {
+            text-align: right;
+            padding-top: 3px;
+            padding-bottom: 3px;
+            padding-right: 10px;
+            color: white;
+            border-radius: 12px;
+            font-size: 14px;
         }
 
         h5 {
@@ -248,14 +287,7 @@
             padding: 25px 10px 10px 10px;
         }
 
-        .skills {
-            text-align: right;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            color: white;
-        }
-
-        .html {
+        /* .html {
             transition: width 4s;
             background-color: #04AA6D;
         }
@@ -293,11 +325,20 @@
         .vue {
             transition: width 4s;
             background-color: #f321b1;
-        }
+        } */
 
         .scss {
             transition: width 4s;
             background-color: #08899b;
+        }
+
+        .html, .css, .mysql, .php, .js, .python, .java, .vue, .scss {
+            transition: width 4s;
+            background-color: #469656;  
+        }
+        .gitHub, .docker, .aws {
+            transition: width 4s;
+            background-color: #be6856;  
         }
 
         /*---reveal content----*/
@@ -482,38 +523,61 @@
             <h1 class="simple_head">ポートフォリオ一覧</h1>
             <div class="row">
                 <div class="row_child">
-                    <div class="iframe"><iframe scrolling="no" src="https://shresthakumarbishal.github.io/portfolio.github.io/learn.html"></iframe>
-                    </div><a href="https://shresthakumarbishal.github.io/portfolio.github.io/learn.html">
-                        <div class="iframe_title">ブログ</div>
+                    <div class="iframe"><iframe scrolling="no"
+                            src="https://shresthakumarbishal.github.io/portfolio.github.io/learn.html"></iframe>
+                    </div>
+                    <a href="https://shresthakumarbishal.github.io/portfolio.github.io/learn.html">
+                        <div class="iframe_title">
+                            <div>アンドロイドアプリ</div>
+                            <div>PHP HTML CSS JavaScript</div>
+                        </div>
                     </a>
                 </div>
                 <div class="row_child"><a href="">
-                    <div class="iframe"><iframe scrolling="no" src="https://shresthakumarbishal.github.io/portfolio.github.io/learn.html"></iframe>
-                    </div><a href="https://shresthakumarbishal.github.io/portfolio.github.io/learn.html">
-                        <div class="iframe_title">管理システム</div>
-                    </a></div>
+                        <div class="iframe"><iframe scrolling="no"
+                                src="https://shresthakumarbishal.github.io/portfolio.github.io/rirekisyo/"></iframe>
+                        </div>
+                        <a href="https://shresthakumarbishal.github.io/portfolio.github.io/rirekisyo/">
+                            <div class="iframe_title">
+                                <div>会社HP サンプル</div>
+                                <div>PHP HTML CSS JavaScript</div>
+                            </div>
+                        </a></div>
                 <div class="row_child"><a href="">
-                    <div class="iframe"><iframe scrolling="no" src="app.PNG"></iframe></div><a
-                        href="https://play.google.com/store/apps/details?id=japanesequiz.japanesequiz2&pli=1">
-                        <div class="iframe_title">アンドロイドアプリ</div>
-                    </a></div>
+                        <div class="iframe"><iframe scrolling="no" src="app.PNG"></iframe></div><a
+                            href="https://play.google.com/store/apps/details?id=japanesequiz.japanesequiz2&pli=1">
+                            <div class="iframe_title">
+                                <div>アンドロイドアプリ</div>
+                                <div>Python HTML CSS JavaScript</div>
+                            </div>
+                        </a></div>
                 <div class="row_child"><a href="">
-                    <div class="iframe"><iframe scrolling="no" src="https://shresthakumarbishal.github.io/portfolio.github.io/learn.html"></iframe></div><a
-                        href="https://www.simplikivyapp.com/">
-                        <div class="iframe_title">会社HP サンプル</div>
-                    </a></div>
+                        <div class="iframe"><iframe scrolling="no"
+                                src="https://shresthakumarbishal.github.io/portfolio.github.io/learn.html"></iframe>
+                        </div><a href="https://www.simplikivyapp.com/">
+                            <div class="iframe_title">
+                                <div>履歴書作成サイト</div>
+                                <div>HTML CSS JavaScript</div>
+                            </div>
+                        </a></div>
                 <div class="row_child"><a href="">
-                    <div class="iframe"><iframe scrolling="no"
-                            src="https://shresthakumarbishal.github.io/portfolio.github.io/learn.html"></iframe></div><a
-                        href="https://shresthakumarbishal.github.io/portfolio.github.io/learn.html">
-                        <div class="iframe_title">レストランHP(作成中)</div>
-                    </a></div>
+                        <div class="iframe"><iframe scrolling="no"
+                                src="https://shresthakumarbishal.github.io/portfolio.github.io/blog/"></iframe>
+                        </div><a href="https://shresthakumarbishal.github.io/portfolio.github.io/blog/">
+                            <div class="iframe_title">
+                                <div>ブログ</div>
+                                <div>HTML CSS JavaScript</div>
+                            </div>
+                        </a></div>
                 <div class="row_child"><a href="">
-                    <div class="iframe"><iframe scrolling="no"
-                            src="https://shresthakumarbishal.github.io/portfolio.github.io/learn.html"></iframe></div><a
-                        href="https://shresthakumarbishal.github.io/portfolio.github.io/learn.html">
-                        <div class="iframe_title">シンプルEC Site</div>
-                    </a></div>
+                        <div class="iframe"><iframe scrolling="no"
+                                src="https://shresthakumarbishal.github.io/portfolio.github.io/learn.html"></iframe>
+                        </div><a href="https://shresthakumarbishal.github.io/portfolio.github.io/learn.html">
+                            <div class="iframe_title">
+                                <div>会社HP サンプル</div>
+                                <div>PHP HTML CSS JavaScript</div>
+                            </div>
+                        </a></div>
             </div>
         </div>
         <br><br>
@@ -523,13 +587,9 @@
         <div id="about" class="about">
             <h1 class="title">ABOUT ME</h1>
             <div id="contents" class="contents reveal">
-                <div class="flex_1">
-                    <img class="about_img" src="bsaal.jpg" />
-                </div>
                 <div class="flex_2">
                     <h3>情熱を持って開発する。</h3>
-
-                    <p style="font-size: 16px;">
+                    <p>
                         <!--<img class="flower" src="flower.png"/>-->
                         私の強みは、笑顔と健康です。何事も前向きになるように考えることです。<br>
                         これまで学校や、アルバイト、社会人になっての職場でも、笑顔でコミュニケーションをと
@@ -551,10 +611,13 @@
 
                     </p>
                 </div>
+                <div class="flex_1">
+                    <img class="about_img" src="bsaal.jpg" />
+                </div>
             </div>
             <!--project(start)-->
+            <h1 class="title">PROJECTS</h1>
             <div id="project" class="project_list reveal">
-                <h1 class="title">PROJECTS</h1>
                 <p>全てのソースコード: <a href="https://github.com/ShresthakumarBishal/">GitHub</a></p>
                 <h4>1. プージャーレストランの開発</h4>
                 <ul>
@@ -588,54 +651,68 @@
                         また、SpringBootというフレームワークを使って、ECサイトの機能開発も経験いたしました。</p>
                 </ul>
             </div>
-            <div id="get" style="margin-left: 200px;"></div>
             <!--skill bar start-->
-            <div id="skill_bar" class="skill_bar reveal">
-                <h1 class="title">My SKILLS</h1>
-                <h5>HTML</h5>
-                <div class="container">
-                    <div class="skills html">90%</div>
+            <h1 class="title">My SKILLS</h1>
+            <div class="skill-container">
+                <div id="skill_bar" class="skill_bar reveal">
+                    <div class="container">
+                        <div class="skill-name">Html</div>
+                        <div class="skill-percentage html">90%</div>
+                    </div>
+                    <div class="container">
+                        <div class="skill-name">CSS</div>
+                        <div class="skill-percentage css">85%</div>
+                    </div>
+                    <div class="container">
+                        <div class="skill-name">MySql</div>
+                        <div class="skill-percentage mysql">80%</div>
+                    </div>
+                    <div class="container">
+                        <div class="skill-name">PHP</div>
+                        <div class="skill-percentage php">60%</div>
+                    </div>
+                    <div class="container">
+                        <div class="skill-name">JavaScript</div>
+                        <div class="skill-percentage js">55%</div>
+                    </div>
+                    <div class="container">
+                        <div class="skill-name">Python</div>
+                        <div class="skill-percentage python">50%</div>
+                    </div>
+                    <div class="container">
+                        <div class="skill-name">Java</div>
+                        <div class="skill-percentage java">50%</div>
+                    </div>
+                    <div class="container">
+                        <div class="skill-name">Vue.js</div>
+                        <div class="skill-percentage vue">45%</div>
+                    </div>
+                    <div class="container">
+                        <div class="skill-name">SCSS</div>
+                        <div class="skill-percentage scss">30%</div>
+                    </div>
                 </div>
-                <h5>CSS</h5>
-                <div class="container">
-                    <div class="skills css">85%</div>
-                </div>
-                <h5>MySQL</h5>
-                <div class="container">
-                    <div class="skills mysql">80%</div>
-                </div>
-                <h5>PHP</h5>
-                <div class="container">
-                    <div class="skills php">60%</div>
-                </div>
-                <h5>JavaScript</h5>
-                <div class="container">
-                    <div class="skills js">55%</div>
-                </div>
-                <h5>Python</h5>
-                <div class="container">
-                    <div class="skills python">50%</div>
-                </div>
-                <h5>Java</h5>
-                <div class="container">
-                    <div class="skills java">50%</div>
-                </div>
-                <h5>Vue.js</h5>
-                <div class="container">
-                    <div class="skills vue">45%</div>
-                </div>
-                <h5>SCSS</h5>
-                <div class="container">
-                    <div class="skills scss">30%</div>
+                <div id="skill_bar" class="skill_bar reveal">
+                    <div class="container">
+                        <div class="skill-name">Github</div>
+                        <div class="skill-percentage gitHub">70%</div>
+                    </div>
+                    <div class="container">
+                        <div class="skill-name">Docker</div>
+                        <div class="skill-percentage docker">50%</div>
+                    </div>
+                    <div class="container">
+                        <div class="skill-name">AWS</div>
+                        <div class="skill-percentage aws">20%</div>
+                    </div>
                 </div>
             </div>
-            <!--skill bar end-->
-            <h2 class="title">Connect wih</h2>
         </div>
     </main>
     <!--contact-->
     <div class="bg_image">
         <div class="contact">
+            <h1 class="title">Connect wih</h1>
             <div class="contact_list">
                 <a href="https://Instagram.com/bsaal_crestha" target="_blank"><i
                         class="fa fa-instagram"></i>Instagram</a>
@@ -664,17 +741,17 @@
             var sidebar = document.getElementById("sidebar");
             sidebar.style.display = 'none';
         }
-        var className = document.querySelectorAll(".skills");
+        var className = document.querySelectorAll(".skill-percentage");
         var reveals = document.querySelectorAll(".reveal");
         function reveal() {
             var viewport_value = window.innerHeight;
 
             for (i = 0; i < reveals.length; i++) {
                 var get_value = reveals[i].getBoundingClientRect().top;
-                var value = (viewport_value / 2) + 150;
+                var value = (viewport_value / 2) + 200;
                 if (value >= get_value) {
                     reveals[i].classList.add("active");
-                    if (reveals[i] == reveals[2]) {
+                    if (reveals[i] == reveals[3]) {
                         var div_height = reveals[i].getBoundingClientRect().height;
                         for (i = 0; i < className.length; i++) {
                             className[i].style.width = className[i].innerHTML;
@@ -698,5 +775,4 @@
 
     </script>
 </body>
-
 </html>
