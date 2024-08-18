@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="content-type" content="text/html">
+  <meta http-equiv="content-type" content="text/css">
+  <title>How to Create a Quiz app</title>
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta name="google-site-verification" content="i83iIZqn5guxpiQgkb-iPwmK6zgyQasJDEYxiMwAcYg" />
+  <link rel="icon" type="image/x-icon" href="image/applogo.png">
+  <meta name="keywords" content="kivy tutorial, python tutorial, kivy app">
+  <meta name="keywords" content="quiz app, android app, kivy app for android">
+  <meta name="keywords" content="simplikivyappp.com">
+  <meta name="keywords" content="www.simplikivyappp.com">
+  <meta name="description" content="How to create a simple kivy app and quiz game app">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Bishal Shrestha">
+  <link rel="stylesheet" href="kivyapp.css" />
+</head>
+<body>
+    <header>
+        <div id="header">
+            <h1 class="page-title">How to Create Simple KivyApp & Quiz GameApp</h1>
+            <div class="htitle">This tutorial is especially targeted towards beginners who want to create their first Kivy app. It uses simple English grammar so that everyone can understand and be able to create a simple Kivy app.</div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="container-nav">
+          <nav>
+            <ul>
+              <li>
+                <a href="#installation">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tool">
+                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                  </svg>
+                  Installation</a>
+              </li>
+              <li>
+                <a href="#kivyapp">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-feather">
+                    <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z" />
+                    <line x1="16" y1="8" x2="2" y2="22" />
+                    <line x1="17.5" y1="15" x2="9" y2="15" />
+                  </svg>
+                  Simple Kivy App</a>
+              </li>
+              <li>
+                <a href="#kv">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 -960 960 960" width="25">
+                    <path d="m384-336 56-57-87-87 87-87-56-57-144 144 144 144Zm192 0 144-144-144-144-56 57 87 87-87 87 56 57ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z"/>
+                    <line x1="16" y1="8" x2="2" y2="22" />
+                    <line x1="17.5" y1="15" x2="9" y2="15" />
+                  </svg>
+                  KV Language</a>
+              </li>
+              <li>
+                <a href="#screenswitch">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers">
+                    <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                    <polyline points="2 17 12 22 22 17" />
+                    <polyline points="2 12 12 17 22 12" />
+                  </svg>
+                  Screen Switch</a>
+              </li>
+              <li>
+                <a href="#quizapp">
+                  <svg xmlns="http://www.w3.org/2000/svg" style="transform: rotate(90deg)" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-columns">
+                    <path d="M12 3h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7m0-18H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7m0-18v18" />
+                  </svg>
+                  Quiz Game App</a>
+              </li>      
+              <li>
+                <a href="#deploy">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 -960 960 960" width="26">
+                        <path d="M480-503Zm-40-366q19-11 40-11t40 11l280 161q19 11 29.5 29t10.5 40v170q-18-13-38-22.5T760-508v-88l-144 83q-56 14-101.5 47.5T440-384v-73L200-596v274l202 117q4 32 15 61.5T445-88q-2-1-2.5-1.5T440-91L160-252q-19-11-29.5-29T120-321v-318q0-22 10.5-40t29.5-29l280-161Zm40 69L243-663l237 137 237-137-237-137Zm200 680 120-120-28-28-72 72v-164h-40v164l-72-72-28 28 120 120Zm0 80q-83 0-141.5-58.5T480-240q0-83 58.5-141.5T680-440q83 0 141.5 58.5T880-240q0 83-58.5 141.5T680-40Z"/>
+                    </svg> 
+                  Deploy the App
+                </a>
+                <ol>
+                    <li><a href="#deploy">For Window</a></li>
+                    <li><a href="#deploy">For Android</a></li>
+                    <li><a href="#deploy">For macOS</a></li>
+                    <li><a href="#deploy">For IOS</a></li>
+                </ol>
+              </li>
+              <li>
+                <a href="quiz-app" target="_blank">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-feather">
+                    <path d="M280-40q-33 0-56.5-23.5T200-120v-720q0-33 23.5-56.5T280-920h280v80H280v40h280v80H280v480h400v-80h80v200q0 33-23.5 56.5T680-40H280Zm0-120v40h400v-40H280Zm440-240L520-600l56-56 104 104v-288h80v288l104-104 56 56-200 200ZM280-800v-40 40Zm0 640v40-40Z"/>
+                    <line x1="16" y1="8" x2="2" y2="22" />
+                    <line x1="17.5" y1="15" x2="9" y2="15" />
+                  </svg>
+                  App on Play Store</a>
+              </li>
+            </ul>
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 390 390">
+                <path class="path" fill="none" stroke="#01549C" stroke-width="2" d="M201.22 102.42c4.2-3.08 8.6-6.42 10.55-11.25 1.52-3.74 1.37-8 2.75-11.76 2.09-5.76 7.29-9.68 11.53-14.11s7.82-10.76 5.59-16.47l-16.74 4.65a16.33 16.33 0 00-4.81 1.9c-3.43 2.29-4.59 6.74-5.25 10.81a104.61 104.61 0 00-.15 32.66c3.83-2.33 5.45-7.11 5.7-11.59.55-10-4.29-20-2.17-29.83 1.59-7.3 6.95-13.8 6.52-21.26a6.11 6.11 0 00-1.13-3.53c-2-2.44-6.12-1.5-8.31.77s-3.21 5.39-5 8c-3.82 5.42-10.55 7.74-16.65 10.33s-12.56 6.43-14.21 12.85c-1.81 7.07 3 14.09 8.25 19.17a79.2 79.2 0 0024.05 16 468.85 468.85 0 01-6.3-56.56c-.23-4.5-.49-9.3-3.15-12.95a21 21 0 01-11.44 7.13 23.85 23.85 0 00-4.75 1.23c-3.26 1.48-5 4.93-7 7.93a42.77 42.77 0 01-16.79 14.89c-3.31 1.64-6.94 2.91-9.52 5.55s-3.68 7.27-1.15 10a9.37 9.37 0 003.74 2.02c6.46 2.32 13.37 3.07 20 4.7a78.46 78.46 0 0135.94 19.92q-17.52 8-35.5 15a13.85 13.85 0 01-5.43 1.29 4.73 4.73 0 01-4.4-2.92c-1.09-3.45 3.31-6.22 3.94-9.79.52-3-1.65-6.2-.32-8.91a6.31 6.31 0 013.39-2.66 17.71 17.71 0 0111.6-.7c2.47.7 4.75 1.94 7.18 2.78 6.57 2.28 13.75 1.57 20.67.84-6.23 6.58-16.34 7.54-25.37 6.8s-18.25-2.75-27-.56c-2.3.58-4.57 1.43-6.93 1.44s-5-1.09-5.79-3.31c-.77-2 .14-4.33 1.57-5.94a37.84 37.84 0 015-4 23.25 23.25 0 007.15-9.46c1.85-4.5 2.29-9.56 4.74-13.77 1.92-3.3 4.94-5.8 7.91-8.21 3.46-2.8 7.54-5.75 11.93-5s7.34 5 9.23 9.15c4.26 9.24 6.25 19.65 12.38 27.77 4.08 5.4 9.88 9.62 12.6 15.83 1.46 3.32 1.92 7 2.49 10.57a147.64 147.64 0 003.87 17.4c2.07 7.24 5.25 15 6 21.53s3.1 25.09 3.1 31.29 4.13 32.22 4.17 40.26c.12 24.89 0 50-4.82 74.38S209.9 353.05 192.62 371c5.15-11.92 4.65-25.41 4.07-38.38-.39-8.72-.79-17.48-2.61-26-2.18-10.25-6.38-20-7.92-30.39-1.55-10.54-.3-21.39-2.33-31.85a51.76 51.76 0 00-15.38-27.75c16.41 4.82 26.54 20.8 35.16 35.58 3.46 5.92 6.95 11.93 8.74 18.55 1.56 5.8 1.76 11.86 1.71 17.86a234.15 234.15 0 01-4.21 42.59c-.49 2.59-2.28 5.92-4.75 5l10.65-54c2.87-14.55 5.81-29.32 12.66-42.47 7.81-15 20.23-27 32.89-38.19 12-10.63 26.51-21.42 42.43-19.37A67.76 67.76 0 00269 217.92c-4.46 10.86-6 22.65-7.65 34.27-1.5 10.45-3.18 21-6.92 30.84s-9.72 19.17-18.39 25.2"></path>
+            </svg>
+          </nav>
+        </div>
+        <main class="container-content">
+            <section>
+                <h1>About Kivy 🕊️</h1>
+                <p> 
+                    Kivy is an open-source Python library; you can use it to create applications on Windows,
+                    Linux, macOS, Android, and iOS. It allows you to create a GUI using widgets and layouts.
+                    Kivy is a cross-platform GUI development library🖥️📱, which means that we can create graphical 
+                    user interfaces using Kivy on Mac, Linux, Windows, Android, and iOS.
+                    If you have knowledge of Python, then you can create a simple Kivy App. In this tutorial, 
+                    we are going to create beautiful Quiz App. Let us Start.
+                </p>
+                <strong>😄Advantages of using Kivy:</strong>
+                <ul>
+                  <li>Kivy apps can run on various platforms such as Windows, Linux, macOS, iOS, Android, and Raspberry Pi.</li>
+                  <li>Kivy provides well-documented APIs that enable developers to design innovative user interfaces.</li>
+                  <li>Kivy provides support for multi-touch functionalities.</li>
+                  <li>
+                    Kivy performs better than HTML5.
+                  </li>
+                  <li>Kivy allows developers to use Python’s clear syntax to build their applications.</li>
+                </ul>
+            </section>
+            <section>
+              <div id="installation" class="target"></div>
+              <h1>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tool">
+                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                </svg>
+                Installation
+              </h1>
+              <p>For example, if you are using <strong>Windows</strong>, you can install Kivy using pip by following these steps:</p>
+              <ol>
+                  <li>Open a command prompt window.</li>
+                  <li>Type <code>python -m pip install kivy</code> and press Enter.</li>
+                  <li>Wait for the installation to complete.</li>
+              </ol>
+              <p>If you are using <strong>macOS</strong>, you can install Kivy using pip by following these steps:</p>
+              <ol>
+                  <li>Open a terminal window.</li>
+                  <li>Type <code>python -m pip install kivy</code> and press Enter.</li>
+                  <li>Wait for the installation to complete.</li>
+              </ol>
+              <a href="https://kivy.org/doc/stable/gettingstarted/installation.html">You can find more detailed
+                      instructions on how to install Kivy on Windows and macOS on the Kivy website.
+              </a>
+            </section>
+            <section>
+              <div id="kivyapp" class="target"></div>
+              <h1>                  
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-feather">
+                  <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z" />
+                  <line x1="16" y1="8" x2="2" y2="22" />
+                  <line x1="17.5" y1="15" x2="9" y2="15" />
+                </svg>
+                Simple Kivy App
+              </h1>
+              <p> 
+                  To create a Simple Kivy App with Python, we will write some code in a <b><i>main.py</i></b> file, which is a Python
+                  script that holds the main logic of our program. The code given below is an example of how to create a basic
+                  Kivy App that displays a button and a label. Open IDE, create a <b><i>main.py</i></b> file, and then write code similar to the one given below.
+              </p>
+              <pre>               
+  <font># import the necessary modules.</font>
+  <span class="blue">from</span> kivy.app <span class="blue">import</span> App
+  <span class="blue">from</span> kivy.uix.button <span class="blue">import</span> Button
+  
+  <font># To represent our window.</font>
+  <span class="blue">class</span> FirstKivy(App):
+  
+    <span class="blue">def</span> build(self):
+      <span class="pinkblack">return</span> Button(
+             text=<span class="text">"Welcome to KivyApp!"</span>
+            )
+  
+  <span class="pink">if</span> <span class="blue">__name__</span> == <span class="main_">'__main__'</span>:
+    <span class="run_">FirstKivy()</span>.run()
+          </pre>
+          <strong>Result 📸:</strong>
+          <img src="https://simplikivyapp.com/Capture.PNG" alt="Kivy App Image" class="img1">
+            </section>
+            <section>
+              <div id="kv" class="target"></div>
+              <h1>
+                <svg xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 -960 960 960" width="25">
+                  <path d="m384-336 56-57-87-87 87-87-56-57-144 144 144 144Zm192 0 144-144-144-144-56 57 87 87-87 87 56 57ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z"/>
+                  <line x1="16" y1="8" x2="2" y2="22" />
+                  <line x1="17.5" y1="15" x2="9" y2="15" />
+                </svg>
+                KV Language
+              </h1>
+              <p>
+                KV language is a design language that is used to make the GUI/Layout of a kivy Application.
+                Now, We will make some buttons using the KV language. Kivy 2.2.1 documentation: This is the official documentation of Kivy <br/>
+                Delete main.py file, and then create a two files as given below:
+                <ol>
+                    <li><b>firstApp.py:</b> For the main logic of our program.</li>
+                    <li><b>layout.kv:</b> For the GUI/Layout design.</li>
+                </ol>
+              </p>             
+              <div id="myDIV">
+                <pre>
+  <font>// 1.firstApp.py</font>
+  <span class="blue">from</span> kivy.app <span class="blue">import</span> App
+  <span class="blue">from</span> kivy.uix.screenmanager <span class="blue">import</span> ScreenManager, Screen  
+  <span class="blue">from</span> kivy.uix.button <span class="blue">import</span> Button
+  <font># import kv.kv file</font>
+  <span class="blue">from</span> kivy.lang <span class="blue">import</span> Builder
+  Builder.load_file(<span class="text">"kv.kv"</span>)
+  
+  <font>#Screen layout class</font>
+  <span class="blue">class</span> Home(Screen):
+      <span class="pink">pass</span>
+  
+  <span class="blue">class</span> FirstKivy(App):
+      <span class="blue">def</span> build(self):
+          home=Home() <font># call Home() Class</font>
+          <span class="pinkblack">return</span> home
+  
+  <span class="pink">if</span> <span class="blue">__name__</span> == <span class="main_">'__main__'</span>:
+      <span class="run_">FirstKivy()</span>.run()
+                </pre>
+              </div>
+              <hr/>
+              <div id="myDIV2">
+                <pre>
+  <font>// 2.layout.kv</font>
+  <font>#:kivy 1.9.2</font>
+  <span class="blue">&lt;Home&gt;</span>:<font># This represents the Home(screen) class of main.py file.</font>
+      <span class="kv1">BoxLayout</span>:
+          id: id_of_box
+          orientation:class="text""vertical"</font>
+          
+          <span class="kv1">Label</span>:
+              id:id_label
+              text: <font>"Press any buttons"</font>
+          
+          <span class="kv1">Button</Button></span>:
+              id: id_of_first_button
+              text:class="text""Button 1"</font>
+                          
+          <span class="kv1">Button</span>:
+              text:class="text""Button 2"</font>
+                </pre>
+              </div><br/>
+              <strong>Result 📸:</strong>
+              <img src="https://simplikivyapp.com/Capture2.PNG" alt="Kivy App Image" class="img1">
+            </section>
+            <section>
+              <div id="screenswitch" class="target"></div>
+              <h1>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                  <polyline points="2 17 12 22 22 17" />
+                  <polyline points="2 12 12 17 22 12" />
+                </svg>
+                Screen Switch
+              </h1>
+              <p>
+                  After making two buttons and one label with the kv language,
+                    we will switch the screen by pressing button 1 and change the home() 
+                    class label text by pressing button 2.
+              </p>
+              <div>Let's add a few codes in the <i>firstApp.py</i> file to create another screen.</div>
+              <div class="code-box">
+                <pre>
+  <font>// firstApp.py</font>
+  <span class="blue">from</span> kivy.app <span class="blue">import</span> App
+  <span class="blue">from</span> kivy.uix.screenmanager <span class="blue">import</span> ScreenManager, Screen
+  <span class="blue">from</span> kivy.uix.button <span class="blue">import</span> Button
+  <font># import kv.kv file</font>
+  <span class="blue">from</span> kivy.lang <span class="blue">import</span> Builder
+  Builder.load_file(<span class="text">"kv.kv"</span>)
+  
+  <font>#Screen layout class</font>
+  <span class="blue">class</span> Home(Screen):
+      <span class="blue">def</span> changeText(self): #self represents Home() class
+          self.ids.id_label.text=<span class="text">"You pressed button 2"</span>
+          <font># self.ids means ids of Home() class from kv.kv</font>
+          <font># id_label is the id of Label from kv.kv</font>
+          <font># text is the text of Label</font>
+          
+  <font>#Another Screen layout class</font>
+  <span class="blue">class</span> AnotherScreen(Screen):
+      <span class="pink">pass</span>
+  
+  <span class="blue">class</span> FirstKivy(App):
+      <span class="blue">def</span> build(self):
+          <font># Create the screen manager</font>
+          sm = ScreenManager()
+          sm.add_widget(Home(name=<span class="text">'FirstScreen'</span>))
+          sm.add_widget(AnotherScreen(name=<span class="text">'SecondScreen'</span>))
+          <span class="pinkblack">return</span> sm
+  
+  <span class="pink">if</span> <span class="blue">__name__</span> == <span class="main_">'__main__'</span>:
+      <span class="run_">FirstKivy()</span>.run()
+                </pre>
+              </div>
+              <br/>
+              <div>Now, we create the Layout of the another screen with Label and Button using the kv language in the <i>layout.kv</i> file.</div>
+              <div class="code-box">
+                <pre>
+  <font>// layout.kv</font>
+  <font>#:kivy 1.9.2</font>
+  <span class="blue">&lt;Home&gt;</span>:<font># This represents the class home(screen) of main.py file.</font>
+      <span class="kv1">BoxLayout</span>:
+          id: id_of_box
+          orientation: "vertical"
+          
+          <span class="kv1">Label</span>:
+              id:id_label
+              text: "Press any button"
+              color: (1,0,0,1)
+              font_size: '25sp'
+              
+          <span class="kv1">Button</span>:
+              id: id_of_first_button
+              text: "Button 1"
+              <font>#If press button 1, the screen changes to the Second screen.</font>
+              on_press: root.manager.current = 'SecondScreen'   
+
+          <span class="kv1">Button</span>:
+              text: "Button 2"
+              <font>#function that will be called from Home() class</font>
+              on_press: root.changeText()
+
+  <span class="blue">&lt;AnotherScreen&gt;</span>:
+      <span class="kv1">BoxLayout</span>:
+          orientation: "vertical"
+          <span class="kv1">Label</span>:
+              text:"You are in Second Screen"
+              font_size: '25sp'
+              color: (0,1,0,1)
+
+          <span class="kv1">Button</span>:
+              text:"Back To Home"
+              background_nornal: 'nornal.png'
+              background_coloe: (1,0.5,0.5,0)
+              on_press: root.manager.current = 'FirstScreen'
+                </pre>
+              </div><br/>
+              <strong>Resuilt 📸:</strong>
+              <div>If you press button 1, the Screen will change.</div>
+              <img src="https://simplikivyapp.com/Capture4.PNG" alt="Kivy App Image" class="img1"><br/> <br/>  
+              <div>If you press button 2, label text will change.</div>
+              <img src="https://simplikivyapp.com/Capture5.PNG" alt="Kivy App Image" class="img1">
+            </section>
+            <section>
+              <div id="quizapp" class="target"></div>
+              <h1>
+                <svg xmlns="http://www.w3.org/2000/svg" style="transform: rotate(90deg)" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-columns">
+                    <path d="M12 3h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7m0-18H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7m0-18v18" />
+                </svg>               
+                Quiz Game App
+              </h1>
+              <p>
+                Now, you have an opportunity to Learn how to create a simple
+                and beautiful Quiz App using Python and kv language by following this step-by-step guide.<br/><br/>
+                Leat's create a three files:
+                <ol>
+                    <li><b><i>quiz.py</i></b> file.</li>
+                    <li><b><i>quiz.kv</i></b> file</li>
+                    <li><b><i>question.csv</i></b> file.</li>
+                    <li>You can put file name as you wish.</li>
+                </ol>
+                First of all, you need to create a question collection file named question.csv.
+                Below is a list of questions that I have collected.
+              </p>
+              <div class="code-box">
+                <pre>
+  <b>question,answer,option1,option2,option3</b>
+  What is your father name?,Bishal,Ram,Bishal,Tanaka
+  Which Planet Is The Hottest In The Solar System?,Venus,Earth,Mars,Venus
+  What Is The Most Common Letter In The English Alphabet?,E,A,E,G
+  If A Male Donkey Is A Jack What Is The Female Called?,Jenny,Jenny,Jacky,Jally
+  what is the capital of japan?,Tokyo,Osaka,Yokohama,Tokyo
+  How many planetary systems exist in our galaxy?,9,8,9,7
+  How Many Continents Are There?,7,2,7,3
+  How many oceans are there?,5,2,3,5
+                </pre>
+              </div><br/>
+              <p> Copy all codes and paste it into your new file <i>quiz.py</i> file.
+                  <b>*Line 23.</b> Replace 'screen.png' file name with any file name You have as you wish.</p>
+              <div class="code-box">
+                <pre>
+  <font>// quiz.py</font>
+  <span class="blue">from</span> kivy.app <span class="blue">import</span> App
+  <span class="blue">from</span> kivy.uix.screenmanager <span class="blue">import</span> ScreenManager, Screen
+  <span class="blue">from</span> kivy.properties <span class="blue">import</span> StringProperty, NumericProperty, ObjectProperty, ListProperty
+  <span class="blue">from</span> kivy.core.window <span class="blue">import</span> Window
+  <span class="blue">import</span> csv
+  <font># import kv.kv file</font>
+  <span class="blue">from</span> kivy.lang <span class="blue">import</span> Builder
+  Builder.load_file(<span class="text">"quiz.kv"</span>)
+
+  <font>#Home Screen layout class</font>
+  <span class="blue">class</span> Home(Screen):
+      <span class="pink">pass</span>
+
+  <font>#Quiz Screen layout class</font>
+  <span class="blue">class</span> QuizScreen(Screen):
+      <font># set variables</font>
+      question= StringProperty()
+      ans= StringProperty()
+      ans1= StringProperty()
+      ans2= StringProperty()
+      Ans_data= StringProperty()
+      error= StringProperty()
+      error_number= NumericProperty(0)
+      page_number=NumericProperty()
+      no=NumericProperty()
+      df=ListProperty()
+      correct_answer=StringProperty()
+
+      <span class="blue">def</span> __init__(self, **kwargs):
+          super(<span class="blue">QuizScreen</span>, self).__init__(**kwargs)
+          self.no=int(1)
+          self.page_number= int(1)
+          op=open('question.csv', 'r', encoding='utf-8')
+          self.df=list(csv.reader(op))
+          self.question=self.df[self.no][0]
+          self.correct_answer=self.df[self.no][1]
+          self.ans=self.df[self.no][2] <font>#Answer for option Button 1</font>
+          self.ans1=self.df[self.no][3] <font>#Answer for option Button 2</font>
+          self.ans2=self.df[self.no][4] <font>#Answer for option Button 3</font>
+
+      <span class="blue">def</span> restart(self):
+          self.no= int(0) <font># Restart from Q1</font>
+          self.error_number=int(0) <font># set 0 wrong</font>
+          self.page_number=int(0) <font># Set 1 page</font>
+          self.go_next(self.correct_answer) <font># call go_next() functon</font>
+
+      <span class="blue">def</span> go_next(self, find):
+          self.error ='' <font>#Set error variable to NON</font>
+
+          <span class="pink">if</span>  self.correct_answer == find:
+              self.no=self.no+1 #for next question
+              self.page_number=self.page_number + 1
+              self.question=self.df[self.no][0]
+              self.correct_answer=self.df[self.no][1]
+              self.ans=self.df[self.no][2]
+              self.ans1=self.df[self.no][3]
+              self.ans2=self.df[self.no][4]                  
+          <span class="pink">else</span>:
+              self.error='[color=#FF0000]Wrong Answer Try Again[/color]'
+              self.error_number=self.error_number+1 
+      
+  <span class="blue">class</span> QuizApp(App):
+      <span class="blue">def</span> __init__(self, **kwargs):
+          super(<span class="blue">QuizApp</span>, self).__init__(**kwargs)
+          <font># Background color of app</font>
+          Window.clearcolor = (1,1,1,1) 
+          <font>#Size of app</font>
+          Window.size = (330, 600)
+
+      <span class="blue">def</span> build(self):
+          <font># Create the screen manager</font>
+          sm = ScreenManager()
+          sm.add_widget(Home(name=<span class="text">'HomeScreen'</span>))
+          sm.add_widget(QuizScreen(name=<span class="text">'QuizScreen'</span>))
+          <span class="pinkblack">return</span> sm
+
+  <span class="pink">if</span> <span class="blue">__name__</span> == <span class="main_">'__main__'</span>:
+      <span class="run_">FirstKivy()</span>.run()
+                </pre>
+              </div><br/>
+              <p>Copy all codes and paste it into your new file <i>quiz.kv</i> file.</p>
+              <div class="code-box">
+                <pre>
+  <font>// quiz.kv</font>
+  <font>#:kivy 1.9.2</font>
+  <span class="blue">&lt;Home&gt;</span>: <font># This represents the class home(screen) of main.py file.</font>
+      padding: '5sp'
+      <span class="kv1">BoxLayout</span>:
+          orientation: 'vertical'
+          <span class="kv1">ActionBar</span>: <font># navigation Bar</font>
+              background_image: ''
+              background_color: 135/255,206/255,235/255
+              size_y: '35sp'
+              <span class="kv1">ActionView</span>:
+                  <span class="kv1">ActionPrevious</span>:
+                      title: '[b]Quiz App[/b]' 
+                      color: 0,0,0,1
+                      with_previous: False
+                      markup: True
+
+          <span class="kv1">GridLayout</span>:
+              padding: '8sp' 
+              rows:2
+              spacing: '5sp'
+              size_hint: (1,0.7)
+              <span class="kv1">Image</span>:
+                  <font>#Replace 'screen.png' file name with any file name You have as you wish.</font>
+                  source: 'screen.png'
+                  keep_ratio: False
+                  allow_stretch: True
+
+              <span class="kv1">GridLayout</span>:
+                  cols: 2
+                  rows: 2
+                  padding: '8sp'
+                  spacing: '5sp'
+                  <span class="kv1">Button</span>:
+                      text:'Start Quiz'
+                      color: (0,0,0,1)
+                      background_normal: 'normal.png'
+                      background_color: (1,0.5,0,0.6)
+                      font_size: self.width/6
+                      on_press: root.manager.current='QuizScreen'           
+                  <span class="kv1">Button</span>:
+                      text:'Button '
+                      color: (0,0,0,1)
+                      font_size: self.width/6
+                      on_press: 
+
+                  <span class="kv1">Button</span>:
+                      text:'Button 1'
+                      color: (0,0,0,1)
+                      font_size: self.width/6
+                      background_normal: 'normal.png'
+                      background_color: (0,1,0,0.6)
+
+                  <span class="kv1">Button</span>:
+                      text:'Button 2'
+                      color: (0,0,0,1)
+                      font_size: self.width/6
+                      background_normal: 'normal.png'
+                      background_color: (0.7,0,0,0.6)
+
+  <span class="blue">&lt;QuizScreen&gt;</span>:
+      <span class="kv1">BoxLayout</span>:
+          orientation:'vertical'
+          <span class="kv1">GridLayout</span>:
+              rows:2
+              padding: ['25sp','1sp']
+              size_hint_y: 0.13
+              <span class="kv1">canvas.before</span>:
+                  Color:
+                      rgb: (245/255,245/255,245/255)
+                  Rectangle:
+                      size: self.size
+                      pos:  self.pos
+
+              <span class="kv1">Label</span>:
+                  text: "Quiz Game"
+                  color: 0,0,0,1
+
+              <span class="kv1">BoxLayout</span>:
+                  <span class="kv1">Label</span>:
+                      color: 0,0,0,1
+                      <font># root represents QuizScreen() class variable</font>
+                      text: str(root.page_number)+' Page'
+                  <span class="kv1">Label</span>:
+                      text:str(root.error_number)+' Wrong'
+                      color: 0,0,0,1
+
+          <span class="kv1">Label</span>:
+              <font># root represents QuizScreen() class variable</font>
+              text: root.error
+              size_hint_y: 0.08
+              text_size: self.width, None
+              height: self.texture_size[1]
+              font_size:'18sp'
+              markup: True
+              color: 0,0,0,1
+
+          <span class="kv1">Label</span>:
+              id: label1
+              text: root.question       
+              size_hint_y: 0.34
+              color: 0,0,0,1
+              text_size: self.width, None
+              height: self.texture_size[1]
+              halign: 'center'         
+              markup: True
+
+          <span class="kv1">Button</span>:
+              id:bttn1 
+              text: root.ans                  
+              size_hint_y: 0.1
+              font_size: '20sp'
+              on_press: root.go_next(bttn1.text)   
+
+          <span class="kv1">Button</span>:
+              id:bttn2   
+              text: root.ans1      
+              size_hint_y: 0.1
+              font_size: '20sp'
+              on_press: root.go_next(bttn2.text)  
+
+          <span class="kv1">Button</span>:
+              id:bttn3
+              text: root.ans2        
+              size_hint_y: 0.1
+              font_size: '20sp'
+              on_press: root.go_next(bttn3.text)  
+
+          <span class="kv1">BoxLayout</span>:
+              padding: '5sp'
+              size_hint_y: 0.15
+              <span class="kv1">Button</span>:
+                  id: button1
+                  text: 'Go Back'
+                  font_size: '20sp'
+                  background_color: 1,0,0,1
+                  on_press: root.manager.current='HomeScreen'
+
+              <span class="kv1">Button</span>:
+                  id: button2
+                  text: 'Re-Start'
+                  font_size: '20sp'
+                  background_color: 1,0,0,1
+                  on_press: root.restart()                             
+                </pre>
+              </div><br/>
+              <strong>Result 📸: Quiz App</strong>
+              <img class="img2" src="https://simplikivyapp.com/Capture6.PNG" alt="Kivy App Image"><br/>  
+              <img class="img2" src="https://simplikivyapp.com/Capture7.PNG" alt="Kivy App Image">  
+            </section>
+            <section>
+              <div id="deploy" class="target"></div>
+              <h1>
+                <svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 -960 960 960" width="26">
+                    <path d="M480-503Zm-40-366q19-11 40-11t40 11l280 161q19 11 29.5 29t10.5 40v170q-18-13-38-22.5T760-508v-88l-144 83q-56 14-101.5 47.5T440-384v-73L200-596v274l202 117q4 32 15 61.5T445-88q-2-1-2.5-1.5T440-91L160-252q-19-11-29.5-29T120-321v-318q0-22 10.5-40t29.5-29l280-161Zm40 69L243-663l237 137 237-137-237-137Zm200 680 120-120-28-28-72 72v-164h-40v164l-72-72-28 28 120 120Zm0 80q-83 0-141.5-58.5T480-240q0-83 58.5-141.5T680-440q83 0 141.5 58.5T880-240q0 83-58.5 141.5T680-40Z"/>
+                </svg>               
+                Deploy the App
+              </h1>
+              <strong>For Window</strong>
+              <p>
+                For Windows, you can use <b>PyInstaller</b> to create a standalone executable file that contains your app and 
+                all the dependencies. PyInstaller is a tool that analyzes your code and bundles it with the required libraries 
+                and modules. You can also customize the appearance and behavior of your app using PyInstaller’s options and hooks. 
+                You can find more details on how to use PyInstaller for Windows. <a href="https://kivy.org/doc/stable/guide/packaging-windows.html">Click Here</a>
+              </p>
+              <strong>For Android</strong>
+              <p>
+                For Android, you can use <b>Buildozer</b> or python-for-android to create an APK or AAB file that can be installed on your 
+                device or published on the Google Play Store. Buildozer is a tool that automates the entire build process by 
+                downloading and setting up all the prerequisites for python-for-android, including the Android SDK and NDK. 
+                Python-for-android is a tool that allows you to package your Python code and native libraries into a distributable 
+                format for Android. You can also use the Kivy Launcher app to run your Kivy app without compiling it, but this 
+                method has some limitations. You can find more details on how to use Buildozer, python-for-android, and Kivy Launcher 
+                for Android.<a href="https://kivy.org/doc/stable/guide/packaging-android.html#buildozer">Click Here</a>
+              </p>
+              <strong>For MacS</strong>
+              <p>
+                For MacOS, you can use <b>PyInstaller, Buildozer, or Homebrew</b> to create a standalone app bundle that can be 
+                distributed or installed on your device. PyInstaller and Buildozer work similarly as for Windows and 
+                Android, respectively. Homebrew is a package manager that allows you to install Python and other 
+                dependencies on your system. You can find more details on how to use PyInstaller, Buildozer, and 
+                Homebrew for macOS. <a href="https://kivy.org/doc/stable/guide/packaging-osx.html#using-pyinstaller-and-homebrew">Click Here</a>
+              </p>
+              <strong>For IOS</strong>
+              <p>
+                For iOS, you can use <b>python-for-ios</b> to create an Xcode project that can be compiled and deployed to 
+                your device or published on the App Store. Python-for-ios is a tool that allows you to package your 
+                Python code and native libraries into a distributable format for iOS. You can also customize the Xcode 
+                project using various options and settings. You can find more details on how to use python-for-ios for iOS.
+                 <a href="https://kivy.org/doc/stable/guide/packaging-ios.html">Click Here</a>
+              </p>
+            </section>
+        </main>
+    </div>
+    <hr/>
+    <footer>
+      <div id="main">
+          <!--https://www.termsfeed.com/live/61df029c-3f40-4bb6-b9f2-a69226ce85dc-->
+        <div><a class="send" href="privacy-policy">Privacy Policy</a></div>
+        <div>
+          <div class="f1">
+            Learn Python Kivy
+          </div>
+          <font >Made with ♥ </font>
+        </div>
+        <div><a class="send" href="contact-us">Contact Me</a></div>
+      </div>
+    </footer>
+    <script>
+      var w = window.innerWidth;
+      if (w < 750) {
+         var element = document.getElementById("myDIV");
+         element.classList.add("code-box");
+         document.getElementById("myDIV2").classList.add("code-box");
+      }
+    </script>
+  </body>
+</html>
