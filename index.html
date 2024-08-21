@@ -18,6 +18,8 @@
             margin-left: 300px;
             padding: 50px 60px 40px 10px;
             background-color: rgba(249, 240, 239, 0.788);
+            font-family: 'sourcesanpro', sans-serif;
+            color: #343C3D;
         }
 
         #sidebar {
@@ -112,7 +114,7 @@
             margin-left: 50px;
             min-width: 230px;
             background-color: #fff;
-            /* box-shadow: 15px 15px 5px #ce5b53b9; */
+            box-shadow: 15px 15px 5px #d4cdcdb9;
         }
 
         .iframe {
@@ -122,11 +124,6 @@
         .iframe_title {
             padding: 20px;
             color: rgb(60, 60, 60);
-            font-family: 'Times New Roman', Times, serif;
-        }
-
-        .row_child a {
-            color: white;
         }
 
         iframe {
@@ -138,10 +135,14 @@
 
         /* *********************************************************************about */
         .about {
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
             padding-top: 50px;
             background-color: #fff;
             margin-left: 10px;
+        }
+
+        .about p {
+            font-size: 14px;
+            text-align: justify;
         }
 
         .title {
@@ -168,16 +169,17 @@
             justify-content: space-between;
             border-radius: 10px;
             padding: 20px;
+            flex-wrap: wrap;
         }
 
-        .flex_1 {
+        .flex_1{
             padding: 15px 0px 3px 0px;
             background-color: #CE5B53;
             border-radius: 10px;
             width: 25%;
         }
 
-        .flex_2 {
+        .flex_2, .flex_3  {
             width: 30%;
         }
 
@@ -187,10 +189,15 @@
             margin-left: -15px;
         }
 
-        .about p {
+        .contents ul{
             font-size: 14px;
             text-align: justify;
-            color: rgb(55, 55, 55);
+            margin-left: 20px;
+        }
+        .contents ul ul {
+            font-size: 14px;
+            text-align: justify;
+            margin-left: 10px;
         }
 
         .flower {
@@ -200,10 +207,6 @@
             z-index: -1;
             left: -70px;
             top: -70px;
-        }
-
-        h4 {
-            padding: 20px 0;
         }
 
         h3 {
@@ -217,33 +220,57 @@
             font-style: italic;
             font-size: 17px;
         }
+        /* ：＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊company-skill */
+        .company-skill {
+            transform: translateY(150px);
+            opacity: 0;
+            transition: 1.5s all ease;
+            padding: 20px;
+            width: 80%;
+            margin: auto;
+            padding: 50px 0;
+        }
+
+        .company-skill ul {
+            margin-left: 30px;
+        }
 
         .project_list {
             padding: 50px 0;
             width: 80%;
             margin: auto;
-            font-size: 20px;
             transform: translateY(150px);
             opacity: 0;
             transition: 2s all ease;
+            padding: 10px;
         }
 
-        ul {
+        .project_list ul {
             border-style: inset;
             padding: 5px 10px;
+            margin-bottom: 30px;
             background-color: rgb(245, 239, 237);
         }
 
-        li {
+        .project_list li {
             list-style-type: none;
-            padding-left: 50px;
-            padding-bottom: 20px;
+            padding: 20px;
         }
+
+        .project_list a {
+            word-wrap: break-word;
+        }
+
+        .project_list h4 {
+            padding-bottom: 15px;
+        }
+
 
         /*----------------------------------------------------skill-container----*/
         .skill-container {
             display: flex;
             justify-content: space-around;
+
         }
 
         .skill_bar {
@@ -279,12 +306,6 @@
             color: white;
             border-radius: 12px;
             font-size: 14px;
-        }
-
-        h5 {
-            font-weight: none;
-            font-size: 15px;
-            padding: 25px 10px 10px 10px;
         }
 
         /* .html {
@@ -327,10 +348,10 @@
             background-color: #f321b1;
         } */
 
-        .scss {
+        /* .scss {
             transition: width 4s;
             background-color: #08899b;
-        }
+        } */
 
         .html, .css, .mysql, .php, .js, .python, .java, .vue, .scss {
             transition: width 4s;
@@ -398,6 +419,15 @@
             font-weight: bold;
         }
 
+        @media screen and (max-width: 924px) {
+            .flex_3 {
+                width: 100%;
+            }
+            .flex_1, .flex_2 {
+                width: 45%;
+            }
+        }
+
         @media screen and (max-width: 768px) {
             #sidebar {
                 display: none;
@@ -420,15 +450,14 @@
                 margin-left: 0;
             }
 
-            .flex_1,
-            .flex_2 {
-                flex: 100%;
-            }
-
             .about_img {
                 padding: 10px;
                 height: 400px !important;
                 border-radius: 22px;
+            }
+
+            .skill-container {
+                flex-direction: column;
             }
 
             .flower,
@@ -444,7 +473,7 @@
                 display: block;
             }
 
-            li {
+            .project_list li {
                 padding-left: 10px;
                 padding-bottom: 20px;
             }
@@ -468,6 +497,12 @@
                 display: block;
             }
 
+        }
+
+        @media screen and (max-width: 500px) {
+            .flex_3,.flex_1, .flex_2 {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -507,7 +542,7 @@
                     <a href="#about" class="contents_nav"><i class='fa fa-user fa-fw'></i>ABOUT</a>
                     <a href="#project" class="contents_nav"><i class="fa fa-file-text"></i>PROJECTS</a>
                     <a href="#skill_bar" class="contents_nav"><i class="fa fa-bar-chart"></i>My SkillS</a>
-                    <a href="https://simplikivyapp.com/contact-us" class="contents_nav"><i
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSe_XEDJPUKSSAOtfQyCiD1k_tdvzQ-kgG-xYkbWdq7cUaZsrQ/viewform" class="contents_nav"><i
                             class="fa fa-envelope fa-fw"></i>CONTACT</a>
                 </div>
             </div>
@@ -526,58 +561,54 @@
                     <div class="iframe"><iframe scrolling="no"
                             src="https://shresthakumarbishal.github.io/portfolio.github.io/learn.html"></iframe>
                     </div>
-                    <a href="https://shresthakumarbishal.github.io/portfolio.github.io/learn.html">
-                        <div class="iframe_title">
-                            <div>アンドロイドアプリ</div>
-                            <div>PHP HTML CSS JavaScript</div>
-                        </div>
-                    </a>
+                    <div class="iframe_title">
+                        <a href="https://shresthakumarbishal.github.io/portfolio.github.io/learn.html">シンプルフロント</a>
+                        <div>HTML CSS</div>
+                    </div>
                 </div>
-                <div class="row_child"><a href="">
-                        <div class="iframe"><iframe scrolling="no"
-                                src="https://shresthakumarbishal.github.io/portfolio.github.io/rirekisyo/"></iframe>
-                        </div>
-                        <a href="https://shresthakumarbishal.github.io/portfolio.github.io/rirekisyo/">
-                            <div class="iframe_title">
-                                <div>会社HP サンプル</div>
-                                <div>PHP HTML CSS JavaScript</div>
-                            </div>
-                        </a></div>
-                <div class="row_child"><a href="">
-                        <div class="iframe"><iframe scrolling="no" src="app.PNG"></iframe></div><a
-                            href="https://play.google.com/store/apps/details?id=japanesequiz.japanesequiz2&pli=1">
-                            <div class="iframe_title">
-                                <div>アンドロイドアプリ</div>
-                                <div>Python HTML CSS JavaScript</div>
-                            </div>
-                        </a></div>
-                <div class="row_child"><a href="">
-                        <div class="iframe"><iframe scrolling="no"
-                                src="https://shresthakumarbishal.github.io/portfolio.github.io/learn.html"></iframe>
-                        </div><a href="https://www.simplikivyapp.com/">
-                            <div class="iframe_title">
-                                <div>履歴書作成サイト</div>
-                                <div>HTML CSS JavaScript</div>
-                            </div>
-                        </a></div>
-                <div class="row_child"><a href="">
-                        <div class="iframe"><iframe scrolling="no"
-                                src="https://shresthakumarbishal.github.io/portfolio.github.io/blog/"></iframe>
-                        </div><a href="https://shresthakumarbishal.github.io/portfolio.github.io/blog/">
-                            <div class="iframe_title">
-                                <div>ブログ</div>
-                                <div>HTML CSS JavaScript</div>
-                            </div>
-                        </a></div>
-                <div class="row_child"><a href="">
-                        <div class="iframe"><iframe scrolling="no"
-                                src="https://shresthakumarbishal.github.io/portfolio.github.io/learn.html"></iframe>
-                        </div><a href="https://shresthakumarbishal.github.io/portfolio.github.io/learn.html">
-                            <div class="iframe_title">
-                                <div>会社HP サンプル</div>
-                                <div>PHP HTML CSS JavaScript</div>
-                            </div>
-                        </a></div>
+                <div class="row_child">
+                    <div class="iframe"><iframe scrolling="no"
+                            src="https://shresthakumarbishal.github.io/portfolio.github.io/rirekisyo/"></iframe>
+                    </div>
+                    <div class="iframe_title">
+                        <a href="https://shresthakumarbishal.github.io/portfolio.github.io/rirekisyo/">履歴書作成サイト</a>
+                        <div>HTML CSS JavaScript</div>
+                    </div>
+                </div>
+                <div class="row_child">
+                    <div class="iframe"><iframe scrolling="no" src="app.PNG"></iframe></div>
+                    <div class="iframe_title">
+                        <a href="https://play.google.com/store/apps/details?id=japanesequiz.japanesequiz2&pli=1">アンドロイドアプリ</a>
+                        <div>Python HTML CSS JavaScript</div>
+                    </div>
+                </div>
+                <div class="row_child">
+                    <div class="iframe"><iframe scrolling="no"
+                            src="axa.png"></iframe>
+                    </div>
+                    <div class="iframe_title">
+                        <a href="https://stg-pana.seidohoken.com/">AXA生命保険</a>
+                        <div>PHP (Laravel) TypeScript Jquery Html BootStraps</div>
+                    </div>
+                </div>
+                <div class="row_child">
+                    <div class="iframe"><iframe scrolling="no"
+                            src="https://shresthakumarbishal.github.io/portfolio.github.io/blog/"></iframe>
+                    </div>
+                    <div class="iframe_title">
+                        <a href="https://shresthakumarbishal.github.io/portfolio.github.io/blog/">ブログ</a>
+                        <div>HTML CSS JavaScript</div>
+                    </div>
+                </div>
+                <div class="row_child">
+                    <div class="iframe"><iframe scrolling="no"
+                            src="https://shresthakumarbishal.github.io/portfolio.github.io/blog/"></iframe>
+                    </div>
+                    <div class="iframe_title">
+                        <a href="https://shresthakumarbishal.github.io/portfolio.github.io/blog/">ブログ</a>
+                        <div>Vue.js HTML CSS JavaScript</div>
+                    </div>
+                </div>
             </div>
         </div>
         <br><br>
@@ -587,68 +618,122 @@
         <div id="about" class="about">
             <h1 class="title">ABOUT ME</h1>
             <div id="contents" class="contents reveal">
-                <div class="flex_2">
+                <div class="flex_3">
                     <h3>情熱を持って開発する。</h3>
                     <p>
-                        <!--<img class="flower" src="flower.png"/>-->
-                        私の強みは、笑顔と健康です。何事も前向きになるように考えることです。<br>
-                        これまで学校や、アルバイト、社会人になっての職場でも、笑顔でコミュニケーションをと
-                        ることで、その場の雰囲気を良くし、国は違っていても仲間同士助け合い、仕事の効率もよくする事につながりま
-                        した。<br><br>
-
-                        私はプログラミング製作に興味があり、
-                        仕事が休みの日, 自分でHTML5\CSS\PHP\PYTHON
-                        を学びながらシンプルな ホームページや ウェブアプリを製作しています。<br><br>
-                    </p>
+                        私の強みは、笑顔と健康です。何事も前向きに考えることを心がけています。<br>
+                        これまでの学校生活やアルバイト、社会人としての職場でも、笑顔でコミュニケーションをとることで、その場の雰囲気を良くし、
+                        国や文化が異なっていても仲間同士で助け合い、仕事の効率を向上させることができました。
+                    </p><br>
+                    <p>プログラミングに対する興味が強く、仕事が休みの日には以下のことに取り組んでいます：</p>
                 </div>
                 <div class="flex_2">
-                    <p style="font-size: 16px;">
-                        また、pythonとkivyフレームワークを
-                        学びながら自分で日本語を学べるシンプルなアプリも作っております。<br>
-
-                        私はプログラミングの仕事は未経験ですが、一つずつ覚えて技術を身につけながら、
-                        スキルをアップして行きたいと考えて います。
-
-                    </p>
+                    <ul>
+                        <li><strong>学習と制作</strong></li>
+                        <ul>
+                            <li>HTML5、CSS、PHP、Pythonを学びながら、シンプルなホームページやウェブアプリを制作</li>
+                            <li>PythonとKivyフレームワークを使って、日本語を学べるシンプルなアプリを開発</li>
+                        </ul>
+                    </ul>
+                    
                 </div>
                 <div class="flex_1">
                     <img class="about_img" src="bsaal.jpg" />
                 </div>
             </div>
+            <div class="company-skill reveal">
+                <h3>会社での経験</h3>
+                <p>私は独学で2年間のプログラミング経験を積み、さらに1年間の実務経験もあります。<br>主に以下のスキルを持っています：</p>
+                <div class="section">
+                    <p><strong>言語とフレームワーク:</strong></p>
+                    <ul>
+                        <li>PHP (Laravel)</li>
+                        <li>TypeScript</li>
+                        <li>jQuery</li>
+                        <li>Bootstrap</li>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                    </ul>
+                    <br>
+                    <p><strong>業務内容:</strong></p>
+                    <ul>
+                        <li>フロントエンドとバックエンドの開発</li>
+                        <li>バグ修正</li>
+                    </ul>
+                </div>
+                <br>
+                <p>また、プログラミングの経験だけでなく、DevOps関連のスキルも少し経験しました。具体的には</p>
+                <div class="section">
+                    <p><strong>DevOps経験:</strong></p>
+                    <p><strong>ツール:</strong></p>
+                    <ul>
+                        <li>Docker</li>
+                        <li>GitHub</li>
+                    </ul>
+                </div>
+                <br>
+                <div class="section">
+                    <p><strong>チームでの経験:</strong></p>
+                    <ul>
+                        <li>マネジメント</li>
+                        <li>チームコミュニケーション</li>
+                        <li>チームワークの向上</li>
+                    </ul>
+                </div>
+                <br>
+                <div class="section">
+                    <p><strong>今後の目標</strong></p>
+                    <p>　一つずつ技術を習得しながら、スキルをさらに向上させたい。</p>
+                </div>
+            </div>
             <!--project(start)-->
             <h1 class="title">PROJECTS</h1>
             <div id="project" class="project_list reveal">
-                <p>全てのソースコード: <a href="https://github.com/ShresthakumarBishal/">GitHub</a></p>
-                <h4>1. プージャーレストランの開発</h4>
+                <p>全てのソースコード: <a href="https://github.com/ShresthakumarBishal/">GitHub</a></p><br>
+                <h4>会社での開発</h4>
+                <h5>利用言語: PHP(Laravel), JavaScript, Jquery, Html, BootStraps, Css</h5>
                 <ul>
-                    <div class="font">利用言語:　<span>PHP, JavaScript, html, css</span></div>
-                    <li>ホームページ(作成中): <a href="https://www.simplikivyapp.com/all/puja/">プージャーホームページ</a></li>
-                    <li>管理システム: <a href="https://www.curryinjapan.website">プージャー管理システム</a></li>
-                </ul>
-                <h4>2. 自習しながら作ったもの(PythonとPHP)</h4>
-                <ul>
-                    <div class="font">利用言語　<span>Python, Kivy FrameWork</span></div>
-                    <li>アンドロイドアプリ: <a
-                            href="https://play.google.com/store/apps/details?id=japanesequiz.japanesequiz2&pli=1">Google
-                            Play Store</a></li>
-                    <div class="font">利用言語:　<span>PHP, JavaScript, html, scss</span></div>
-                    <li>ブログ: <a href="https://www.simplikivyapp.com/kivyapp">www.simplikivyapp.com</a></li>
-                    <div class="font">利用言語:　<span>PHP, JavaScript, html, css</span></div>
-                    <li>シンプルEC サイト: <a
-                            href="https://www.simplikivyapp.com/all/project/">www.simplikivyapp.com/all/project/</a>
+                    <li>AXA生命保険: 
+                        <a href="https://stg-pana.seidohoken.com/">
+                            https://stg-pana.seidohoken.com/
+                        </a>
                     </li>
                 </ul>
-                <h4>3. Vue.js で作ったもの</h4>
+                <h4>自習しながら作ったもの</h4>
+                <h5>利用言語: JavaScript, html, scss</h5>
+                <ul>
+                    <li>シンプルフロント: 
+                        <a href="https://shresthakumarbishal.github.io/portfolio.github.io/learn.html">
+                            https://shresthakumarbishal.github.io/portfolio.github.io/learn.html
+                        </a>
+                    </li>
+                    <li>ブログ: <a href="https://shresthakumarbishal.github.io/portfolio.github.io/learn.html">https://shresthakumarbishal.github.io/portfolio.github.io/blog/</a></li>
+                </ul>
+                <h5>利用言語: PHP JavaScript, html, scss</h5>
+                <ul>
+                    <li>シンプルEC サイト: <a
+                            href="https://github.com/ShresthakumarBishal/EC_project">GitHubソースコード</a>
+                    </li>
+                </ul>
+                <h5>利用言語: Python, Kivy FrameWork</h5>
+                <ul>
+                    <li>アンドロイドアプリ: <a
+                            href="https://play.google.com/store/apps/details?id=japanesequiz.japanesequiz2&pli=1">
+                            Google Play Store
+                        </a>
+                    </li>
+                </ul>
+                <h5>利用言語: Vue.js で作ったもの</h5>
                 <ul>
                     <div class="font">利用言語:　<span>Vue.js, html, scss</span></div>
-                    <li><a href="https://www.simplikivyapp.com/">会社HP サンプル</a></li>
+                    <li><a href="https://github.com/ShresthakumarBishal/Vue.js_project">GitHubソースコード</a></li>
                 </ul>
-                <h4>4. プログラマカレッジ</h4>
+                <h5>利用言語: Java, JavaScript, Jquery, html, css</h5>
                 <ul>
-                    <div class="font">学習した言語:　<span>Java, PHP, JavaScript, Jquery, html, css</span></div>
-                    <p style="font-size: 16px;">Javaプログラミングを中心にJavaScriptやHTML、CSSなどの基礎と、MySQLを用いたデ
+                    <p>Javaプログラミングを中心にJavaScriptやHTML、CSSなどの基礎と、MySQLを用いたデ
                         ータベースの作成やSQL文を用いたデータの更新、削除などについて学びました。
-                        また、SpringBootというフレームワークを使って、ECサイトの機能開発も経験いたしました。</p>
+                        また、SpringBootというフレームワークを使って、ECサイトの機能開発も経験いたしました。
+                    </p>
                 </ul>
             </div>
             <!--skill bar start-->
@@ -728,7 +813,7 @@
             <!-- form section -->
             <div class="form">
                 <h1>Get in touch.</h1>
-                <form action="https://simplikivyapp.com/contact-us" target="_blank">
+                <form action="https://docs.google.com/forms/d/e/1FAIpQLSe_XEDJPUKSSAOtfQyCiD1k_tdvzQ-kgG-xYkbWdq7cUaZsrQ/viewform" target="_blank">
                     <button type="submit">Contact Me</button>
                 </form>
             </div>
@@ -751,7 +836,7 @@
                 var value = (viewport_value / 2) + 200;
                 if (value >= get_value) {
                     reveals[i].classList.add("active");
-                    if (reveals[i] == reveals[3]) {
+                    if (reveals[i] == reveals[4]) {
                         var div_height = reveals[i].getBoundingClientRect().height;
                         for (i = 0; i < className.length; i++) {
                             className[i].style.width = className[i].innerHTML;
