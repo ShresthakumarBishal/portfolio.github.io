@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Japanese Learning</title>
+<style>
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+
+.main-header {
+    background-color: #ffffff;
+    padding: 50px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.main-header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.main-header nav ul li {
+    margin: 0 15px;
+}
+
+.main-header nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 50px 0;
+    position: relative;
+}
+
+.hero-content {
+    display: flex;
+    width: 80%;
+    max-width: 1200px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hero-text {
+    flex: 1;
+    padding: 20px;
+}
+
+.hero-text h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5em;
+    color: #333;
+}
+
+.hero-text p {
+    font-size: 1.2em;
+    color: #666;
+}
+
+.cta-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.hero-image {
+    flex: 1;
+    position: relative;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.overlay-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: auto;
+    fill: rgba(0, 123, 255, 0.1);
+}
+
+@media (max-width: 786px) {
+    .hero-content {
+        flex-direction: column;
+    }
+    .hero-image{
+        margin-top: 50px;
+    }
+}
+
+.features {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.features h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2em;
+    color: #333;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 900px;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: auto;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    /* flex: 1 1 calc(20% - 40px); */
+    /* max-width: calc(20% - 40px); */
+    width: 200px;
+    text-align: center;
+}
+
+.card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.card p {
+    font-size: 1em;
+    color: #666;
+}
+
+.card.n1 { background-color: #ffcccc; }
+.card.n2 { background-color: #ffebcc; }
+.card.n3 { background-color: #ffffcc; }
+.card.n4 { background-color: #ccffcc; }
+.card.n5 { background-color: #cce5ff; }
+
+@media (max-width: 786px) {
+    .features {
+        padding: 30px 10px;
+    }
+    .card {
+        padding: 20px;
+        margin: 10px;
+        min-width: 100px;
+        gap: 10px;
+    }
+}
+
+.testimonials {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.testimonials h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2em;
+    color: #333;
+}
+
+.testimonial-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.testimonial-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    flex: 1 1 calc(30% - 40px);
+    max-width: calc(30% - 40px);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px);
+}
+
+.testimonial-card p {
+    font-size: 1.2em;
+    color: #666;
+}
+
+.testimonial-card h4 {
+    font-size: 1em;
+    color: #333;
+    margin-top: 10px;
+}
+
+.quiz-practice {
+    background-color: #ffffff;
+    padding: 50px 20px;
+    padding-bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quiz-content {
+    display: flex;
+    width: 80%;
+    max-width: 1200px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.quiz-description {
+    flex: 1;
+    padding: 20px;
+}
+
+.quiz-description h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2em;
+    color: #333;
+}
+
+.quiz-description p {
+    font-size: 1.2em;
+    color: #666;
+}
+
+.quiz-image {
+    flex: 1;
+    position: relative;
+    height: 600px;
+    animation: float 3s ease-in-out infinite;
+}
+
+.quiz-image img {
+    width: 100%;
+    height: 80%;
+    border-radius: 40%;
+}
+
+.trainer-section {
+    background-color: #f0f8ff;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.trainer-section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 50px;
+}
+
+.trainer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    justify-items: center;
+    width: 80%;
+    margin: auto;
+}
+
+.trainer-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.trainer-item img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.trainer-item:hover img {
+    transform: scale(1.1);
+}
+
+.trainer-info {
+    /* position: absolute;
+    bottom: 0; */
+    /* background: rgba(0, 0, 0, 0.7); */
+
+    color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    /* transform: translateY(100%);
+    transition: transform 0.3s ease-in-out; */
+}
+
+/* .trainer-item:hover .trainer-info {
+    transform: translateY(0);
+} */
+
+.trainer-info h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.trainer-info p {
+    font-size: 1em;
+    margin: 5px 0 0;
+}
+
+.quiz-games {
+    padding: 50px 20px;
+    padding-bottom: 80px;
+    text-align: center;
+    background-color: #f0f8ff;
+}
+
+.quiz-games h2 {
+    font-size: 2.5em;
+    margin-bottom: 60px;
+    color: #333;
+}
+
+.game-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.game-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    transition: transform 0.3s;
+}
+
+.game-item:hover {
+    transform: scale(1.2, 1.2);
+}
+
+.game-grid:hover > .game-item:not(:hover) {
+    filter: blur(10px);
+    transform: scale(0.9, 0.9);
+}
+.word-game {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+}
+
+.kanji-game {
+    background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+}
+
+.grammar-game {
+    background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+}
+
+.game-item h3 {
+    margin-top: 0;
+    color: #fff;
+}
+
+.game-item p {
+    color: #fff;
+}
+
+.cta-button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+footer {
+    background-color: #6c757d;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+footer p {
+    margin: 5px 0;
+}
+</style>
+</head>
+<body>
+    <header class="main-header">
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Courses</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero-section">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Learn Japanese Online</h1>
+                <p>Master the Japanese language with our comprehensive and interactive courses.</p>
+                <button class="cta-button">Get Started</button>
+            </div>
+            <div class="hero-image">
+                <img src="path/to/your/image.png" alt="Learning Japanese">
+                <svg class="overlay-circle" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="50" />
+                </svg>
+            </div>
+        </div>
+    </section>
+    <section class="features">
+        <h2>Key Features</h2>
+        <div class="card-container">
+            <div class="card n1">
+                <h3>N1 Level</h3>
+                <p>Advanced Japanese proficiency.</p>
+            </div>
+            <div class="card n2">
+                <h3>N2 Level</h3>
+                <p>Upper-intermediate Japanese proficiency.</p>
+            </div>
+            <div class="card n3">
+                <h3>N3 Level</h3>
+                <p>Intermediate Japanese proficiency.</p>
+            </div>
+            <div class="card n4">
+                <h3>N4 Level</h3>
+                <p>Elementary Japanese proficiency.</p>
+            </div>
+            <div class="card n5">
+                <h3>N5 Level</h3>
+                <p>Basic Japanese proficiency.</p>
+            </div>
+        </div>
+    </section>
+    <section class="testimonials">
+        <h2>What Our Learners Say</h2>
+        <div class="testimonial-cards">
+            <div class="testimonial-card">
+                <p>"This platform has transformed my Japanese learning experience!"</p>
+                <h4>- Learner A</h4>
+            </div>
+            <div class="testimonial-card">
+                <p>"The interactive lessons are fantastic and very engaging."</p>
+                <h4>- Learner B</h4>
+            </div>
+            <div class="testimonial-card">
+                <p>"I love the personalized feedback and support from the instructors."</p>
+                <h4>- Learner C</h4>
+            </div>
+        </div>
+    </section>
+    <section class="quiz-practice">
+        <div class="quiz-content">
+            <div class="quiz-description">
+                <h2>Online Quiz Practice</h2>
+                <p>Test your Japanese language skills with our interactive quizzes. Practice makes perfect!</p>
+            </div>
+            <div class="quiz-image">
+                <img src="quiz1.jpg" alt="Quiz Practice">
+            </div>
+        </div>
+    </section>
+    <!-- Quiz Game Section -->
+    <section class="quiz-games">
+        <h2>Test Your Knowledge with Our Fun Quiz Games!</h2>
+        <div class="game-grid">
+            <div class="game-item word-game">
+                <h3>Word Game</h3>
+                <p>Enhance your vocabulary with this interactive game.</p>
+                <a href="#" class="cta-button">Play Now</a>
+            </div>
+            <div class="game-item kanji-game">
+                <h3>Kanji Game</h3>
+                <p>Practice and learn Kanji characters in a fun way.</p>
+                <a href="#" class="cta-button">Play Now</a>
+            </div>
+            <div class="game-item grammar-game">
+                <h3>Grammar Game</h3>
+                <p>Improve your grammar skills with this engaging game.</p>
+                <a href="#" class="cta-button">Play Now</a>
+            </div>
+        </div>
+    </section>
+    <section class="trainer-section">
+        <h2>Meet Our Trainers</h2>
+        <div class="trainer-grid">
+            <div class="trainer-item">
+                <img src="bsaal1.JPG" alt="Trainer 5">
+                <div class="trainer-info">
+                    <h3>Trainer 1</h3>
+                    <p>Experienced in advanced Japanese language teaching.</p>
+                </div>
+            </div>
+            <div class="trainer-item">
+                <img src="bsaal1.JPG" alt="Trainer 5">
+                <div class="trainer-info">
+                    <h3>Trainer 2</h3>
+                    <p>Specializes in interactive and engaging lessons.</p>
+                </div>
+            </div>
+            <div class="trainer-item">
+                <img src="bsaal1.JPG" alt="Trainer 5">
+                <div class="trainer-info">
+                    <h3>Trainer 3</h3>
+                    <p>Expert in personalized feedback and support.</p>
+                </div>
+            </div>
+
+            <div class="trainer-item">
+                <img src="bsaal1.JPG" alt="Trainer 5">
+                <div class="trainer-info">
+                    <h3>Trainer 5</h3>
+                    <p>Passionate about helping beginners master the basics.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <p>Contact us: info@japaneselanguage.com</p>
+        <p>Follow us on social media</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
