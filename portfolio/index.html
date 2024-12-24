@@ -5,391 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="portfolia.css">
-    <title>Document</title>
-    <!-- <style>
-        i{
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-        }
-        html {
-            line-height: 1.5;
-            -webkit-text-size-adjust: 100%;
-            -moz-tab-size: 4;
-            -o-tab-size: 4;
-            tab-size: 4;
-            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji";
-        }
-        body{
-            --main-bg: #0f172a;
-            background-color: var(--main-bg);
-            /* background-image: linear-gradient(140deg, #e2e2e2, #cdcdcd); */
-            color: white;
-            transition: background-color 0.7s ease;
-            --ln-arrow: rgb(179, 178, 178);
-            --card-cap: hsl(180, 2%, 80%);
-        }
-        .bg-light{
-            /* background-color: rgba(240, 248, 255, 0.618); */
-            --main-bg: #c5ced69e;
-            background-color: var(--main-bg);
-            /* background-image: linear-gradient(140deg, #e2e2e2, #cdcdcd); */
-            color: rgb(34, 34, 34);
-            --ln-arrow: black;
-            --card-cap: white;
-        }
-        h1{
-            font-weight: bold;
-        }
-        .container{
-            margin: auto;
-            /* background-color: aliceblue; */
-            width: 70%;
-            padding: 30px 0px;
-        }
-        .logo-avatar{
-            font-size: 30px;
-            font-family: 'Brush Script MT', cursive;
-            /* font-weight: 500; */
-        }
-        .header-right{
-            display: flex;
-            gap: 6px;
-            align-items: center;
-        }
-        .fa {
-            padding: 5px;
-            font-size: 16px;
-            width: 16px;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 20%;
-            margin: 5px auto;
-        }
-        .fa-facebook {
-        background: #3B5998;
-        color: white;
-        }
-        .fa-instagram {
-        /* background: #88126a; */
-        background: linear-gradient(
-            45deg,
-            #405de6,
-            #5b51db,
-            #b33ab4,
-            #c135b4,
-            #e1306c,
-            #fd1f1f
-        );
-        color: white;
-        }
-        .fa-skype {
-        background: #00aff0;
-        color: white;
-        }
-        .fa-github {
-        background: #822c28;
-        color: white;
-        }
-        .fa-slack {
-        background: #fffffe;
-        color: rgb(41, 124, 55);
-        }
-        .header-top{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .header-hero{
-            display: flex;
-            justify-content: space-between;
-            margin-top: 80px;
-            align-items: center;
-            /* padding-left:60px; */
-        }
-        .header-hero .hero-img{
-            /* flex: 50%; */
-            width: 32%;
-            text-align: center;
-        } 
-        .header-hero .intro{
-            /* flex: 50%; */
-            width: 57%;
-            
-        } 
-        .header-hero .hero-img img{
-            /* flex: 50%; */
-            height: 280px;
-        } 
-        .social-icon {
-            width: 11%;
-            display: flex;
-            flex-direction: column;
-            margin-right: 10px;
-        }
-        .intro h2 span {
-            color: rgb(164, 60, 219);
-            font-style: italic;
-        }
-        .intro p span {
-            font-size: 30px;
-        }
-        /* *********skills**** */
-
-        .skills{
-            margin: 120px;
-        }
-
-        /* *********project********** */
-        .project{
-            text-align: center;
-            /* color: #f3f4f6; */
-            width: 90%;
-            margin: 100px auto;
-        }
-        .card-lists {
-            display: flex;
-            gap: 10px;
-            justify-content: space-around;
-            margin-top: 60px;
-        }
-        .card {
-        /* --primary-clr: #1C204B; */
-        --primary-clr: #354154;
-        /* --primary-clr: #d4d4d8; */
-        --dot-clr: #BBC0FF;
-        --play: hsl(195, 74%, 62%);
-        max-width: 260px;
-        height: auto;
-        border-radius: 10px;
-        }
-
-        .card {
-        display: grid;
-        cursor: pointer;
-        grid-template-rows: 50px 1fr;
-        position: relative;
-        }
-        .card a{
-            color: #f3f4f6;
-            text-decoration: none;
-        }
-
-        .card:hover .img-section {
-        transform: translateY(-1em);
-            
-        }
-
-        .card-desc {
-        border-radius: 10px;
-        padding: 15px;
-        position: relative;
-        top: -10px;
-        display: grid;
-        gap: 10px;
-        background: var(--primary-clr);
-        }
-
-        .card-time {
-        font-size: 1.7em;
-        font-weight: 500;
-        }
-
-        .img-section {
-        transition: 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        text-align: center;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        background: var(--card-cap);
-        color: rgb(70, 70, 70);
-        }
-
-        .img-section::after {
-            content:'';
-            width: 100%;
-            height: 20px;
-            position: absolute;
-            border-top-left-radius: 50%;
-            border-top-right-radius: 50%;
-            display: block;
-            bottom: 0;
-            /* left: 50%; */
-            background-color: var(--main-bg);
-        }
-
-        .card-header {
-        display: flex;
-        align-items: center;
-        width: 100%;
-        }
-
-        .card-title {
-        flex: 1;
-        font-size: 0.9em;
-        font-weight: 500;
-        }
-
-        .card-menu {
-        display: flex;
-        gap: 4px;
-        margin-inline: auto;
-        }
-
-        .ln-lists {
-            display: flex;
-            flex-direction: row;
-            gap: 10px;
-            justify-content: center;
-        }
-
-        .ln-lists > div{
-            padding: 5px 10px;
-            font-size: 12px;
-            border-radius: 10px;
-            font-weight: 700;
-        }
-
-        .ln-lists div:nth-child(1) {
-            background-color: #00aff0;
-            color: #114153;
-        }
-        .ln-lists div:nth-child(2) {
-            background-color: #e879f9;
-            color: #561b5f;
-        }
-        .ln-lists div:nth-child(3) {
-            background-color: #70ca08;
-            color: #365314;
-        }
-
-        .card .recent {
-            /* line-height: 0; */
-            font-size: 0.8em;
-        }        
-
-        /* **********buton 2****** */
-        .anchor {
-            text-decoration: none;
-            color: #fff;
-            display: inline-block;
-            font-family: sans-serif;
-            font-weight: 600;
-            border-radius: 50px;
-            border: 2px solid #ed553b;
-            padding: 9px 15px 8px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .anchor:hover {
-        color: #1aad0a;
-        }
-
-        .button a::before {
-        position: absolute;
-        content: "";
-        z-index: 0;
-        background-color: #ed553b;
-        left: -5px;
-        right: -5px;
-        bottom: -5px;
-        height: 111%;
-        transition: all .3s ease;
-        }
-
-        .button a:hover::before {
-        height: 11%;
-        }
-
-        .button span {
-        position: relative;
-        z-index: 2;
-        transition: all .3s ease;
-        }
-        footer{
-            text-align: center;
-            padding: 2px;
-        }
-        .heart {
-            color: red;
-        }
-  
-        .skills-box {
-            text-align: center;
-            margin-top: 100px;
-        }
-        .skills-box .skill-info{
-            font-weight: 600;
-            color: gray;
-            margin-bottom: 100px;
-        }
-        .skill {
-            display:flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-        .skill svg{
-            height: 70px;
-        }
-        .tooltip-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            transition: all 0.3s;
-            cursor: pointer;
-            }
-
-            .text {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            font-size: 14px;
-            font-weight: 600;
-            color: rgb(0, 0, 0);
-            }
-            .svgIcon {
-            width: 16px;
-            height: auto;
-            }
-            .tooltip {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 0.3em 0.6em;
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.3s;
-            background-color: rgb(255, 255, 255);
-            border-radius: 12px;
-            color: rgb(34, 34, 34);
-            }
-
-            .tooltip::before {
-            position: absolute;
-            content: "";
-            height: 0.6em;
-            width: 0.6em;
-            bottom: -0.2em;
-            left: 50%;
-            transform: translate(-50%) rotate(45deg);
-            background-color: rgb(255, 255, 255);
-            }
-
-            .tooltip-container:hover .tooltip {
-            top: -70%;
-            opacity: 1;
-            visibility: visible;
-            pointer-events: auto;
-            }
-            .jp{
-                display: none;
-            }
-    </style> -->
+    <title>Portfolio</title>
 </head>
 
 <body>
@@ -661,6 +277,28 @@
                         <span class="en">Self Developed</span>
                     </div>
                     <div class="card-desc">
+                    <a href="package.html" target="_blank">
+                        <div class="card-header">
+                            <div class="jp card-title">ライブラリ開発</div>
+                            <div class="en card-title">Library Developed</div>
+                            </div>
+                            <div class="en card-time">1 week</div>
+                            <div class="jp card-time">１　週間以内</div>
+                            <p class="en recent">DateSelector is a lightweight and efficient JavaScript/...</p>
+                            <p class="jp recent">日付セレクターは、動的なドロップダウンを通じて日付の選択を...</p>
+                            <div class="ln-lists">
+                                <div>TypeScript</div>
+                                <div>JavaScript</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card work">
+                    <div class="img-section">
+                        <span class="jp">自己開発</span>
+                        <span class="en">Self Developed</span>
+                    </div>
+                    <div class="card-desc">
                     <a href="blog.html" target="_blank">
                         <div class="card-header">
                             <div class="en card-title">Blog</div>
@@ -701,7 +339,6 @@
     <!-- popup -->
     <button class="en profile-3d-btn" onclick="openForm()">Profile</button>
     <button class="jp profile-3d-btn profile-3d-btn-jp" onclick="openForm()">プロファイル</button>
-    <!-- <button class="open-button" onclick="openForm()">Profile</button> -->
     <div class="chat-popup" id="myForm">
         <div class="profile-card">
             <img src="bsaal1.JPG" alt="Bishal" style="width:100%">
@@ -715,8 +352,6 @@
                 <hr>
                 <div>&#128222; 080-7553-2270</div>
                 <div>&#128231; stha1265@gmail.com</div>
-<!-- 
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSe_XEDJPUKSSAOtfQyCiD1k_tdvzQ-kgG-xYkbWdq7cUaZsrQ/viewform" target="_blank">Contact with Email</a> -->
             </div>
             <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
           </div>

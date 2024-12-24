@@ -6,6 +6,99 @@
     <title>Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="portfolia.css">
+    <style>
+        .rainbow-hover {
+        font-size: 16px;
+        font-weight: 700;
+        color: #ff7576;
+        background-color: inherit;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 10px 12px;
+        position: relative;
+        line-height: 20px;
+        border-radius: 9px;
+        box-shadow: 0px 1px 2px #8e8e93ba, 0px 4px 16px #6a6666ba;
+        transform-style: preserve-3d;
+        transform: scale(var(--s, 1)) perspective(600px)
+            rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+        perspective: 600px;
+        transition: transform 0.1s;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        }
+
+        .sp {
+        background: linear-gradient(
+            90deg,
+            #866ee7,
+            #ea60da,
+            #ed8f57,
+            #fbd41d,
+            #2cca91
+            );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        display: block;
+        }
+
+        .rainbow-hover:hover {
+            box-shadow: 0px 1px 2px #d8d8df91, 0px 4px 16px #777575e3;
+        }
+        /* ************************library***** */
+        .library-content{
+            width: 70%;
+            margin: auto;
+        }
+        .library-intro p{
+            line-height: 2;
+        }
+        .library-content p span{
+            font-size: 27px;
+        }
+
+        .code {
+            background-color: #354154;
+            padding: 10px 8px;
+            font-size: 14px;
+            font-family: monospace;
+            color: white;
+        }
+        #live-demo {
+            margin-top: 50px;
+        }
+
+        .live-demo-container iframe{
+            width: 100%;
+            height: 680px;
+        }
+        /* section p{
+            padding: 0 20px;
+        } */
+
+        section p{
+            padding-left: 20px;
+        }
+        .library-intro .quote{
+            font-size: 14px;
+            font-style: italic;
+            font-weight: 600;
+            font-family: monospace;
+        }
+        @media screen and (max-width: 756px) {
+            .library-content{
+                width: 90%;
+            }
+            .live-demo-container{
+                overflow-x: auto;
+            }
+            .live-demo-container iframe{
+                width: 850px;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -48,114 +141,135 @@
                     </label>
                 </div>
             </div>
-            <h2 style="text-align: center;" class="jp">保険会社案件</h2>
-            <h2 style="text-align: center;" class="en">Insurance Company</h2>
-            <div class="header-content">
-                <div class="content-img">
-                    <img src="bg.png" alt="">
-                </div>
-                <div class="content-intro">
-                    <!-- <h2>Hi there, <span>I'm Bishal </span></h2> -->
-                    <div class="accordion">
-                        <div class="accordion-item" id="question2">
-                            <a class="accordion-link" href="#question2">
-                                <div class="flex">
-                                    <span class="jp">&#128216; プロジェクトについて</span>
-                                    <span class="en">&#128216; ABOUT PROJECT</span>
-                                </div>
-                                <i class="icon ion-md-arrow-forward">&#43;</i>
-                                <i class="icon ion-md-arrow-down">&#8212;</i>
-                            </a>
-                            <div class="answer">
-                                <p class="jp">この案件は、Laravelで開発された保険会社のシステムで、途中から参加し約10ヶ月間、バグ修正と新機能の開発を担当しました。フロントエンドとバックエンド両方で開発経験を積み、システムの品質向上に貢献しました。</p>
-                                <p class="en">This project was a system for an insurance company developed with Laravel. I joined the project midway and was responsible for bug fixes and developing new features for about 10 months. I gained experience in both frontend and backend development and contributed to improving the system's quality.</p>
-                            </div>
-                            <hr>
+            <div style="text-align: center;">
+                <h1 class="jp">&#128218; ライブラリ ー 日付セレクター</h1>
+                <h1 class="en">&#128218; Library - DateSelector</h1>
+                <div class="title">A Simple Date Selection Library</div>
+            </div>
+            <div class="library-content">
+                <div class="library-intro">
+                    <div class="jp">
+                        <p>
+                            <span class="intro-focus">DateSelector</span> 日付セレクターは、動的なドロップダウンを通じて日付の選択を簡素化する軽量で効率的なJavaScript/TypeScriptライブラリです。このライブラリは、ユーザーの選択に基づいて利用可能な年、月、日オプションを自動的に更新し、有効な日付の選択肢のみを表示します。正確で使いやすい日付入力が求められるウェブアプリケーションに最適です。
+                        </p>
+                        <div>
+                            <span class="quote">　[ 開発だけでなく、npmにも公開されています。]</span>&#128075;
                         </div>
-                        <div class="accordion-item" id="question3">
-                            <a class="accordion-link" href="#question3">
-                                <div class="flex">
-                                    <span class="jp">
-                                        <svg xmlns="http://www.w3.org/2000/svg" height="18" width="25" viewBox="0 0 640 512"><path fill="#B197FC" d="M64 96c0-35.3 28.7-64 64-64l384 0c35.3 0 64 28.7 64 64l0 256-64 0 0-256L128 96l0 256-64 0L64 96zM0 403.2C0 392.6 8.6 384 19.2 384l601.6 0c10.6 0 19.2 8.6 19.2 19.2c0 42.4-34.4 76.8-76.8 76.8L76.8 480C34.4 480 0 445.6 0 403.2zM281 209l-31 31 31 31c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-48-48c-9.4-9.4-9.4-24.6 0-33.9l48-48c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9zM393 175l48 48c9.4 9.4 9.4 24.6 0 33.9l-48 48c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l31-31-31-31c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z"/></svg>
-                                        プログラミング言語とツール</span>
-                                    <span class="en">
-                                        <svg xmlns="http://www.w3.org/2000/svg" height="18" width="25" viewBox="0 0 640 512"><path fill="#B197FC" d="M64 96c0-35.3 28.7-64 64-64l384 0c35.3 0 64 28.7 64 64l0 256-64 0 0-256L128 96l0 256-64 0L64 96zM0 403.2C0 392.6 8.6 384 19.2 384l601.6 0c10.6 0 19.2 8.6 19.2 19.2c0 42.4-34.4 76.8-76.8 76.8L76.8 480C34.4 480 0 445.6 0 403.2zM281 209l-31 31 31 31c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-48-48c-9.4-9.4-9.4-24.6 0-33.9l48-48c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9zM393 175l48 48c9.4 9.4 9.4 24.6 0 33.9l-48 48c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l31-31-31-31c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z"/></svg>
-                                        PROGRAMMING LANGAUGES & TOOLS</span>
-                                </div>
-                                <i class="icon ion-md-arrow-forward">&#43;</i>
-                                <i class="icon ion-md-arrow-down">&#8212;</i>
-                            </a>
-                            <div class="answer">
-                                <div class="jp"><b>プログラミング言語</b></div>
-                                <div class="en"><b>Programming Languages</b></div>
-                                <ol>
-                                    <li>PHP Laravel</li>
-                                    <li>JavaScript</li>
-                                    <li>JQuery</li>
-                                    <li>TypeScript</li>
-                                </ol>
-                                <div class="jp"><b>ツール</b></div>
-                                <div class="en"><b>Tools</b></div>
-                                <ol>
-                                    <li>GitHub</li>
-                                    <li>Window</li>
-                                </ol>
 
-                            </div>
-                            <hr>
-                        </div>
-                        <div class="accordion-item" id="question4">
-                            <a class="accordion-link" href="#question4">
-                                <div>
-                                <span class="jp">&#128220; 業務内容</span>
-                                <span class="en">&#128220; DEVELOPMENT</span>
-                                </div>
-                                <i class="icon ion-md-arrow-forward">&#43;</i>
-                                <i class="icon ion-md-arrow-down">&#8212;</i>
-                            </a>
-                            <div class="answer">
-                                <ol class="jp">
-                                    <li>フロントエンドの開発</li>
-                                    <li>バックエンドの開発</li>
-                                    <li>バグ修正</li>
-                                </ol>
-                                <ol class="en">
-                                    <li>Front-end development</li>
-                                    <li>back-end development</li>
-                                    <li>Bug fixes</li>
-                                </ol>
-                            </div>
-                            <hr>
-                        </div>
-                        <div class="accordion-item" id="question5">
-                            <a class="accordion-link" href="#question5">
-                                <div>
-                                    <span class="jp">&#128107; 経験したこと</span>
-                                    <span class="en">&#128107; WHAT I EXPERIENCED</span>
-                                </div>
-                                <i class="icon ion-md-arrow-forward">&#43;</i>
-                                <i class="icon ion-md-arrow-down">&#8212;</i>
-                            </a>
-                            <div class="answer">
-                                <ol class="jp">
-                                    <li>チームワーク</li>
-                                    <li>AI運用</li>
-                                    <li>検索力</li>
-                                    <li>問題解決力</li>
-                                </ol>
-                                <ol class="en">
-                                    <li>TeamWork</li>
-                                    <li>AI Operation</li>
-                                    <li>Search Skills</li>
-                                    <li>Problem-Solving Skills</li>
-                                </ol>
-                            </div>
-                            <hr>
+                    </div>
+                    <div class="en">
+                        <p>
+                            <span class="intro-focus">DateSelector</span> is a lightweight and efficient JavaScript/TypeScript library designed to simplify date selection through dynamic dropdowns. It automatically updates available year, month, and day options based on user selections, ensuring only valid date choices. This library is perfect for web applications that require accurate and user-friendly date inputs.
+                        </p>
+                        <div>
+                            <span class="quote">"Not only development, it is published to npm."</span>&#128075;
                         </div>
                     </div>
+                    
+                    <button data-label="Register" class="rainbow-hover"><a href="#live-demo">
+                        <span class="sp">LIVE DEMO</span>
+                    </a>
+                    </button>
+                    <section id="documentation">
+                        <h3 class="jp">&#128203; ドキュメント</h3>
+                        <h3 class="en">&#128203; Documentation</h3>
+                        <p class="jp">詳細なドキュメントと例については、公式のドキュメントページをご覧ください。</p>
+                        <p class="en">For more detailed documentation and examples, please visit the official documentation page.</p>
+                        <p>
+                            GitHub repository: <a href="documentation-link-here" target="_blank" class="click-me">click here</a></p>
+                        </p>
+
+                    </section>
+                    <section id="language">
+                        <h3 class="jp">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="18" width="25" viewBox="0 0 640 512"><path fill="#B197FC" d="M64 96c0-35.3 28.7-64 64-64l384 0c35.3 0 64 28.7 64 64l0 256-64 0 0-256L128 96l0 256-64 0L64 96zM0 403.2C0 392.6 8.6 384 19.2 384l601.6 0c10.6 0 19.2 8.6 19.2 19.2c0 42.4-34.4 76.8-76.8 76.8L76.8 480C34.4 480 0 445.6 0 403.2zM281 209l-31 31 31 31c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-48-48c-9.4-9.4-9.4-24.6 0-33.9l48-48c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9zM393 175l48 48c9.4 9.4 9.4 24.6 0 33.9l-48 48c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l31-31-31-31c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z"/></svg>
+                            使用プログラミング言語</h3>
+                        <h3 class="en">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="18" width="25" viewBox="0 0 640 512"><path fill="#B197FC" d="M64 96c0-35.3 28.7-64 64-64l384 0c35.3 0 64 28.7 64 64l0 256-64 0 0-256L128 96l0 256-64 0L64 96zM0 403.2C0 392.6 8.6 384 19.2 384l601.6 0c10.6 0 19.2 8.6 19.2 19.2c0 42.4-34.4 76.8-76.8 76.8L76.8 480C34.4 480 0 445.6 0 403.2zM281 209l-31 31 31 31c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-48-48c-9.4-9.4-9.4-24.6 0-33.9l48-48c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9zM393 175l48 48c9.4 9.4 9.4 24.6 0 33.9l-48 48c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l31-31-31-31c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z"/></svg>
+                            Programming Languages Used</h3>
+                        <ol>
+                            <li>TypeScript</li>
+                            <li>JavaScript</li>
+                        </ol>
+                    <section id="dependencies">
+                        <h3 class="jp">&#128194; 開発の依存関係</h3>
+                        <h3 class="en">&#128194; Development Dependencies</h3>
+                        <ol>
+                            <li>Webpack</li>
+                            <li>babel-core</li>
+                            <li>babel-loader</li>
+                            <li>typescript</li>
+                            <li>ts-loader</li>
+                        </ol>
+                    </section>
+                    <section id="period">
+                        <h3 class="jp">&#128197; 開発期間</h3>
+                        <h3 class="en">&#128197; Development Period</h3>
+                        <p>1 week</p>
+                    </section>
+                
+                    <section id="installation" class="jp">
+                        <h2 class="jp">&#128228; npm に公開</h2>
+                        <span class="title">(version: 1.0.3)</span>
+                        <h3>npmを使ってインストール</h3>
+                        <p>DateSelectorはnpmを使って簡単にインストールできます:</p>
+                        
+                        <div class="code">
+                            npm i simple-date-selector 
+                        </div>
+                        
+                        <h3>プリコンパイル済みのスクリプトを直接使用</h3>
+                        <p>別の方法として、&lt;script&gt;タグを使用してライブラリをHTMLファイルに直接読み込むことができます:</p>
+                        <div class="code">
+                            &lt;script src="https://unpkg.com/simple-date-selector@1.0.3/lib/index.js"&gt;&lt;/script&gt;
+                        </div>
+                    </section>
+                    <section id="installation" class="en">
+                        <h2 class="en">&#128228; Publishing to npm</h2>
+                        <span class="title">(version: 1.0.3)</span>
+                        <h3>Install via npm</h3>
+                        <p>You can easily install DateSelector via npm:</p>
+
+                        <div class="code">
+                            npm i simple-date-selector 
+                        </div>
+
+                
+                        <h3>Use the precompiled script directly</h3>
+                        <p>Alternatively, you can include the library directly in your HTML file using a &lt;script&gt; tag:</p>
+                        <div class="code">
+                            &lt;script src="https://unpkg.com/simple-date-selector@1.0.3/lib/index.js"&gt;&lt;/script&gt;
+                        </div>
+                    </section>
                 </div>
             </div>
+            
+            <section id="live-demo">
+                <hr>
+                <h2>LIVE DEMO 🕊️</h2>
+                <p class="jp">下記に記載されている2つのライブラリのメソッドのパラメータを変更し、「<span style="color: #1abc9c">Run Code</span>」ボタンをクリックすると、右側に結果が表示されます。
+                    <br><br>
+                    ライブラリのメソッド：
+                </p>
+                <p class="en">
+                    You can change the parameters of these two methods of the library, then click the "<span style="color: #1abc9c">Run Code</span>" button to see the result on the right side.
+                    <br><br>
+                    Methods:
+                </p>
+                <ul>
+                    <li>
+                        <code >dateSelector.addYears('2000', '2030');</code>
+                    </li>
+                    <li>
+                        <code>dateSelector.initialize('2020', '7', '7');</code>
+                    </li>
+                </ul>
+                <div class="live-demo-container">
+                    <iframe src="https://shresthakumarbishal.github.io/portfolio.github.io/editor" frameborder="0" scrolling="no"></iframe>
+                </div>
+            </section>
         </div>
+        <br>
         <div class="email" style="width: 100%; text-align: end;">&#128238; <a href="https://docs.google.com/forms/d/e/1FAIpQLSe_XEDJPUKSSAOtfQyCiD1k_tdvzQ-kgG-xYkbWdq7cUaZsrQ/viewform" target="_blank">Contact with Google Form</a></div>
         <hr>
         <footer>
@@ -190,7 +304,7 @@
                 <div>&#128231; stha1265@gmail.com</div>
             </div>
             <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-            </div>
+          </div>
     </div>
     <script src="script.js"></script>
 </body>

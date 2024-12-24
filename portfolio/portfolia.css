@@ -11,6 +11,7 @@ html {
     -o-tab-size: 4;
     tab-size: 4;
     text-align: justify;
+    --focus-content: #00a6ed;
     font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji";
 }
 
@@ -20,6 +21,7 @@ body {
     --ln-arrow: rgb(179, 178, 178);
     --card-cap: hsl(180, 2%, 80%);
     --profile-bg: #c5ced6;
+    /* --focus-content: #d006ff; */
     color: var(--main-color);
     transition: background-color 0.7s ease;
     background-color: var(--main-bg);
@@ -41,6 +43,17 @@ body {
 
 h1 {
     font-weight: bold;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.click-me{
+    color: var(--focus-content);
+    padding: 0 20px;
+    font-family: monospace;
+    font-size: 15px;
 }
 
 .container {
@@ -246,7 +259,8 @@ input:checked+.slider:before {
 }
 
 .intro h3 span {
-    color: rgb(164, 60, 219);
+    color: var(--focus-content);
+    /* color: rgb(164, 60, 219); */
     font-style: italic;
 }
 
@@ -255,14 +269,19 @@ input:checked+.slider:before {
 }
 
 .intro-focus {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: monospace;
     font-style: italic;
-    color: rgb(164, 60, 219);
+    color: var(--focus-content);
 }
 
-.intro p {
+.intro p.en {
     font-size: 18px;
     line-height: 2;
+}
+
+.intro p.jp {
+    font-size: 18px;
+    line-height: 2.5;
 }
 
 /* *********skills**** */
@@ -508,7 +527,7 @@ input:checked+.slider:before {
     font-size: 0.8em;
 }
 
-/* **********buton****** */
+/* **********resume buton****** */
 .anchor {
     text-decoration: none;
     color: #fff;
@@ -516,21 +535,23 @@ input:checked+.slider:before {
     font-family: sans-serif;
     font-weight: 600;
     border-radius: 50px;
-    border: 2px solid #ed553b;
-    padding: 9px 15px 8px;
+    border: 2px solid var(--focus-content);
+    /* border: 2px solid #ed553b; */
+    padding: 9px 15px 9px;
     overflow: hidden;
     position: relative;
 }
 
-.anchor:hover {
-    color: #1aad0a;
+.anchor:hover{
+    color: var(--main-color);
 }
 
 .button a::before {
     position: absolute;
     content: "";
     z-index: 0;
-    background-color: #ed553b;
+    background-color: var(--focus-content);
+    opacity: 0.6;
     left: -5px;
     right: -5px;
     bottom: -5px;
@@ -660,160 +681,6 @@ input:checked+.slider:before {
     font-style: italic;
 }
 
-footer {
-    text-align: center;
-    font-family: 'Times New Roman', Times, serif;
-    padding: 2px;
-}
-
-.heart {
-    color: red;
-}
-
-@media screen and (max-width: 1200px) {
-    .container {
-        width: 90%;
-    }
-
-    .content-intro {
-        padding-left: 6px;
-        position: absolute;
-        left: 50%;
-        background-color: rgba(131, 132, 133, 0.678);
-        border-radius: 4px;
-    }
-
-    .header-content .content-img img {
-        width: 75%;
-        border-radius: 20px;
-    }
-}
-
-@media screen and (max-width: 924px) {
-    .container {
-        width: 97%;
-    }
-
-    .project {
-        width: 100%;
-    }
-
-    .card-lists {
-        justify-content: space-between;
-    }
-
-    .tooltip-container {
-        flex: 25%;
-    }
-
-    .header-hero .hero-img img {
-        height: 220px;
-    }
-
-    .card {
-        width: 31%;
-    }
-
-    .ln-lists>div {
-        padding: 5px;
-        font-size: 12px;
-    }
-}
-
-@media screen and (max-width: 756px) {
-    .intro p {
-        font-size: 14px;
-        line-height: 2;
-    }
-
-    .card {
-        width: 48%;
-    }
-
-    .header-hero .hero-img img {
-        height: 160px;
-    }
-
-    .header-content {
-        flex-direction: column;
-        margin: 20px auto;
-    }
-
-    .content-intro {
-        position: relative;
-        left: 0;
-        background-color: var(--main-bg);
-        border-radius: 12px;
-    }
-
-    .header-content .content-img img {
-        width: 100%;
-        height: auto;
-    }
-}
-
-@media screen and (max-width: 567px) {
-    .anchor {
-        font-size: 13px;
-    }
-
-    .header-hero {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .hero-img {
-        margin-top: 20px;
-        text-align: center;
-    }
-
-    .header-hero .hero-img img {
-        height: 200px;
-    }
-
-    .intro {
-        flex: 80%;
-    }
-
-    .ln-lists>div {
-        font-size: 10px;
-    }
-
-    footer .header-top {
-        flex-direction: column;
-    }
-}
-
-@media screen and (max-width: 400px) {
-    .card {
-        width: 90%;
-        margin: auto;
-    }
-
-    .ln-lists>div {
-        padding: 5px 8px;
-        font-size: 12px;
-    }
-}
-
-/* ********************************popup */
-.open-button {
-    /* background-color: #555; */
-    /* background-color: #b8d1e8; */
-    background-color: var(--profile-bg);
-    color: var(--main-bg);
-    padding: 10px 20px;
-    font-size: 20px;
-    border: none;
-    cursor: pointer;
-    opacity: 0.9;
-    position: fixed;
-    bottom: 23px;
-    right: 28px;
-    /* width: 100px; */
-    border-radius: 10px;
-}
-
 /* The popup chat - hidden by default */
 .chat-popup {
     display: none;
@@ -908,7 +775,7 @@ a:hover {
     top: 0.5rem;
     left: 50%;
     transform: translateX(-50%);
-    width: calc(100% - 7.5rem);
+    width: calc(100% - 6.5rem);
     background: #fff;
     border-radius: 100%;
 
@@ -934,5 +801,166 @@ a:hover {
 }
 
 .profile-3d-btn-jp{
-    font-size: 17px;
+    font-size: 15px;
 }
+
+footer {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 2px;
+}
+
+.heart {
+    color: red;
+}
+
+@media screen and (max-width: 1200px) {
+    .container {
+        width: 90%;
+    }
+
+    .content-intro {
+        padding-left: 6px;
+        position: absolute;
+        left: 50%;
+        background-color: rgba(106, 106, 107, 0.793);
+        border-radius: 4px;
+    }
+
+    .header-content .content-img img {
+        width: 75%;
+        border-radius: 20px;
+    }
+}
+
+@media screen and (max-width: 924px) {
+    .container {
+        width: 97%;
+    }
+
+    .project {
+        width: 100%;
+    }
+
+    .card-lists {
+        justify-content: space-between;
+    }
+
+    .tooltip-container {
+        flex: 25%;
+    }
+
+    .header-hero .hero-img img {
+        height: 220px;
+    }
+
+    .card {
+        width: 31%;
+    }
+
+    .ln-lists>div {
+        padding: 5px;
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 756px) {
+    .intro p.en {
+        font-size: 17px;
+        line-height: 1.5;
+    }
+    .intro p.jp {
+        font-size: 14px;
+        line-height: 2;
+    }
+
+    .card {
+        width: 48%;
+    }
+
+    .header-hero .hero-img img {
+        height: 160px;
+    }
+
+    .header-content {
+        flex-direction: column;
+        margin: 20px auto;
+    }
+
+    .content-intro {
+        position: relative;
+        left: 0;
+        background-color: var(--main-bg);
+        border-radius: 12px;
+    }
+
+    .header-content .content-img {
+        width: 100%;
+    }
+    .header-content .content-img img {
+        width: 100%;
+        height: auto;
+    }
+    .profile-3d-btn-jp {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 624px) {
+    .anchor {
+        font-size: 13px;
+    }
+
+    .header-hero {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero-img {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .header-hero .hero-img img {
+        height: 200px;
+    }
+
+    .intro {
+        flex: 80%;
+    }
+
+    .ln-lists>div {
+        font-size: 10px;
+    }
+
+    footer .header-top {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .card {
+        width: 90%;
+        margin: auto;
+    }
+
+    .ln-lists>div {
+        padding: 5px 8px;
+        font-size: 12px;
+    }
+}
+
+/* ********************************popup */
+/* .open-button {
+    background-color: var(--profile-bg);
+    color: var(--main-bg);
+    padding: 10px 20px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.9;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    border-radius: 10px;
+} */
