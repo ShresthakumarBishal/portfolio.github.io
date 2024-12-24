@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Date Selector Test</h1>
+    <div class="date-section">
+        <label for="year">Year:</label>
+        <select id="yearId">
+            <option value="">Select</option>
+        </select>
+
+        <label for="month">Month:</label>
+        <select id="monthId" onclick="check()">
+            <option value="">Select</option>
+        </select>
+        
+        <label for="day">Day:</label>
+        <select id="dayId">
+            <option value="">Select</option>
+        </select>
+    </div>
+
+    <!-- Include your bundled library -->
+    <script src="./dist/date-selector.js"></script>
+    <script>
+        // Assign custom IDs to the year, month, and day dropdowns.
+        dateSelector.element('yearId', 'monthId', 'dayId');
+
+        // Add a custom range yaers dropdowns
+        dateSelector.addYears('2000', 'now');
+
+        // Set pre-select values
+        dateSelector.initialize('2020', '7', '7');
+    </script>
+</body>
+</html>

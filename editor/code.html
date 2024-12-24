@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Editor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        #editor-container {
+            display: flex;
+            height: 100%;
+            flex-grow: 1;
+        }
+
+        textarea {
+            width: 50%;
+            height: 100%;
+            border: none;
+            padding: 10px;
+            font-family: monospace;
+            font-size: 16px;
+            background-color: #2c3e50;
+            color: white;
+            resize: none;
+            margin-right: 10px;
+        }
+
+        iframe {
+            width: 50%;
+            height: 100%;
+            border: none;
+            background-color: white;
+        }
+
+        .button-container {
+            padding: 10px;
+            background-color: #34495e;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #1abc9c;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #16a085;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="button-container">
+        <button id="runButton">Run Code</button>
+    </div>
+
+    <div id="editor-container">
+        <textarea id="htmlEditor" placeholder="Write your HTML here...">
+<h1>Date Selector Test</h1>
+
+<div class="date-section">
+    <label for="year">Year:</label>
+    <select id="year">
+        <option value="">Select</option>
+    </select>
+
+    <label for="month">Month:</label>
+    <select id="month" onclick="check()">
+        <option value="">Select</option>
+    </select>
+    
+    <label for="day">Day:</label>
+    <select id="day">
+        <option value="">Select</option>
+    </select>
+</div>
+
+<!-- Include your bundled library -->
+<script src="https://unpkg.com/simple-date-selector@1.0.3/lib/index.js"></script>
+
+<script>
+    // Add a custom range yaers dropdowns
+    dateSelector.addYears('2000', 'now');
+
+    // Set pre-select values
+    dateSelector.initialize('2020', '7', '7');
+</script>
+        </textarea>
+        <iframe id="previewFrame"></iframe>
+    </div>
+
+
+    <script>
+        // Get references to elements
+        const htmlEditor = document.getElementById('htmlEditor');
+        const previewFrame = document.getElementById('previewFrame');
+        const runButton = document.getElementById('runButton');
+
+        // Function to update the preview
+        function updatePreview() {
+            const htmlContent = htmlEditor.value;
+
+            // Create a document to inject HTML and JS
+            const previewDoc = previewFrame.contentDocument || previewFrame.contentWindow.document;
+            previewDoc.open();
+            previewDoc.write(htmlContent);
+
+
+            previewDoc.close();
+        }
+
+        // Event listener for running the code
+        runButton.addEventListener('click', function() {
+            updatePreview();
+        });
+    </script>
+
+</body>
+</html>
