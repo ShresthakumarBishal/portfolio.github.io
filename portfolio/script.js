@@ -9,13 +9,7 @@ const fragment = window.location.hash;
 var cb = document.getElementById('light-switch');
 
 cb.addEventListener('change', () => {
-    if (cb.checked) {
-
-        document.body.classList.add('bg-light');
-    } else {
-        document.body.classList.remove('bg-light');
-
-    }
+    document.body.classList.toggle('bg-light', cb.checked);
 });
 
 function openForm() {
@@ -33,25 +27,32 @@ tb.addEventListener('click', () => {
     for (a of en) {
         a.style.display = 'none';
     }
-
+    addHashToLinks('jp');
 });
 tb1.addEventListener('click', () => {
-    console.log('ok');
     for (a of jp) {
         a.style.display = 'none';
     }
     for (a of en) {
         a.style.display = 'block';
     }
+    addHashToLinks('en');
 });
 
-if (fragment.substring(1) === "en") {
-    for (a of jp) {
-        a.style.display = 'none';
-    }
-    for (a of en) {
-        a.style.display = 'block';
-    }
+if (fragment.substring(1) === "jp") {
+    tb.click();
+}
+
+function addHashToLinks(ln) {
+    var links = document.querySelectorAll('.card a');
+
+    links.forEach(function(link) {
+        if (link.href.includes('#')) {
+            link.href = link.href.split('#')[0] + '#' + ln;
+        } else {
+            link.href = link.href + '#' + ln;
+        }
+    });
 }
 
 document.getElementById("year").innerHTML = d.getFullYear();
