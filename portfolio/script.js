@@ -13,11 +13,13 @@ cb.addEventListener('change', () => {
 });
 
 function openForm() {
-    document.getElementById("myForm").style.display = "block";
+    document.getElementById("myForm").style.opacity = 1;
+    document.getElementById("myForm").style.transform = "translateX(0)";
 }
 
 function closeForm() {
-    document.getElementById("myForm").style.display = "none";
+    document.getElementById("myForm").style.opacity = 0;
+    document.getElementById("myForm").style.transform = "translateX(300px)";
 }
 
 tb.addEventListener('click', () => {
