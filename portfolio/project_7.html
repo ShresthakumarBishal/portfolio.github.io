@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="portfolia.css">
+    <style>
+        .rainbow-hover {
+            font-size: 16px;
+            font-weight: 700;
+            color: #ff7576;
+            background-color: inherit;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 10px 12px;
+            position: relative;
+            line-height: 20px;
+            border-radius: 9px;
+            box-shadow: 0px 1px 2px #8e8e93ba, 0px 4px 16px #6a6666ba;
+            transform-style: preserve-3d;
+            transform: scale(var(--s, 1)) perspective(600px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+            perspective: 600px;
+            transition: transform 0.1s;
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+
+        .sp {
+            background: linear-gradient(90deg,
+                    #866ee7,
+                    #ea60da,
+                    #ed8f57,
+                    #fbd41d,
+                    #2cca91);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+        }
+
+        .rainbow-hover:hover {
+            box-shadow: 0px 1px 2px #d8d8df91, 0px 4px 16px #777575e3;
+        }
+
+        /* ************************library***** */
+        .library-content {
+            width: 70%;
+            margin: auto;
+        }
+
+        .library-intro p {
+            line-height: 2;
+        }
+
+        .library-content p span {
+            font-size: 27px;
+        }
+
+        .code {
+            background-color: #354154;
+            padding: 10px 8px;
+            font-size: 14px;
+            font-family: monospace;
+            color: white;
+        }
+
+        #live-demo {
+            margin-top: 50px;
+        }
+
+        .live-demo-container iframe {
+            width: 100%;
+            height: 680px;
+        }
+
+        /* section p{
+            padding: 0 20px;
+        } */
+
+        section p {
+            padding-left: 20px;
+        }
+
+        .library-intro .quote {
+            font-size: 14px;
+            font-style: italic;
+            font-weight: 600;
+            font-family: monospace;
+        }
+
+        @media screen and (max-width: 756px) {
+            .library-content {
+                width: 90%;
+            }
+
+            .live-demo-container {
+                overflow-x: auto;
+            }
+
+            .live-demo-container iframe {
+                width: 850px;
+            }
+        }
+
+        #image-section {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            margin-top: 50px;
+        }
+
+        .image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .img {
+            position: absolute;
+            transition: all 1.5s ease-in-out;
+            /* Smooth transition for animation */
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        .img1 {
+            width: 60%;
+            height: 80%;
+            top: 0;
+            left: 0;
+            animation: animateLeft 1s ease-in-out;
+        }
+
+        .img2 {
+            width: 60%;
+            height: 80%;
+            bottom: 0;
+            right: 0;
+            animation: animateBottom 1s ease-in-out;
+        }
+
+        @keyframes animateLeft {
+            0%{
+                opacity: 0;
+                transform: translateX(-200px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes animateBottom {
+
+            0%{
+                opacity: 0;
+                transform: translateX(200px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+    <div class="container">
+        <div class="header">
+            <div class="header-top">
+                <div class="logo-avatar"><span>&#128373;</span> Portfolio</div>
+                <div class="header-right">
+                    <div class="language-toggle-container">
+                        <div class="language-text">
+                            <div class="jp" id="flag-jp">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 32 32">
+                                    <rect x="1" y="4" width="30" height="24" rx="4" ry="4" fill="#fff"></rect>
+                                    <path
+                                        d="M27,4H5c-2.209,0-4,1.791-4,4V24c0,2.209,1.791,4,4,4H27c2.209,0,4-1.791,4-4V8c0-2.209-1.791-4-4-4Zm3,20c0,1.654-1.346,3-3,3H5c-1.654,0-3-1.346-3-3V8c0-1.654,1.346-3,3-3H27c1.654,0,3,1.346,3,3V24Z"
+                                        opacity=".15"></path>
+                                    <circle cx="16" cy="16" r="6" fill="#ae232f"></circle>
+                                    <path
+                                        d="M27,5H5c-1.657,0-3,1.343-3,3v1c0-1.657,1.343-3,3-3H27c1.657,0,3,1.343,3,3v-1c0-1.657-1.343-3-3-3Z"
+                                        fill="#fff" opacity=".2"></path>
+                                </svg>
+                            </div>
+                            <div class="en" id="flag-en">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 32 32">
+                                    <rect x="1" y="4" width="30" height="24" rx="4" ry="4" fill="#fff"></rect>
+                                    <path
+                                        d="M1.638,5.846H30.362c-.711-1.108-1.947-1.846-3.362-1.846H5c-1.414,0-2.65,.738-3.362,1.846Z"
+                                        fill="#a62842"></path>
+                                    <path
+                                        d="M2.03,7.692c-.008,.103-.03,.202-.03,.308v1.539H31v-1.539c0-.105-.022-.204-.03-.308H2.03Z"
+                                        fill="#a62842"></path>
+                                    <path fill="#a62842" d="M2 11.385H31V13.231H2z"></path>
+                                    <path fill="#a62842" d="M2 15.077H31V16.923000000000002H2z"></path>
+                                    <path fill="#a62842" d="M1 18.769H31V20.615H1z"></path>
+                                    <path
+                                        d="M1,24c0,.105,.023,.204,.031,.308H30.969c.008-.103,.031-.202,.031-.308v-1.539H1v1.539Z"
+                                        fill="#a62842"></path>
+                                    <path
+                                        d="M30.362,26.154H1.638c.711,1.108,1.947,1.846,3.362,1.846H27c1.414,0,2.65-.738,3.362-1.846Z"
+                                        fill="#a62842"></path>
+                                    <path d="M5,4h11v12.923H1V8c0-2.208,1.792-4,4-4Z" fill="#102d5e"></path>
+                                    <path
+                                        d="M27,4H5c-2.209,0-4,1.791-4,4V24c0,2.209,1.791,4,4,4H27c2.209,0,4-1.791,4-4V8c0-2.209-1.791-4-4-4Zm3,20c0,1.654-1.346,3-3,3H5c-1.654,0-3-1.346-3-3V8c0-1.654,1.346-3,3-3H27c1.654,0,3,1.346,3,3V24Z"
+                                        opacity=".15"></path>
+                                    <path
+                                        d="M27,5H5c-1.657,0-3,1.343-3,3v1c0-1.657,1.343-3,3-3H27c1.657,0,3,1.343,3,3v-1c0-1.657-1.343-3-3-3Z"
+                                        fill="#fff" opacity=".2"></path>
+                                    <path fill="#fff"
+                                        d="M4.601 7.463L5.193 7.033 4.462 7.033 4.236 6.338 4.01 7.033 3.279 7.033 3.87 7.463 3.644 8.158 4.236 7.729 4.827 8.158 4.601 7.463z">
+                                    </path>
+                                    <path fill="#fff"
+                                        d="M7.58 7.463L8.172 7.033 7.441 7.033 7.215 6.338 6.989 7.033 6.258 7.033 6.849 7.463 6.623 8.158 7.215 7.729 7.806 8.158 7.58 7.463z">
+                                    </path>
+                                    <path fill="#fff"
+                                        d="M10.56 7.463L11.151 7.033 10.42 7.033 10.194 6.338 9.968 7.033 9.237 7.033 9.828 7.463 9.603 8.158 10.194 7.729 10.785 8.158 10.56 7.463z">
+                                    </path>
+                                    <path fill="#fff"
+                                        d="M6.066 9.283L6.658 8.854 5.927 8.854 5.701 8.158 5.475 8.854 4.744 8.854 5.335 9.283 5.109 9.979 5.701 9.549 6.292 9.979 6.066 9.283z">
+                                    </path>
+                                    <path fill="#fff"
+                                        d="M9.046 9.283L9.637 8.854 8.906 8.854 8.68 8.158 8.454 8.854 7.723 8.854 8.314 9.283 8.089 9.979 8.68 9.549 9.271 9.979 9.046 9.283z">
+                                    </path>
+                                    <path fill="#fff"
+                                        d="M12.025 9.283L12.616 8.854 11.885 8.854 11.659 8.158 11.433 8.854 10.702 8.854 11.294 9.283 11.068 9.979 11.659 9.549 12.251 9.979 12.025 9.283z">
+                                    </path>
+                                    <path fill="#fff"
+                                        d="M6.066 12.924L6.658 12.494 5.927 12.494 5.701 11.799 5.475 12.494 4.744 12.494 5.335 12.924 5.109 13.619 5.701 13.19 6.292 13.619 6.066 12.924z">
+                                    </path>
+                                    <path fill="#fff"
+                                        d="M9.046 12.924L9.637 12.494 8.906 12.494 8.68 11.799 8.454 12.494 7.723 12.494 8.314 12.924 8.089 13.619 8.68 13.19 9.271 13.619 9.046 12.924z">
+                                    </path>
+                                    <path fill="#fff"
+                                        d="M12.025 12.924L12.616 12.494 11.885 12.494 11.659 11.799 11.433 12.494 10.702 12.494 11.294 12.924 11.068 13.619 11.659 13.19 12.251 13.619 12.025 12.924z">
+                                    </path>
+                                    <path fill="#fff"
+                                        d="M13.539 7.463L14.13 7.033 13.399 7.033 13.173 6.338 12.947 7.033 12.216 7.033 12.808 7.463 12.582 8.158 13.173 7.729 13.765 8.158 13.539 7.463z">
+                                    </path>
+                                    <path fill="#fff"
+                                        d="M4.601 11.104L5.193 10.674 4.462 10.674 4.236 9.979 4.01 10.674 3.279 10.674 3.87 11.104 3.644 11.799 4.236 11.369 4.827 11.799 4.601 11.104z">
+                                    </path>
+                                    <path fill="#fff"
+                                        d="M7.58 11.104L8.172 10.674 7.441 10.674 7.215 9.979 6.989 10.674 6.258 10.674 6.849 11.104 6.623 11.799 7.215 11.369 7.806 11.799 7.58 11.104z">
+                                    </path>
+                                    <path fill="#fff"
+                                        d="M10.56 11.104L11.151 10.674 10.42 10.674 10.194 9.979 9.968 10.674 9.237 10.674 9.828 11.104 9.603 11.799 10.194 11.369 10.785 11.799 10.56 11.104z">
+                                    </path>
+                                    <path fill="#fff"
+                                        d="M13.539 11.104L14.13 10.674 13.399 10.674 13.173 9.979 12.947 10.674 12.216 10.674 12.808 11.104 12.582 11.799 13.173 11.369 13.765 11.799 13.539 11.104z">
+                                    </path>
+                                    <path fill="#fff"
+                                        d="M4.601 14.744L5.193 14.315 4.462 14.315 4.236 13.619 4.01 14.315 3.279 14.315 3.87 14.744 3.644 15.44 4.236 15.01 4.827 15.44 4.601 14.744z">
+                                    </path>
+                                    <path fill="#fff"
+                                        d="M7.58 14.744L8.172 14.315 7.441 14.315 7.215 13.619 6.989 14.315 6.258 14.315 6.849 14.744 6.623 15.44 7.215 15.01 7.806 15.44 7.58 14.744z">
+                                    </path>
+                                    <path fill="#fff"
+                                        d="M10.56 14.744L11.151 14.315 10.42 14.315 10.194 13.619 9.968 14.315 9.237 14.315 9.828 14.744 9.603 15.44 10.194 15.01 10.785 15.44 10.56 14.744z">
+                                    </path>
+                                    <path fill="#fff"
+                                        d="M13.539 14.744L14.13 14.315 13.399 14.315 13.173 13.619 12.947 14.315 12.216 14.315 12.808 14.744 12.582 15.44 13.173 15.01 13.765 15.44 13.539 14.744z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <span>
+                                <i class="arrow down"></i>
+                            </span>
+                        </div>
+                        <div class="language-dropdown">
+                            <span id="dropdown-jp">
+                                <a href="#jp">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 32">
+                                        <rect x="1" y="4" width="30" height="24" rx="4" ry="4" fill="#fff"></rect>
+                                        <path
+                                            d="M27,4H5c-2.209,0-4,1.791-4,4V24c0,2.209,1.791,4,4,4H27c2.209,0,4-1.791,4-4V8c0-2.209-1.791-4-4-4Zm3,20c0,1.654-1.346,3-3,3H5c-1.654,0-3-1.346-3-3V8c0-1.654,1.346-3,3-3H27c1.654,0,3,1.346,3,3V24Z"
+                                            opacity=".15"></path>
+                                        <circle cx="16" cy="16" r="6" fill="#ae232f"></circle>
+                                        <path
+                                            d="M27,5H5c-1.657,0-3,1.343-3,3v1c0-1.657,1.343-3,3-3H27c1.657,0,3,1.343,3,3v-1c0-1.657-1.343-3-3-3Z"
+                                            fill="#fff" opacity=".2"></path>
+                                    </svg>
+                                </a>
+                            </span>
+                            <span id="dropdown-en">
+                                <a href="#en">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 32">
+                                        <rect x="1" y="4" width="30" height="24" rx="4" ry="4" fill="#fff"></rect>
+                                        <path
+                                            d="M1.638,5.846H30.362c-.711-1.108-1.947-1.846-3.362-1.846H5c-1.414,0-2.65,.738-3.362,1.846Z"
+                                            fill="#a62842"></path>
+                                        <path
+                                            d="M2.03,7.692c-.008,.103-.03,.202-.03,.308v1.539H31v-1.539c0-.105-.022-.204-.03-.308H2.03Z"
+                                            fill="#a62842"></path>
+                                        <path fill="#a62842" d="M2 11.385H31V13.231H2z"></path>
+                                        <path fill="#a62842" d="M2 15.077H31V16.923000000000002H2z"></path>
+                                        <path fill="#a62842" d="M1 18.769H31V20.615H1z"></path>
+                                        <path
+                                            d="M1,24c0,.105,.023,.204,.031,.308H30.969c.008-.103,.031-.202,.031-.308v-1.539H1v1.539Z"
+                                            fill="#a62842"></path>
+                                        <path
+                                            d="M30.362,26.154H1.638c.711,1.108,1.947,1.846,3.362,1.846H27c1.414,0,2.65-.738,3.362-1.846Z"
+                                            fill="#a62842"></path>
+                                        <path d="M5,4h11v12.923H1V8c0-2.208,1.792-4,4-4Z" fill="#102d5e"></path>
+                                        <path
+                                            d="M27,4H5c-2.209,0-4,1.791-4,4V24c0,2.209,1.791,4,4,4H27c2.209,0,4-1.791,4-4V8c0-2.209-1.791-4-4-4Zm3,20c0,1.654-1.346,3-3,3H5c-1.654,0-3-1.346-3-3V8c0-1.654,1.346-3,3-3H27c1.654,0,3,1.346,3,3V24Z"
+                                            opacity=".15"></path>
+                                        <path
+                                            d="M27,5H5c-1.657,0-3,1.343-3,3v1c0-1.657,1.343-3,3-3H27c1.657,0,3,1.343,3,3v-1c0-1.657-1.343-3-3-3Z"
+                                            fill="#fff" opacity=".2"></path>
+                                        <path fill="#fff"
+                                            d="M4.601 7.463L5.193 7.033 4.462 7.033 4.236 6.338 4.01 7.033 3.279 7.033 3.87 7.463 3.644 8.158 4.236 7.729 4.827 8.158 4.601 7.463z">
+                                        </path>
+                                        <path fill="#fff"
+                                            d="M7.58 7.463L8.172 7.033 7.441 7.033 7.215 6.338 6.989 7.033 6.258 7.033 6.849 7.463 6.623 8.158 7.215 7.729 7.806 8.158 7.58 7.463z">
+                                        </path>
+                                        <path fill="#fff"
+                                            d="M10.56 7.463L11.151 7.033 10.42 7.033 10.194 6.338 9.968 7.033 9.237 7.033 9.828 7.463 9.603 8.158 10.194 7.729 10.785 8.158 10.56 7.463z">
+                                        </path>
+                                        <path fill="#fff"
+                                            d="M6.066 9.283L6.658 8.854 5.927 8.854 5.701 8.158 5.475 8.854 4.744 8.854 5.335 9.283 5.109 9.979 5.701 9.549 6.292 9.979 6.066 9.283z">
+                                        </path>
+                                        <path fill="#fff"
+                                            d="M9.046 9.283L9.637 8.854 8.906 8.854 8.68 8.158 8.454 8.854 7.723 8.854 8.314 9.283 8.089 9.979 8.68 9.549 9.271 9.979 9.046 9.283z">
+                                        </path>
+                                        <path fill="#fff"
+                                            d="M12.025 9.283L12.616 8.854 11.885 8.854 11.659 8.158 11.433 8.854 10.702 8.854 11.294 9.283 11.068 9.979 11.659 9.549 12.251 9.979 12.025 9.283z">
+                                        </path>
+                                        <path fill="#fff"
+                                            d="M6.066 12.924L6.658 12.494 5.927 12.494 5.701 11.799 5.475 12.494 4.744 12.494 5.335 12.924 5.109 13.619 5.701 13.19 6.292 13.619 6.066 12.924z">
+                                        </path>
+                                        <path fill="#fff"
+                                            d="M9.046 12.924L9.637 12.494 8.906 12.494 8.68 11.799 8.454 12.494 7.723 12.494 8.314 12.924 8.089 13.619 8.68 13.19 9.271 13.619 9.046 12.924z">
+                                        </path>
+                                        <path fill="#fff"
+                                            d="M12.025 12.924L12.616 12.494 11.885 12.494 11.659 11.799 11.433 12.494 10.702 12.494 11.294 12.924 11.068 13.619 11.659 13.19 12.251 13.619 12.025 12.924z">
+                                        </path>
+                                        <path fill="#fff"
+                                            d="M13.539 7.463L14.13 7.033 13.399 7.033 13.173 6.338 12.947 7.033 12.216 7.033 12.808 7.463 12.582 8.158 13.173 7.729 13.765 8.158 13.539 7.463z">
+                                        </path>
+                                        <path fill="#fff"
+                                            d="M4.601 11.104L5.193 10.674 4.462 10.674 4.236 9.979 4.01 10.674 3.279 10.674 3.87 11.104 3.644 11.799 4.236 11.369 4.827 11.799 4.601 11.104z">
+                                        </path>
+                                        <path fill="#fff"
+                                            d="M7.58 11.104L8.172 10.674 7.441 10.674 7.215 9.979 6.989 10.674 6.258 10.674 6.849 11.104 6.623 11.799 7.215 11.369 7.806 11.799 7.58 11.104z">
+                                        </path>
+                                        <path fill="#fff"
+                                            d="M10.56 11.104L11.151 10.674 10.42 10.674 10.194 9.979 9.968 10.674 9.237 10.674 9.828 11.104 9.603 11.799 10.194 11.369 10.785 11.799 10.56 11.104z">
+                                        </path>
+                                        <path fill="#fff"
+                                            d="M13.539 11.104L14.13 10.674 13.399 10.674 13.173 9.979 12.947 10.674 12.216 10.674 12.808 11.104 12.582 11.799 13.173 11.369 13.765 11.799 13.539 11.104z">
+                                        </path>
+                                        <path fill="#fff"
+                                            d="M4.601 14.744L5.193 14.315 4.462 14.315 4.236 13.619 4.01 14.315 3.279 14.315 3.87 14.744 3.644 15.44 4.236 15.01 4.827 15.44 4.601 14.744z">
+                                        </path>
+                                        <path fill="#fff"
+                                            d="M7.58 14.744L8.172 14.315 7.441 14.315 7.215 13.619 6.989 14.315 6.258 14.315 6.849 14.744 6.623 15.44 7.215 15.01 7.806 15.44 7.58 14.744z">
+                                        </path>
+                                        <path fill="#fff"
+                                            d="M10.56 14.744L11.151 14.315 10.42 14.315 10.194 13.619 9.968 14.315 9.237 14.315 9.828 14.744 9.603 15.44 10.194 15.01 10.785 15.44 10.56 14.744z">
+                                        </path>
+                                        <path fill="#fff"
+                                            d="M13.539 14.744L14.13 14.315 13.399 14.315 13.173 13.619 12.947 14.315 12.216 14.315 12.808 14.744 12.582 15.44 13.173 15.01 13.765 15.44 13.539 14.744z">
+                                        </path>
+                                    </svg>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="light-switch" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <h1 class="jp">管理システム</h1>
+                <h1 class="en">Management System</h1>
+            </div>
+            <div class="library-content">
+                <section id="image-section">
+                    <div class="image-wrapper">
+                        <img src="thems_img.png" alt="Image 2" class="img img1">
+                        <img src="themes_dark.png" alt="Image 1" class="img img2">
+                    </div>
+                </section>
+                <div class="library-intro">
+                    <div class="jp">
+                        <p>
+                            友人が運営する飲食店向けに管理システムを開発しています。このシステムでは、管理機能を中心に設計し、データの確認や分析ができるようにしています。さらに、ログイン機能を追加し、役職ごとにアクセス権限を設定することで、管理者以外の従業員や外部の人がアクセスできないようにしています。このシステムは、店舗運営を効率化し、データの安全性を確保することを目的としています。
+                        </p>
+                    </div>
+                    <div class="en">
+                        <p>
+                            I am developing a management system for a restaurant operated by a friend. This system is designed primarily around management features, allowing for data monitoring and analysis. Additionally, I have added a login feature and set access permissions based on roles to ensure that employees and external parties, other than administrators, cannot access the system. The goal of this system is to streamline restaurant operations and ensure data security.
+                        </p>
+                    </div>
+
+                    <section id="language">
+                        <h3 class="jp">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="18" width="25" viewBox="0 0 640 512">
+                                <path fill="#B197FC"
+                                    d="M64 96c0-35.3 28.7-64 64-64l384 0c35.3 0 64 28.7 64 64l0 256-64 0 0-256L128 96l0 256-64 0L64 96zM0 403.2C0 392.6 8.6 384 19.2 384l601.6 0c10.6 0 19.2 8.6 19.2 19.2c0 42.4-34.4 76.8-76.8 76.8L76.8 480C34.4 480 0 445.6 0 403.2zM281 209l-31 31 31 31c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-48-48c-9.4-9.4-9.4-24.6 0-33.9l48-48c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9zM393 175l48 48c9.4 9.4 9.4 24.6 0 33.9l-48 48c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l31-31-31-31c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z" />
+                            </svg>
+                            使用プログラミング言語
+                        </h3>
+                        <h3 class="en">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="18" width="25" viewBox="0 0 640 512">
+                                <path fill="#B197FC"
+                                    d="M64 96c0-35.3 28.7-64 64-64l384 0c35.3 0 64 28.7 64 64l0 256-64 0 0-256L128 96l0 256-64 0L64 96zM0 403.2C0 392.6 8.6 384 19.2 384l601.6 0c10.6 0 19.2 8.6 19.2 19.2c0 42.4-34.4 76.8-76.8 76.8L76.8 480C34.4 480 0 445.6 0 403.2zM281 209l-31 31 31 31c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-48-48c-9.4-9.4-9.4-24.6 0-33.9l48-48c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9zM393 175l48 48c9.4 9.4 9.4 24.6 0 33.9l-48 48c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l31-31-31-31c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z" />
+                            </svg>
+                            Programming Languages Used
+                        </h3>
+                        <ol>
+                            <li>Laravel</li>
+                            <li>Vue.js</li>
+                            <li>Tailwind CSS</li>
+                        </ol>
+                        <section id="period">
+                            <div class="jp">
+                                <h3 class="jp">&#128197; 開発期間</h3>
+                                <p>6か月予定</p>
+                            </div>
+                            <div class="en">
+                                <h3 class="en">&#128197; Development Period</h3>
+                                <p>Around 6 Months</p>
+                            </div>
+                        </section>
+                        <section id="period">
+                            <div class="jp">
+                                <h3>&#128640; ツール＆サービス</h3>
+                                <p>Figma -> デザイン用</p>
+                                <p>AWS -> ホスティング、サーバー管理</p>
+                            </div>
+                            <div class="en">
+                                <h3 class="en">&#128640; Tools & Service</h3>
+                                <p>Figma -> For design</p>
+                                <p>AWS -> Hosting, server management</p>
+                            </div>
+
+                        </section>
+                        <section id="installation">
+                            <div class="jp">
+                                <h2>&#129333; 開発テーム</h2>
+                                <span class="title">(一人での開発)</span>
+                            </div>
+                            <div class="en">
+                                <h2>&#129333; Developer Team</h2>
+                                <span class="title">(Self-Development)</span>
+                            </div>
+                        </section>
+                </div>
+            </div>
+
+        </div>
+        <br>
+        <div class="email en" style="width: 100%; text-align: end;">&#128238; <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSe_XEDJPUKSSAOtfQyCiD1k_tdvzQ-kgG-xYkbWdq7cUaZsrQ/viewform"
+                target="_blank">Contact with Google Form</a></div>
+        <div class="email jp" style="width: 100%; text-align: end;">&#128238; <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSe_XEDJPUKSSAOtfQyCiD1k_tdvzQ-kgG-xYkbWdq7cUaZsrQ/viewform"
+                target="_blank">Googleフォームでのお問い合わせ</a></div>
+        <hr>
+        <footer>
+            <div class="header-top">
+                <div>&#169; Copyright <span id="year"></span>. Made with <span class="heart">&#9829;</span> By Bishal
+                </div>
+                <div>
+                    <a href="https://www.instagram.com/bishal.shrestha.75" target="_blank" class="fa fa-facebook"></a>
+                    <a href="https://www.instagram.com/bsaal_crestha/" target="_blank" class="fa fa-instagram"></a>
+                    <a href="https://join.skype.com/invite/xlfGxyv8Np7s" target="_blank" class="fa fa-skype"></a>
+                    <a href="https://github.com/ShresthakumarBishal" target="_blank" class="fa fa-github"></a>
+                    <a href="mailto:stha1265@gmail.com" class="fa fa-envelope"></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- POP UP -->
+    <button class="en profile-3d-btn" onclick="openForm()">Profile</button>
+    <button class="jp profile-3d-btn profile-3d-btn-jp" onclick="openForm()">プロファイル</button>
+    <div class="chat-popup" id="myForm">
+        <div class="profile-card">
+            <img src="bsaal1.JPG" alt="Bishal" style="width:100%">
+
+            <div class="profile-info">
+                <h2>Shrestha Bishal</h2>
+                <div class="title">Web & App Developer</div>
+                <hr>
+                <div>Java, Silver SE 11</div>
+                <div>日本語能力試験N2</div>
+                <hr>
+                <div>&#128222; 080-7553-2270</div>
+                <div>&#128231; stha1265@gmail.com</div>
+            </div>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

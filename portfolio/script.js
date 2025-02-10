@@ -8,6 +8,7 @@ const tb1 = document.getElementById('dropdown-en');
 const fragment = window.location.hash;
 var cb = document.getElementById('light-switch');
 
+
 cb.addEventListener('change', () => {
     document.body.classList.toggle('bg-light', cb.checked);
 });
@@ -48,7 +49,7 @@ if (fragment.substring(1) === "jp") {
 function addHashToLinks(ln) {
     var links = document.querySelectorAll('.card a');
 
-    links.forEach(function(link) {
+    links.forEach(function (link) {
         if (link.href.includes('#')) {
             link.href = link.href.split('#')[0] + '#' + ln;
         } else {

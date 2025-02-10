@@ -1,0 +1,217 @@
+
+I’m a web developer specializing in building responsive, scalable web applications with technologies like JavaScript、Laravel、Vue.js etc. My expertise spans both front-end and back-end development, creating seamless and efficient digital solutions. Explore my portfolio to see the impact of my projects.
+
+I’m a web developer focused on creating responsive, scalable web applications using technologies like JavaScript, Laravel, and Vue.js. I specialize in both front-end and back-end development, delivering smooth and efficient digital solutions. Check out my portfolio to see the results of my work.
+
+
+私は、JavaScript、Laravel、Vue.jsを使用して、レスポンシブでスケーラブルなウェブアプリケーションの開発経験があるウェブ開発者です。チームの一員として、フロントエンドとバックエンドの両方を担当し、効率的なデジタルソリューションを提供しています。協力と革新を通じて、プロジェクトのニーズに応じた高品質なウェブアプリケーションの開発にも貢献しています。私のポートフォリオをご覧ください。
+
+I am a web developer with experience in developing responsive and scalable web applications using JavaScript, Laravel, and Vue.js. As part of a team, I handle both front-end and back-end development, delivering efficient digital solutions. Through collaboration and innovation, I contribute to the development of high-quality web applications that meet project needs. Please take a look at my portfolio.
+
+ABOUT PROJECT
+
+    It was a project for Android & iOS mobile application development. I joined the project midway and worked on testing for about two months. I conducted tests on four devices and focused on identifying bugs based on various scenarios.
+
+TOOLS USED
+    Excel
+    PowerPoint
+    Window 
+    mobile
+
+What i did?
+    I did monkey tests, and there was a scenario sheet, and I did the testing work exactly as written on the sheet. When I found a bug, I recorded it in the WBS table.
+
+What i experienced?
+    Scenario-based Testing
+    Bug Documentation
+    Efficient Reporting
+
+######
+保険会社
+
+案件について
+
+    Laravelで開発した保険会社のシステムの案件でした。この案件には途中から参加し、約10っか月間バグ修正と開発の作業を行いました。
+この案件のシステムはフロントエンドとバックエンド両方フルlaravelで開発したシステムです。私はフロントエンドとバックエンドどっちも開発の経験を詰めました。
+
+この案件は、Laravelを使用して開発された保険会社のシステムのプロジェクトでした。私は途中から参加し、約10ヶ月間にわたりバグ修正や新機能の開発を担当しました。このシステムは、フロントエンドとバックエンドが両方ともフルLaravelで開発されており、私はフロントエンドとバックエンドの両方で開発経験を積むことができました。システムの品質向上に貢献するため、効率的にバグを特定し修正し、新しい機能の実装にも取り組みました。
+
+
+この案件は、Laravelで開発された保険会社のシステムで、途中から参加し約10ヶ月間、バグ修正と新機能の開発を担当しました。フロントエンドとバックエンド両方で開発経験を積み、システムの品質向上に貢献しました。
+
+プログラミング言語とツール
+    プログラミング言語
+        PHP Laravel
+        JavaScript
+        JQuery
+        TypeScript
+    ツール
+        GitHub
+        Window
+
+業務内容
+    フロントエンドの開発（UI/UXの改善、機能実装）
+    バックエンドの開発（APIの設計・実装、データベース処理）
+    バグ修正とコードのリファクタリング
+    新機能の開発とテストの実施
+
+チームでの経験
+    マネジメント
+    チームワークの向上
+    チームコミュニケーション力
+
+
+######
+プロジェクト管理システム
+
+案件について
+
+    この案件には要件定義にも参加でき、システムの流れに自分の意見を出すことができました。このシステムはフロントエンドとバックエンドは別で開発をしています。フロントエンドはVue,jsを利用し、バックエンドはlaravelでAPI開発をしています。API開発とフロントエンドの画面デザイン開発の経験しています。
+
+    このプロジェクトでは、要件定義にも参加し、システムの設計に自分の意見を反映させることができました。フロントエンドはVue.js、バックエンドはLaravelを使用したAPI開発です。私はAPI開発とフロントエンドの画面デザイン開発の両方に携わりました。
+
+    このプロジェクトでは、要件定義に参加し、システム設計に自分の意見を反映しました。フロントエンドはVue.js、バックエンドはLaravelでAPI開発を行い、API開発とフロントエンドの画面デザインに携わりました。
+
+プログラミング言語とツール
+    プログラミング言語
+        PHP Laravel
+        JavaScript
+        JQuery
+        TypeScript
+    ツール
+        GitHub
+        Window
+
+業務内容
+    フロントエンド開発（Vue.js）
+    バックエンド開発（Laravel API）
+    バグ修正
+
+チームでの経験
+    マネジメント: プロジェクト進行とスケジュール管理
+    チームワーク: メンバーとの連携による開発促進
+    コミュニケーション: 定期的なミーティングで課題解決
+
+
+
+######
+Quizアンドロイドアプリ
+
+Quizアプリについて
+
+    日本語の勉強できるQuizアンドロイドアプリです。自分がプログラミングの勉強のために、独学しながら作ったアプリです。開発だけではなく、play storeにも公開しました。
+    どのようなアプリ作るのかイメージしながら、開発からplay storeに公開するまでの経験を詰めました。
+
+    日本語学習用のQuizアンドロイドアプリで、プログラミングの勉強として独学で開発しました。開発だけでなく、Play Storeにも公開し、アプリ制作から公開までの一連の経験を積みました。
+
+    日本語学習用のクイズアンドロイドアプリを開発しました。このアプリは、プログラミングの勉強のために独学で作成したもので、開発だけでなく、Play Storeにも公開しました。アプリの内容を考えながら、開発からPlay Storeへの公開までの過程を経験することができました。
+
+プログラミング言語とツール
+    プログラミング言語
+        Python
+        Kivy
+    ツール
+        VsCode
+        Window
+
+やったこととして
+    アプリのイメージ作成
+    デザイン開発
+    ロジックコーディング
+学んだこと
+    時間管理
+    コーディングスキル
+    検索力
+    問題解決力
+
+Build TOOLS & Release Platform
+    Buildozer (Build AAB)
+    Play Store (Release Platform)
+
+
+######
+blog 
+
+Blogについて
+
+    Pyhtonをつかってアプリの開発できる方法を書いてあるblogです。自分で開発したアプリの作り方を教えるblogを作成しました。
+    したのリンクから確認できます。自分でdomain　name　をとって、hostingし、公開した経験もあります。
+    view blog
+
+    Pythonを使ってアプリを開発する方法について書かれたブログです。自分で開発したアプリの作り方を紹介するブログを作成しました。下記のリンクから確認できます。また、独自のドメイン名を取得し、ホスティングして公開した経験もあります。
+
+    This is a blog that explains how to develop apps using Python. I created a blog to share how I built the apps I developed. You can check it out from the link below. Additionally, I have experience in obtaining my own domain name, hosting it, and publishing the site.
+
+プログラミング言語とツール
+    プログラミング言語
+        HTML
+        CSS
+        JavaScript
+    ツール
+        VsCode
+        Window
+
+やったこととして
+    webページのイメージ作成
+    デザイン開発
+    コーディング
+学んだこと
+    時間管理
+    コーディングスキル
+    検索力
+    問題解決力
+
+Domain Name & Hosting
+    Namecheap (Hosting)
+    Oname.jp (Domain Name)
+
+###########
+
+
+
+DateSelector - A Simple Date Selection Library
+DateSelector is a lightweight and efficient JavaScript/TypeScript library designed to simplify date selection through dynamic dropdowns. It automatically updates available year, month, and day options based on user selections, ensuring only valid date choices. This library is perfect for web applications that require accurate and user-friendly date inputs.
+
+For detailed documentation, click here.
+
+Programming Languages and Tools
+JavaScript
+TypeScript
+Development Dependencies
+Webpack
+TypeScript
+Babel-core
+ts-loader
+Development Period
+1 week
+
+Publishing to npm
+Install via npm
+You can easily install DateSelector via npm:
+
+bash
+Copy code
+npm install simple-date-selector
+Or use the precompiled script directly in your project
+Alternatively, you can include the library directly in your HTML file using a <script> tag:
+
+html
+Copy code
+<script src="path/to/simple-date-selector.js"></script>
+
+##core method
+
+
+## Live Demo
+You can change the parameters of these two methods of library, then click the "Run Code" button to see the result on the right side.
+method:
+// Add a custom range yaers dropdowns
+dateSelector.addYears('2000', 'now');
+
+// Set pre-select values
+dateSelector.initialize('2020', '7', '7');
+
+
+
+
+For more detailed documentation and examples, please visit the official documentation page.
