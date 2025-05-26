@@ -1,0 +1,2258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SalesFlow | Cloud-Based Sales Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ========== GLOBAL STYLES ========== */
+        :root {
+            --primary: #3f86ff;
+            --primary-dark: #2671f2;
+            --accent: #00c9a7;
+            --dark: #1a2639;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --gradient: linear-gradient(135deg, #3f86ff 0%, #00c9a7 100%);
+            --font-family-sans: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            overflow-x: hidden;
+            color: var(--dark);
+            background-color: white;
+        }
+
+        /* ========== HEADER STYLES ========== */
+        .header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 5%;
+        }
+
+        /* .logo img {
+            height: 40px;
+        } */
+
+        .logo a {
+            font-size: 1.8rem;
+            color: var(--dark);
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 200px;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.5rem 0;
+            color: var(--gray);
+        }
+
+        .dropdown-menu a:hover {
+            color: var(--primary);
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn-login:hover {
+            color: var(--primary);
+        }
+
+        #languageSelector {
+            padding: 5px 8px;
+            border-radius: 4px;
+            border: 1px solid #d1d5db;
+            font-size: 0.95rem;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: white;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-menu.active {
+            max-height: 500px;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            padding: 1rem 5%;
+            margin: 0;
+        }
+
+        .mobile-menu li {
+            margin: 0.5rem 0;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 1rem;
+            color: var(--dark);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu a:hover {
+            background: rgba(63, 134, 255, 0.05);
+        }
+
+        /* Floating CTA (Mobile) */
+        .floating-cta {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 100;
+            display: none;
+        }
+
+        .floating-cta .btn {
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .nav-links {
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 896px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .mobile-menu .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                background: rgba(63, 134, 255, 0.03);
+                margin-left: 1rem;
+                padding: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+
+            .mobile-menu .dropdown.active .dropdown-menu {
+                max-height: 500px;
+                padding: 0.5rem 0;
+            }
+        }
+
+        @media (max-width: 596px) {
+
+            .auth-buttons a {
+                display: none;
+            }
+
+            .floating-cta {
+                display: block;
+                animation: pulse 2s infinite;
+            }
+        }
+
+        /* ========== HERO SECTION ========== */
+        .hero {
+            background: var(--gradient);
+            background: linear-gradient(135deg, #6e45e2 0%, #88d3ce 100%);
+            background: radial-gradient(circle at 20% 30%, rgba(56, 191, 248, 0.82) 10%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(167, 139, 250, 0.52) 10%, transparent 40%);
+            position: relative;
+            padding: 2rem 10%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: radial-gradient(circle at 20% 20%, rgb(220 239 248 / 86%) 10%, transparent 40%),
+                radial-gradient(circle at 80% 41%, rgba(246, 205, 145, 0.23) 10%, transparent 40%);
+        }
+
+        .hero-content {
+            padding-top: 1rem;
+            max-width: 51%;
+            z-index: 2;
+            color: black;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+            opacity: 0;
+            color: #475569;
+        }
+
+        .hero ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+            color: rgb(97, 98, 99);
+        }
+
+        .hero ul li::before {
+            content: '✅';
+            margin-right: 10px;
+            color: green;
+        }
+
+        .hero ul li {
+            margin: 10px 0;
+            font-size: 1rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.8s ease-out 0.4s forwards;
+            opacity: 0;
+        }
+
+        .btn {
+            /* display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-align: center; */
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline {
+            /* display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease; */
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background: white;
+            margin-top: 1rem;
+        }
+
+        .btn-outline:hover {
+            background: rgba(63, 134, 255, 0.05);
+        }
+
+
+        .btn-primary {
+            /* display: inline-block;
+            padding: 0.8rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease; */
+            background: var(--primary);
+            color: white;
+            border: 2px solid var(--primary);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(63, 134, 255, 0.3);
+        }
+
+        .btn-secondary {
+            padding: 0.8rem 2rem;
+            color: var(--primary);
+            font-weight: 500;
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .trust-badges {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            animation: fadeIn 1s ease-out 0.8s forwards;
+            opacity: 0;
+            font-family: var(--font-family-sans);
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .badge i {
+            color: var(--accent);
+        }
+
+        /* Floating Images Animation */
+        .floating-images {
+            right: 5%;
+            width: 45%;
+            height: 60vh;
+            z-index: 1;
+            perspective: 1000px;
+        }
+
+        .floating-img {
+            position: absolute;
+            border-radius: 12px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transform-style: preserve-3d;
+            transition: transform 0.5s ease;
+            width: auto;
+            max-height: 60%;
+        }
+
+        .img1 {
+            right: 0;
+            top: 15%;
+            height: 60%;
+            z-index: 3;
+            animation: float-primary 8s infinite ease-in-out;
+            transform: rotateY(-5deg) rotateZ(1deg);
+        }
+
+        .img2 {
+            right: 35%;
+            top: 40%;
+            height: 60%;
+            z-index: 2;
+            animation: float-secondary 9s infinite ease-in-out 1s;
+            transform: rotateY(3deg) rotateZ(-2deg);
+        }
+
+        .img3 {
+            right: 10%;
+            top: 55%;
+            height: 60%;
+            z-index: 1;
+            animation: float-tertiary 7s infinite ease-in-out 0.5s;
+            transform: rotateY(-2deg) rotateZ(1deg);
+        }
+
+        /* Custom Floating Animations */
+        @keyframes float-primary {
+
+            0%,
+            100% {
+                transform: translateY(0) rotateY(-5deg) rotateZ(1deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotateY(-8deg) rotateZ(1.5deg);
+            }
+        }
+
+        @keyframes float-secondary {
+
+            0%,
+            100% {
+                transform: translateY(0) rotateY(3deg) rotateZ(-2deg);
+            }
+
+            50% {
+                transform: translateY(-15px) rotateY(5deg) rotateZ(-3deg);
+            }
+        }
+
+        @keyframes float-tertiary {
+
+            0%,
+            100% {
+                transform: translateY(0) rotateY(-2deg) rotateZ(1deg);
+            }
+
+            50% {
+                transform: translateY(-10px) rotateY(-4deg) rotateZ(1.5deg);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 1024px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 3rem;
+            }
+
+            .hero-content {
+                max-width: 100%;
+                align-items: center;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+
+            .trust-badges {
+                justify-content: center;
+            }
+
+            .hero-image {
+                position: relative;
+                width: 100%;
+                right: auto;
+                margin-top: 3rem;
+            }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .hero-content {
+                max-width: 100%;
+            }
+
+            .floating-images {
+                right: auto;
+                width: 100%;
+                margin-bottom: 3rem;
+            }
+
+            .btn {
+                padding: 0.8rem 1rem;
+            }
+
+        }
+
+        /* ========== FEATURES SECTION ========== */
+        .features {
+            padding: 8rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: #f9fbfe;
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .feature-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(63, 134, 255, 0.1) 0%, rgba(0, 201, 167, 0.1) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .feature-card p {
+            color: var(--gray);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .feature-link i {
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-link:hover {
+            color: var(--primary-dark);
+        }
+
+        .feature-link:hover i {
+            transform: translateX(3px);
+        }
+
+        /* ========== ANIMATIONS ========== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .features {
+                padding: 5rem 5%;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .section-header p {
+                font-size: 1rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ========== HOW IT WORKS STYLES ========== */
+        .how-it-works {
+            padding: 6rem 5%;
+            background-color: #f9fbfe;
+            text-align: center;
+        }
+
+        .steps-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1000px;
+            margin: 4rem auto;
+            position: relative;
+        }
+
+        .step {
+            flex: 1;
+            padding: 0 1.5rem;
+            position: relative;
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .step.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin: 0 auto 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--primary);
+            font-size: 2rem;
+            box-shadow: 0 5px 20px rgba(63, 134, 255, 0.15);
+        }
+
+        .step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .step p {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        .connector {
+            flex: 0 0 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            padding-top: 40px;
+        }
+
+        .connector-line {
+            width: 100%;
+            height: 2px;
+            background: var(--primary);
+            opacity: 0.2;
+            position: relative;
+        }
+
+        .connector i {
+            color: var(--primary);
+            background: white;
+            padding: 5px;
+            border-radius: 50%;
+            margin-top: 10px;
+        }
+
+        .cta-wrapper {
+            margin-top: 3rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .steps-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 3rem;
+            }
+
+            .step {
+                max-width: 300px;
+                padding: 0;
+            }
+
+            .connector {
+                flex: auto;
+                width: 2px;
+                height: 40px;
+                padding-top: 0;
+            }
+
+            .connector-line {
+                width: 2px;
+                height: 100%;
+            }
+
+            .connector i {
+                transform: rotate(90deg);
+            }
+        }
+
+        /* ========== PRICING STYLES ========== */
+        .pricing {
+            padding: 6rem 5%;
+            background: white;
+            text-align: center;
+        }
+
+        .pricing-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            flex-wrap: wrap;
+        }
+
+        .pricing-card {
+            flex: 1;
+            min-width: 300px;
+            max-width: 360px;
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .pricing-card.popular {
+            border: 1px solid var(--primary);
+            box-shadow: 0 5px 30px rgba(63, 134, 255, 0.2);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .pricing-header {
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-header h3 {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .price {
+            margin: 1rem 0;
+        }
+
+        .price .amount {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .price .period {
+            font-size: 1rem;
+            color: var(--gray);
+        }
+
+        .pricing-header .description {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        .features-list {
+            text-align: left;
+            margin: 2rem 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .features-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--dark);
+        }
+
+        .features-list li i {
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            top: 0.2rem;
+        }
+
+        .pricing-footer {
+            max-width: 800px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .guarantee {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(0, 201, 167, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            color: var(--dark);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .guarantee i {
+            color: var(--accent);
+        }
+
+        .note {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .pricing-card {
+                min-width: 100%;
+            }
+
+            .pricing-container {
+                gap: 1.5rem;
+            }
+        }
+
+        /* ========== TESTIMONIALS STYLES ========== */
+        .testimonials {
+            padding: 6rem 5%;
+            background-color: #f9fbfe;
+            text-align: center;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonials-container {
+            display: flex;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 3rem auto;
+            overflow-x: auto;
+            padding: 1rem 0;
+            scroll-snap-type: x mandatory;
+        }
+
+        .testimonial-card {
+            flex: 0 0 calc(33.333% - 1.5rem);
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+            scroll-snap-align: start;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .rating {
+            color: #FFC107;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .quote {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--dark);
+            font-style: italic;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .quote::before,
+        .quote::after {
+            content: '"';
+            color: rgba(63, 134, 255, 0.2);
+            font-size: 3rem;
+            font-family: Georgia, serif;
+            position: absolute;
+        }
+
+        .quote::before {
+            top: -1rem;
+            left: -1rem;
+        }
+
+        .quote::after {
+            bottom: -2.5rem;
+            right: -1rem;
+        }
+
+        .author {
+            display: flex;
+            align-items: center;
+            text-align: left;
+            margin-top: 2rem;
+        }
+
+        .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 1rem;
+            border: 2px solid rgba(63, 134, 255, 0.1);
+        }
+
+        .author-info h4 {
+            font-size: 1rem;
+            color: var(--dark);
+            margin-bottom: 0.2rem;
+        }
+
+        .author-info p {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        /* Logo Cloud */
+        .logo-cloud {
+            max-width: 1000px;
+            margin: 4rem auto 0;
+        }
+
+        .cloud-title {
+            color: var(--gray);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+
+        .logos {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .logos:hover {
+            opacity: 1;
+        }
+
+        .logos img {
+            height: 40px;
+            width: auto;
+            filter: grayscale(100%);
+            transition: all 0.3s ease;
+        }
+
+        .logos img:hover {
+            filter: grayscale(0%);
+            transform: scale(1.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .testimonial-card {
+                flex: 0 0 calc(50% - 1rem);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .testimonial-card {
+                flex: 0 0 90%;
+            }
+
+            .logos {
+                gap: 1rem;
+            }
+
+            .logos img {
+                height: 30px;
+            }
+        }
+
+        /* ========== FAQ STYLES ========== */
+        .faq {
+            padding: 6rem 5%;
+            /* background-color: #f9fbfe;*/
+            text-align: center;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: rgba(63, 134, 255, 0.2);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .faq-question i {
+            color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question.active i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: white;
+        }
+
+        .faq-answer p {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--gray);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .faq-answer.show {
+            max-height: 300px;
+        }
+
+        .faq-cta {
+            margin-top: 3rem;
+        }
+
+        .faq-cta p {
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .faq-question {
+                padding: 1.2rem;
+                font-size: 1rem;
+            }
+
+            .faq-answer p {
+                padding: 0 1.2rem 1.2rem;
+            }
+        }
+
+        /* ========== FOOTER STYLES ========== */
+        .footer {
+            position: relative;
+            background: #1a2639;
+            color: #f8f9fa;
+            padding: 4rem 5% 2rem;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(63, 134, 255, 0.1) 0%, transparent 50%);
+            z-index: 1;
+        }
+
+        .footer-container {
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-flex {
+            display: flex;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 5rem;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-left {
+            max-width: 300px;
+        }
+
+        .footer-right {
+            display: flex;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-logo {
+            height: 40px;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-description {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .newsletter h4 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            border-radius: 50px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            background: transparent;
+            color: white;
+        }
+
+        .newsletter-form input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .newsletter-form button {
+            width: 50px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background: var(--primary-dark);
+        }
+
+        .footer-heading {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .contact-links i {
+            color: var(--primary);
+            width: 20px;
+            margin-right: 0.5rem;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        .legal-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .legal-links a {
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .legal-links a:hover {
+            color: white;
+        }
+
+        .back-to-top a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-top a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .footer-left {
+                max-width: none;
+            }
+
+            .footer-right {
+                justify-content: space-between;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer {
+                padding-bottom: 6rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .legal-links {
+                order: 2;
+                margin-top: 1rem;
+            }
+
+            .back-to-top {
+                order: 3;
+                margin-top: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-col {
+                padding: 0;
+            }
+
+            .newsletter-form input {
+                padding: 0.8rem 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ========== HEADER ========== -->
+    <header class="header">
+        <nav class="navbar">
+            <!-- Logo -->
+            <!-- <a href="#" class="logo">
+                <img src="https://placehold.co/160x40/3f86ff/white?text=SalesFlow" alt="SalesFlow Logo">
+            </a> -->
+            <div class="logo">
+                <a href="#">SalesTrack<span>Pro</span></a>
+            </div>
+
+
+            <!-- Desktop Navigation -->
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li class="dropdown">
+                    <a href="#resources">Resources <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="#blog">Blog</a>
+                        <a href="#docs">Documentation</a>
+                        <a href="#support">Support</a>
+                    </div>
+                </li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+
+            <!-- Auth Buttons -->
+            <div class="auth-buttons">
+                <!-- Language Switcher -->
+                <select id="languageSelector" onchange="changeLanguage(this)">
+                    <option value="en">EN</option>
+                    <option value="hi">NE</option>
+                    <option value="ur">JA</option>
+                </select>
+                <a href="#signup" class="btn btn-primary">
+                    <i class="fas fa-rocket"></i> Get Started
+                </a>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="menu-toggle" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu">
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li class="dropdown">
+                    <a href="#resources">Resources <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="#blog">Blog</a>
+                        <a href="#docs">Documentation</a>
+                        <a href="#support">Support</a>
+                    </div>
+                </li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#login">Sign In</a></li>
+                <li><a href="#signup">Start Free Trial</a></li>
+            </ul>
+        </div>
+    </header>
+    <!-- ========== HERO SECTION ========== -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Track Sales. See Profits. Grow Smarter !!</h1>
+            <!-- <h1>Take Control of Your Sales—Effortlessly Track, Analyze, and Grow!</h1> -->
+            <p>Join thousands of businesses managing sales, expenses, and profits—all in one simple, powerful platform.
+            </p>
+
+            <ul>
+                <li>Instantly enter daily sales and expenses</li>
+                <li>Visualize profit & loss with smart charts</li>
+                <li>Secure cloud access across all devices</li>
+            </ul>
+
+            <div class="cta-buttons">
+                <a href="#signup" class="btn btn-primary">Start Free Trial →</a>
+                <a href="#demo" class="btn btn-secondary">Watch Demo Video</a>
+            </div>
+
+            <div class="trust-badges">
+                <div class="badge">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Secure Data</span>
+                </div>
+                <div class="badge">
+                    <i class="fas fa-users"></i>
+                    <span>Growing</span>
+                </div>
+                <div class="badge">
+                    <i class="fas fa-star"></i>
+                    <span>Rated 4.2/5</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Images Container -->
+        <div class="floating-images">
+            <img src="/l1.png" alt="Dashboard" class="floating-img img1">
+            <img src="/l2.png" alt="Mobile App" class="floating-img img2">
+            <img src="/l3.png" alt="Analytics" class="floating-img img3">
+        </div>
+    </section>
+
+    <!-- ========== FEATURES SECTION ========== -->
+    <section class="features" id="features">
+        <div class="section-header">
+            <h2>Powerful Features Designed for Growth</h2>
+            <p>Everything you need to streamline sales tracking and make data-driven decisions</p>
+        </div>
+
+        <div class="features-grid" id="featuresGrid">
+            <!-- Feature 1 -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3>Quick Sales Entry</h3>
+                <p>Easily log daily sales in seconds from any device — desktop or mobile.</p>
+                <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Visualize Profit & Expense </h3>
+                <p>Interactive charts to see profits, losses, and trends over time.
+                </p>
+                <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Multi-User Support</h3>
+                <p>Let your team add and manage entries with controlled access.</p>
+                <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <!-- Feature 4 -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>Multi-Device Access</h3>
+                <p>Use on desktop, tablet, or phone. Your data stays synced across all devices securely.</p>
+                <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <!-- Feature 5 -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-file-export"></i>
+                </div>
+                <h3>Export & Share Reports</h3>
+                <p>Generate PDF or Excel reports with one click. Perfect for accountants.</p>
+                <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <!-- Feature 6 -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-cloud"></i>
+                </div>
+                <h3>Secure Cloud Backup</h3>
+                <p>Never lose data. Your sales data is safely stored with daily backups.</p>
+                <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== HOW IT WORKS SECTION ========== -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="section-header">
+            <h2>Simple Daily Workflow</h2>
+            <p>Our streamlined process gets you up and running in minutes, not hours</p>
+        </div>
+
+        <div class="steps-container">
+            <!-- Step 1 -->
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-icon">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <h3>Create Your Account</h3>
+                <p>Create your secure account. No credit card required to start your free trial.</p>
+            </div>
+
+            <!-- Connector Line -->
+            <div class="connector">
+                <div class="connector-line"></div>
+                <i class="fas fa-arrow-right"></i>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-icon">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                </div>
+                <h3>Daily Sales Entry</h3>
+                <p>Add today's transactions in seconds using our mobile-friendly form.</p>
+            </div>
+
+            <!-- Connector Line -->
+            <div class="connector">
+                <div class="connector-line"></div>
+                <i class="fas fa-sync-alt"></i>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-icon">
+                    <i class="fas fa-chart-pie"></i>
+                </div>
+                <h3>Track & Analyze</h3>
+                <p>Watch real-time profits and analytics to make smarter decisions fast.</p>
+            </div>
+        </div>
+
+        <div class="cta-wrapper">
+            <a href="#signup" class="btn btn-primary">
+                <i class="fas fa-play-circle"></i> Start Tracking Today
+            </a>
+        </div>
+    </section>
+
+    <!-- ========== PRICING SECTION ========== -->
+    <section class="pricing" id="pricing">
+        <div class="section-header">
+            <h2>Simple, Transparent Pricing</h2>
+            <p>Choose the perfect plan for your business needs</p>
+        </div>
+
+        <div class="pricing-container">
+            <!-- Basic Plan -->
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>Starter</h3>
+                    <div class="price">
+                        <span class="amount">$99</span>
+                        <span class="period">/year</span>
+                    </div>
+                    <p class="description">Perfect for individual sellers</p>
+                </div>
+                <ul class="features-list">
+                    <li><i class="fas fa-check-circle"></i> Daily sales tracking</li>
+                    <li><i class="fas fa-check-circle"></i> Basic profit/loss reports</li>
+                    <li><i class="fas fa-check-circle"></i> 1 user account</li>
+                    <li><i class="fas fa-check-circle"></i> Mobile access</li>
+                    <li><i class="fas fa-check-circle"></i> Email support</li>
+                </ul>
+                <a href="#signup" class="btn btn-outline">Get Started</a>
+            </div>
+
+            <!-- Popular Plan -->
+            <div class="pricing-card popular">
+                <div class="popular-badge">Most Popular</div>
+                <div class="pricing-header">
+                    <h3>Business</h3>
+                    <div class="price">
+                        <span class="amount">$199</span>
+                        <span class="period">/year</span>
+                    </div>
+                    <p class="description">Best for growing businesses</p>
+                </div>
+                <ul class="features-list">
+                    <li><i class="fas fa-check-circle"></i> Everything in Starter</li>
+                    <li><i class="fas fa-check-circle"></i> Advanced analytics</li>
+                    <li><i class="fas fa-check-circle"></i> Expense tracking</li>
+                    <li><i class="fas fa-check-circle"></i> 3 user accounts</li>
+                    <li><i class="fas fa-check-circle"></i> Priority support</li>
+                    <li><i class="fas fa-check-circle"></i> CSV exports</li>
+                </ul>
+                <a href="#signup" class="btn btn-primary">Get Business Plan</a>
+            </div>
+
+            <!-- Enterprise Plan -->
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>Enterprise</h3>
+                    <div class="price">
+                        <span class="amount">Custom</span>
+                    </div>
+                    <p class="description">For teams with special needs</p>
+                </div>
+                <ul class="features-list">
+                    <li><i class="fas fa-check-circle"></i> Everything in Business</li>
+                    <li><i class="fas fa-check-circle"></i> Unlimited users</li>
+                    <li><i class="fas fa-check-circle"></i> API access</li>
+                    <li><i class="fas fa-check-circle"></i> Dedicated account manager</li>
+                    <li><i class="fas fa-check-circle"></i> Onboarding training</li>
+                    <li><i class="fas fa-check-circle"></i> Custom reporting</li>
+                </ul>
+                <a href="#contact" class="btn btn-outline">Contact Sales</a>
+            </div>
+        </div>
+
+        <div class="pricing-footer">
+            <div class="guarantee">
+                <i class="fas fa-shield-alt"></i>
+                <span>30-day money-back guarantee</span>
+            </div>
+            <p class="note">All plans include secure cloud backup and automatic updates</p>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+        <div class="section-header">
+            <h2>What Our Users Say</h2>
+            <p>Trusted by small businesses, shop owners, and sales teams.</p>
+        </div>
+
+        <div class="testimonials-container">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-card">
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="quote">"This system cut our daily admin time in half while giving us better insights than
+                    our
+                    old spreadsheet method. The mobile access is a game-changer!"</p>
+                <div class="author">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah K." class="avatar">
+                    <div class="author-info">
+                        <h4>Sarah K.</h4>
+                        <p>Boutique Owner, 2 Years Using SalesFlow</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="testimonial-card">
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="quote">"As someone who hates accounting, I love how simple this makes tracking daily sales.
+                    The profit reports helped us identify our best-selling products."</p>
+                <div class="author">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael T." class="avatar">
+                    <div class="author-info">
+                        <h4>Michael T.</h4>
+                        <p>Cafe Manager, 1 Year Using SalesFlow</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="testimonial-card">
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <p class="quote">"We switched from a popular accounting software to SalesFlow and haven't looked back.
+                    The daily sales tracking is so much more intuitive for retail businesses."</p>
+                <div class="author">
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Priya M." class="avatar">
+                    <div class="author-info">
+                        <h4>Priya M.</h4>
+                        <p>Retail Store Owner, 8 Months Using SalesFlow</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logo Cloud -->
+        <div class="logo-cloud">
+            <p class="cloud-title">Used by businesses at</p>
+            <div class="logos">
+                <img src="https://placehold.co/160x40/3f86ff/white?text=SalesFlow" alt="Local Shop">
+                <img src="https://placehold.co/160x40/3f86ff/white?text=SalesFlow" alt="Cafe Bella">
+                <img src="https://placehold.co/160x40/3f86ff/white?text=SalesFlow" alt="Urban Style">
+                <img src="https://placehold.co/160x40/3f86ff/white?text=SalesFlow" alt="Market Fresh">
+                <img src="https://placehold.co/160x40/3f86ff/white?text=SalesFlow" alt="Corner Store">
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FAQ SECTION ========== -->
+    <section class="faq" id="faq">
+        <div class="section-header">
+            <h2>Frequently Asked Questions</h2>
+            <p>Everything you need to know about SalesFlow</p>
+        </div>
+
+        <div class="faq-container">
+            <!-- FAQ Item 1 -->
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Is there a free trial available?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes! We offer a 14-day free trial with full access to all features. No credit card required to
+                        get started.</p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Can I use SalesFlow on multiple devices?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Absolutely. Your data syncs automatically across all devices - desktop, tablet, and mobile. Our
+                        Business plan includes 3 user accounts, while Enterprise offers unlimited users.</p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>How secure is my sales data?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>We use bank-level 256-bit encryption and perform daily automated backups. Your data is protected
+                        with the same security standards used by financial institutions.</p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 4 -->
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>What happens if I cancel my subscription?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>You'll continue to have access until the end of your billing period. We'll keep your data for 90
+                        days in case you want to reactivate your account.</p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 5 -->
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Can I export my data if I switch systems?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes, all plans allow you to export your data to CSV or Excel format. Business and Enterprise
+                        plans include additional export options.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-cta">
+            <p>Still have questions?</p>
+            <a href="#contact" class="btn btn-outline">
+                <i class="fas fa-envelope"></i> Contact Support
+            </a>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER SECTION ========== -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Main Footer Content -->
+            <div class="footer-flex">
+                <!-- Company Info -->
+                <div class="footer-left">
+                    <div class="logo" style="margin-bottom: 1rem;">
+                        <a href="#" style="color: white;">SalesTrack<span>Pro</span></a>
+                    </div>
+                    {{-- <div class="logo-wrapper">
+                        <img src="https://placehold.co/160x40/3f86ff/white?text=SalesFlow" alt="SalesFlow Logo"
+                            class="footer-logo">
+                    </div> --}}
+                    <p class="footer-description">The simplest way to track daily sales, expenses, and profits for your
+                        business.</p>
+
+                    <div class="social-links">
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+
+                    <div class="newsletter">
+                        <h4>Get Updates</h4>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Your email address" required>
+                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="footer-right">
+                    <!-- Quick Links -->
+                    <div class="footer-col">
+                        <h3 class="footer-heading">Product</h3>
+                        <ul class="footer-links">
+                            <li><a href="#features">Features</a></li>
+                            <li><a href="#pricing">Pricing</a></li>
+                            <li><a href="#testimonials">Testimonials</a></li>
+                            <li><a href="#faq">FAQ</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Resources -->
+                    <div class="footer-col">
+                        <h3 class="footer-heading">Resources</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Tutorials</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact -->
+                    <div class="footer-col">
+                        <h3 class="footer-heading">Contact</h3>
+                        <ul class="footer-links contact-links">
+                            <li><i class="fas fa-envelope"></i> <a
+                                    href="mailto:hello@salesflow.com">hello@salesflow.com</a>
+                            </li>
+                            <li><i class="fas fa-phone-alt"></i> <a href="tel:+18005551234">+1 (800) 555-1234</a></li>
+                            <li><i class="fas fa-map-marker-alt"></i> Develop by group Developer for skill grouth.
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; <span id="year"></span> SalesFlow. All rights reserved.
+                </div>
+
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                    <a href="#">GDPR</a>
+                </div>
+
+                <div class="back-to-top">
+                    <a href="#top" aria-label="Back to top">
+                        <i class="fas fa-arrow-up"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating CTA (Mobile) -->
+        <div class="floating-cta">
+            <a href="#signup" class="btn btn-primary">
+                <i class="fas fa-rocket"></i> Get Started
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        // Animate features on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const featureCards = document.querySelectorAll('.feature-card');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, 150 * index);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            featureCards.forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+
+    <script>
+        // Add to existing script section
+        document.addEventListener('DOMContentLoaded', function() {
+            // ... existing feature card animation code ...
+
+            // Animate steps on scroll
+            const steps = document.querySelectorAll('.step');
+
+            const stepObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, 200 * index);
+                    }
+                });
+            }, {
+                threshold: 0.2
+            });
+
+            steps.forEach(step => {
+                stepObserver.observe(step);
+            });
+        });
+    </script>
+
+    <script>
+        // Add to existing script section
+        document.addEventListener('DOMContentLoaded', function() {
+            // Auto-scroll testimonials for mobile
+            const container = document.querySelector('.testimonials-container');
+            if (window.innerWidth < 768) {
+                let scrollAmount = 0;
+                const scrollTimer = setInterval(() => {
+                    container.scrollLeft += 1;
+                    scrollAmount += 1;
+                    if (scrollAmount >= container.scrollWidth / 2) {
+                        container.scrollLeft = 0;
+                        scrollAmount = 0;
+                    }
+                }, 30);
+            }
+        });
+    </script>
+
+    <script>
+        // FAQ Accordion Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const isOpen = question.classList.contains('active');
+
+                    // Close all other FAQs
+                    faqQuestions.forEach(q => {
+                        q.classList.remove('active');
+                        q.nextElementSibling.classList.remove('show');
+                    });
+
+                    // Toggle current one if it wasn't open
+                    if (!isOpen) {
+                        question.classList.add('active');
+                        answer.classList.add('show');
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script>
+        // Auto-update copyright year
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('year').textContent = new Date().getFullYear();
+
+            // Smooth scroll for back-to-top button
+            document.querySelector('.back-to-top a').addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+
+    <script>
+        // Header Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.querySelector('.header');
+            const menuToggle = document.querySelector('.menu-toggle');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const dropdowns = document.querySelectorAll('.dropdown');
+
+            // Sticky Header
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Mobile Menu Toggle
+            menuToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('active');
+                menuToggle.classList.toggle('active');
+            });
+
+            // Mobile Dropdowns
+            dropdowns.forEach(dropdown => {
+                const link = dropdown.querySelector('a');
+                link.addEventListener('click', (e) => {
+                    if (window.innerWidth < 768) {
+                        e.preventDefault();
+                        dropdown.classList.toggle('active');
+                    }
+                });
+            });
+
+            // Close mobile menu on click outside
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.navbar') && !e.target.closest('.mobile-menu')) {
+                    mobileMenu.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
