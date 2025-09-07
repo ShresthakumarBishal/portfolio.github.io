@@ -1159,7 +1159,7 @@ section svg {
     border-radius: 10px;
     overflow: hidden;
     height: 500px;
-    background: url('https://shresthakumarbishal.github.io/portfolio.github.io/shiva/img/shop.JPEG') no-repeat center center;
+    background: url('https://shresthakumarbishal.github.io/portfolio.github.io/shiva/img/shop.jpeg') no-repeat center center;
     background-size: cover;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     opacity: 0;
@@ -1746,5 +1746,6 @@ section svg {
     }
 
 }
+
 
 
