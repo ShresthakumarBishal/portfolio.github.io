@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
 }
 
 body {
@@ -44,7 +43,6 @@ header.scrolled {
 }
 
 .logo-text {
-    /* font-family: 'Georgia', serif; */
     font-size: 24px;
     font-weight: 600;
     color: #ff9933;
@@ -57,7 +55,6 @@ header.scrolled {
     background: no-repeat;
     background-size: cover;
     border-radius: 50%;
-    /* animation: pulse 2s infinite; */
 }
 
 nav ul {
@@ -142,23 +139,9 @@ section .title {
     text-align: center;
 }
 
-/* TODO imp */
-
-/* .section-title {
-    font-size: 3rem;
-    font-weight: 700;
-    background: linear-gradient(to right, #ff9933, #ffcc66, #ff9933);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    margin-bottom: 15px;
-    font-family: 'Georgia', serif;
-} */
-
 section .subtitle {
     font-size: 1.2rem;
     color: #ccc;
-    /* max-width: 600px; */
     margin-bottom: 60px;
     text-align: center;
 }
@@ -196,9 +179,7 @@ section svg {
     width: 100%;
     height: 100%;
     background: linear-gradient(rgba(26, 18, 8, 0.1), rgba(26, 18, 8, 0.1)), url('https://shresthakumarbishal.github.io/portfolio.github.io/shiva/img/bg.jpeg') no-repeat center center;
-    /* backdrop-filter: blur(3px); */
     background-size: cover;
-    /* opacity: 0.6; */
     z-index: -1;
 }
 
@@ -304,8 +285,6 @@ section svg {
     left: 10%;
     font-size: 60px;
     animation: float 6s ease-in-out infinite;
-    /* color: #ff9933; */
-    /* filter: drop-shadow(0 0 5px rgba(255, 153, 51, 0.7)); */
 }
 
 .chopsticks {
@@ -313,7 +292,6 @@ section svg {
     right: 15%;
     font-size: 50px;
     animation: float 5s ease-in-out infinite 1s;
-    /* color: #ffcc66; */
 }
 
 .steam {
@@ -321,7 +299,6 @@ section svg {
     right: 25%;
     font-size: 70px;
     animation: steamAnimation 8s ease-in-out infinite;
-    /* color: #f66415; */
 }
 
 .spice {
@@ -329,7 +306,6 @@ section svg {
     left: 20%;
     font-size: 40px;
     animation: spin 10s linear infinite;
-    /* color: red; */
 }
 
 .ginger {
@@ -337,7 +313,6 @@ section svg {
     right: 30%;
     font-size: 35px;
     animation: float 7s ease-in-out infinite 2s;
-    /* color: #ff8866; */
 }
 
 /* Special Offers Banner */
@@ -454,46 +429,6 @@ section svg {
 
 
 /* ===========================================================section 2 */
-/* .tagline-section {
-    text-align: center;
-    padding: 60px 40px;
-    margin: auto;
-} */
-
-/* .tagline-section::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255, 153, 51, 0.1) 0%, transparent 70%);
-    animation: pulse 8s infinite alternate;
-    pointer-events: none;
-} */
-
-/* .tagline-icon {
-    font-size: 50px;
-    color: #ff9933;
-    margin-bottom: 20px;
-    display: inline-block;
-    animation: bounce 2s infinite alternate;
-} */
-/* 
-.tagline-text {
-    font-size: 2.8rem;
-    font-weight: 700;
-    margin-bottom: 25px;
-    color: rgb(230, 226, 226);
-    line-height: 1.2;
-} */
-
-/* .tagline-subtext {
-    font-size: 1.4rem;
-    color: #ddd;
-    margin: 0 auto 40px;
-    line-height: 1.6;
-} */
 .tagline-content {
     display: flex;
     gap: 30px;
@@ -518,9 +453,6 @@ section svg {
     padding: 20px;
     border-radius: 15px;
     width: 220px;
-    /* transition: all 0.4s ease;
-    animation: fadeIn 2s ease-out;
-    animation-fill-mode: both; */
     border: 1px solid rgba(255, 153, 51, 0.3);
 }
 
@@ -667,7 +599,6 @@ section svg {
 
 .menu-content .active {
     display: block;
-    /* animation: fadeIn 0.5s ease-out; */
 }
 
 .category-title {
@@ -684,21 +615,6 @@ section svg {
     text-align: center;
 }
 
-/* .category-tab {
-    display: flex;
-    margin-bottom: 20px;
-}
-
-.category-tab span {
-    padding: 0 15px;
-    color: #ccc;
-}
-
-.category-tab span.active {
-    border-bottom: 2px solid #ff9933;
-    color: #ffcc66;
-} */
-
 .menu-lists {
     display: grid;
     grid-template-columns: auto auto auto;
@@ -709,12 +625,8 @@ section svg {
     padding: 15px;
     background: rgba(50, 35, 17, 0.5);
     border-radius: 10px;
-    /* transition: all 0.3s ease; */
     border: 1px solid rgba(255, 153, 51, 0.3);
     border-left: 3px solid #ff9933;
-    /* opacity: 0;
-    animation: slideInLeft 0.6s ease-out forwards;
-    transform: translateX(-20px); */
 }
 
 .item img {
@@ -752,15 +664,6 @@ section svg {
 
 }
 
-/* .item-desc {
-    color: #ccc;
-    margin-bottom: 10px;
-    font-size: 1rem;
-    line-height: 1.5;
-} */
-
-
-/* Responsive Design */
 @media (max-width: 968px) {
     .menu-lists {
         grid-template-columns: auto auto;
@@ -774,7 +677,7 @@ section svg {
 }
 
 @media (max-width: 768px) {
-    .menu-category {
+    .menu-category, .take-out-category {
         padding: 10px;
     }
 
@@ -812,19 +715,6 @@ section svg {
 }
 
 /* ========================================================================section galary */
-/* .dishes-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('https://images.unsplash.com/photo-1550547660-d9450f859349?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1265&q=80') no-repeat center center;
-    background-size: cover;
-    opacity: 0.1;
-    z-index: -1;
-} */
-
 .dishes-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -972,13 +862,6 @@ section svg {
     font-weight: 500;
     font-size: 1.2rem;
 }
-
-
-/* .hours-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-} */
 
 .hour-item {
     display: flex;
@@ -1175,6 +1058,9 @@ section svg {
 .about-text {
     flex: 1;
 }
+.about-shop-name {
+    color: #ff7733;
+}
 
 .about-text .text {
     opacity: 0;
@@ -1291,85 +1177,8 @@ section svg {
     gap: 10px;
 }
 
-/* 
-.contact-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-    color: #ccc;
-} */
-
 .contact-footer svg {
     color: #ff9933;
-}
-
-/* 
-.newsletter-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.newsletter-input {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 153, 51, 0.3);
-    border-radius: 30px;
-    padding: 12px 20px;
-    color: #fff;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-}
-
-.newsletter-input:focus {
-    outline: none;
-    border-color: #ff9933;
-    box-shadow: 0 0 0 2px rgba(255, 153, 51, 0.3);
-}
-
-.newsletter-btn {
-    background: linear-gradient(135deg, #ff9933 0%, #ff6600 100%);
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 30px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(255, 153, 51, 0.3);
-}
-
-.newsletter-btn:hover {
-    background: linear-gradient(135deg, #ffaa44 0%, #ff7733 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 153, 51, 0.4);
-} */
-
-.social-links {
-    display: flex;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.social-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 153, 51, 0.2);
-    color: #ff9933;
-    border-radius: 50%;
-    text-decoration: none;
-}
-
-.social-link:hover {
-    background: #ff9933;
-    color: #1a1208;
-    transform: translateY(-5px);
-}
-
-.social-links svg {
-    margin: 0;
 }
 
 .footer-bottom {
@@ -1438,11 +1247,6 @@ section svg {
     max-width: 100%;
 }
 
-/* .delivery-section.visible {
-    opacity: 1;
-    transform: translateY(0);
-} */
-
 .delivery-section::before {
     content: '';
     position: absolute;
@@ -1466,25 +1270,6 @@ section svg {
     opacity: 1;
     transform: translateY(0);
 }
-
-/* .section-title {
-    font-size: 3.5rem;
-    font-weight: 700;
-    background: linear-gradient(to right, #ff9933, #ffcc66, #ff9933);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: rgb(226, 224, 224);
-    margin-bottom: 15px;
-    font-family: 'Georgia', serif;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.section-subtitle {
-    font-size: 1.2rem;
-    color: #ccc;
-    max-width: 600px;
-    margin: 0 auto;
-} */
 
 .delivery-options {
     display: flex;
@@ -1550,13 +1335,6 @@ section svg {
     padding: 12px 25px;
 }
 
-/* 
-.delivery-btn:hover {
-    background: linear-gradient(135deg, #ffaa44 0%, #ff7733 100%);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(255, 153, 51, 0.6);
-} */
-
 .benefits-container {
     background: rgba(40, 30, 15, 0.5);
     border-radius: 15px;
@@ -1569,7 +1347,6 @@ section svg {
 .benefits-title {
     text-align: center;
     font-size: 2rem;
-    /* color: #ffcc66; */
     color: white;
     margin-bottom: 30px;
     font-family: 'Georgia', serif;
@@ -1577,7 +1354,6 @@ section svg {
 
 .benefits-grid {
     display: grid;
-    /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
     grid-template-columns: auto auto auto;
     gap: 25px;
     text-align: start;
@@ -1746,6 +1522,3 @@ section svg {
     }
 
 }
-
-
-
