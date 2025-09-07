@@ -195,7 +195,7 @@ section svg {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(26, 18, 8, 0.1), rgba(26, 18, 8, 0.1)), url('https://shresthakumarbishal.github.io/portfolio.github.io/shiva/img/bg.JPEG') no-repeat center center;
+    background: linear-gradient(rgba(26, 18, 8, 0.1), rgba(26, 18, 8, 0.1)), url('https://shresthakumarbishal.github.io/portfolio.github.io/shiva/img/bg.jpeg') no-repeat center center;
     /* backdrop-filter: blur(3px); */
     background-size: cover;
     /* opacity: 0.6; */
@@ -1746,3 +1746,4 @@ section svg {
     }
 
 }
+
