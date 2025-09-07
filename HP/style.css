@@ -95,26 +95,67 @@ nav ul li a:hover::after {
     width: 100%;
 }
 
-.nav-btn {
-    background: linear-gradient(135deg, #ff9933 0%, #ff6600 100%);
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 30px;
-    font-weight: 600;
+/* ハンバーガーメニュー */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(255, 153, 51, 0.4);
-    text-wrap: no-wrap;
-    text-decoration: none;
+    width: 30px;
+    height: 25px;
+    justify-content: space-between;
+    z-index: 1100;
 }
 
-.nav-btn:hover {
-    background: linear-gradient(135deg, #ffaa44 0%, #ff7733 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 153, 51, 0.6);
+.menu-toggle span {
+    height: 3px;
+    background: #fff;
+    border-radius: 2px;
+    transition: 0.3s;
 }
 
+.menu-toggle.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* モバイル時に表示 */
+@media (max-width: 968px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    nav {
+        position: absolute;
+        top: 40px;
+        left: 0;
+        width: 100%;
+        background: rgba(26, 18, 8, 0.95);
+        display: none;
+        flex-direction: column;
+        padding: 10px 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+        display: flex;
+        text-align: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    nav.show {
+        display: flex;
+    }
+}
 
 /* ===================================================================Hero Section */
 section {
@@ -202,22 +243,6 @@ section svg {
     font-family: 'Georgia', serif;
     line-height: 1.1;
 }
-
-/* .hero-title span {
-    color: #ff9933;
-    display: block;
-    font-size: 3.5rem;
-    font-weight: 600;
-} */
-
-/* .hero-subtitle {
-    font-size: 1.3rem;
-    color: #ffffff;
-    max-width: 800px;
-    margin: 0 auto;
-    animation: fadeIn 2s ease;
-    padding: 0 15px;
-} */
 
 .hero-btns {
     display: flex;
@@ -368,10 +393,6 @@ section svg {
         font-size: 1rem;
     }
 
-    nav ul {
-        display: none;
-    }
-
     .ginger,
     .spice,
     .steam,
@@ -397,10 +418,6 @@ section svg {
 
     .logo-text {
         font-size: 17px;
-    }
-
-    .nav-btn {
-        padding: 8px 15px;
     }
 
     .hero-title {
@@ -531,6 +548,10 @@ section svg {
 
     .feature-mobile {
         display: flex;
+    }
+
+    .feature-mobile .feature-icon {
+        padding: 0;
     }
 
     .feature-title {
@@ -1344,8 +1365,8 @@ section svg {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('https://github.com/ShresthakumarBishal/portfolio.github.io/blob/main/HP/img/bg_2.jpeg') no-repeat center center;
-    /* background: url('https://images.unsplash.com/photo-1600891964092-4316c288032e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80') no-repeat center center; */
+    background: url('https://shresthakumarbishal.github.io/portfolio.github.io/shiva/img/bg.jpeg') no-repeat center center;
+    background-size: cover;
     background-size: cover;
     opacity: 0.5;
     z-index: -1;
@@ -1615,8 +1636,3 @@ section svg {
     }
 
 }
-
-
-
-
-
